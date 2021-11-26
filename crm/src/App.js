@@ -7,6 +7,8 @@ import EnquiryList from "./pages/EnquiryList";
 import Courses from "./pages/Courses/Courses";
 import Resources from "./pages/Resources/Resources";
 import ViewAdmin from "./pages/EnquiryViewAdmin";
+import AddResource from "./pages/Resources/AddResource";
+import AddCourses from "./pages/Courses/AddCourses";
 // import Resource from "./pages/ResourceManage/Resource";
 import './pages/styles/headers.css'
 
@@ -32,6 +34,8 @@ return(
       <div ><Link className="a" className="active" to="/">Home</Link></div></div>
       <div ><Link className="a" to="/about"  to="/courses">Courses</Link></div>
       <div ><Link className="a" to="/resources">Resources</Link></div>
+      <div ><Link className="a" to="/addresource">Add Resources</Link></div>
+      <div ><Link className="a" to="/addcourse">Add Courses</Link></div>
       <div ><Link className="a"  to="/enquiry">Enquiry</Link></div>
       <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
       <div ><Link className="a" to="/visit" to="/contact">Contact Us</Link></div>
@@ -42,7 +46,9 @@ return(
   <Routes>
     <Route path ="/" element={<Home/>}/> 
     <Route path ="/contact" element={<Contact/>}/>
-    <Route path ="/enquiry" element={<Enquiry/>}/> 
+    <Route path ="/enquiry" element={<Enquiry/>}/>
+    <Route path ="/addresource" element={<AddResource/>}/> 
+    <Route path ="/addcourse" element={<AddCourses/>}/> 
     <Route path ="/enquirylist" element={<EnquiryList/>}/>
     <Route path ="/courses" element={<Courses/>}/>
     <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>

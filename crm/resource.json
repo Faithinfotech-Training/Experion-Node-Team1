@@ -1,13 +1,20 @@
 {
-    "resource": [
-      
-      {
-        "ResourceCode": 1,
-        "ResourceName": "Course",
-        "Description": "description",
-        "Fee": "How many hours should I put into a course?",
-        "Qualification": "B.Tech",
-        "id": 1
-      }
-    ]
-  }
+  "resource": [
+    {
+      "ResourceCode": 1,
+      "ResourceName": "Course",
+      "Description": "description",
+      "Fee": "How many hours should I put into a course?",
+      "Qualification": "B.Tech",
+      "id": 1
+    },
+    {
+      "ResourceCode": "501",
+      "ResourceName": "ResorceX",
+      "author": "Desc R X",
+      "Fee": "4500",
+      "rating": "B.Tech",
+      "id": 2
+    }
+  ]
+}
