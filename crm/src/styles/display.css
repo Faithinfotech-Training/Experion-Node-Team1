@@ -1,0 +1,110 @@
+body {
+    font-family: 'lato', sans-serif;
+  }
+  .container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  h2 {
+    font-size: 26px;
+    margin: 20px 0;
+    text-align: center;
+   
+    
+  }
+  
+  .responsive-table 
+    li {
+      border-radius: 3px;
+      padding: 25px 30px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+    .responsive-table  .table-header {
+      background-color: #9ad1d33b;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .responsive-table  .table-row {
+      background-color: #ffffff;
+      box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    }
+    .responsive-table  .col-1 {
+      flex-basis: 10%;
+    }
+    .responsive-table   .col-2 {
+      flex-basis: 40%;
+    }
+    .col-3 {
+      flex-basis: 25%;
+    }
+    .col-4 {
+      flex-basis: 25%;
+    }
+    
+     @media all and (max-width: 767px) {
+      .table-header {
+        display: none;
+      }
+      
+      li {
+        display: block;
+      }
+      .col {
+        
+        flex-basis: 100%;
+        
+      }
+      
+    }
+  
+
+    /* button */
+
+    .butto{
+      padding-left: 130px;
+      width: 20px;
+  }
+  
+  .delete{
+      background-color: #eb4848f3; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .back{
+      background-color: rgb(155, 218, 209); /* Green */
+    border: none;
+    color: black;
+    padding: 10px 37px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .edit{
+    background-color: rgb(255, 255, 255); /* Green */
+  border: none;
+  color: black;
+  padding: 10px 37px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+}
