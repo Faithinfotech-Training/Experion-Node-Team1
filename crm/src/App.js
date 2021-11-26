@@ -1,6 +1,7 @@
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom"
 import './App.css';
 import Home from "./pages/Home";
+import Contact from "./pages/Contact";
 
 
 function AppRoute(){
@@ -17,10 +18,15 @@ function AppRoute(){
 function MyRouter(){
 return(
   <Router>
-    <div ><Link  to="/">Home</Link></div>
+    <div>
+      <div ><Link  to="/">Home</Link></div>
+      <div ><Link  to="/contact">Contact</Link></div>
+    </div>
+    
 
   <Routes>
-    <Route path ="/" element={<Home/>}/>        
+    <Route path ="/" element={<Home/>}/> 
+    <Route path ="/contact" element={<Contact/>}/>        
   </Routes>
     
     <br/><br/><br/>
@@ -32,12 +38,12 @@ return(
 function Header(){
     return(
         <>
-            <h1 className="formhead">CRM System</h1>
+            <h1 >CRM System</h1>
             
                 
                 <h3>
                 </h3>
-                <br/><br/><br/><br/>
+                
            
         </>
 
