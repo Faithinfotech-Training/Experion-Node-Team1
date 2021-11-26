@@ -1,25 +1,55 @@
-import logo from './logo.svg';
+import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom"
 import './App.css';
+import Home from "./pages/Home";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function AppRoute(){
+  return(
+  <> 
+    <Header/>
+    <MyRouter/>
+    <Footer/>
+ </>
+
+  )
 }
 
-export default App;
+function MyRouter(){
+return(
+  <Router>
+    <div ><Link  to="/">Home</Link></div>
+
+  <Routes>
+    <Route path ="/" element={<Home/>}/>        
+  </Routes>
+    
+    <br/><br/><br/>
+  </Router>
+        
+    );
+}
+
+function Header(){
+    return(
+        <>
+            <h1 className="formhead">CRM System</h1>
+            
+                
+                <h3>
+                </h3>
+                <br/><br/><br/><br/>
+           
+        </>
+
+    )
+}
+
+function Footer(){
+    return(
+        <>
+            <p className="centerfooter">Copyright 2021 - Kiran</p>
+        </>
+    )
+}
+
+export default AppRoute;
