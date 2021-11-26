@@ -28,18 +28,13 @@ return(
     <div className="header-right"  ></div>
       
       <div ><Link className="a" className="active" to="/">Home</Link></div>
-      <div ><Link className="a" to="/visit" to="/contact">Contact</Link></div>
       <div ><Link className="a" to="/addbook" to="/enquiry">Enquiry</Link></div>
       <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
       <div ><Link className="a" to="/about"  to="/courses">Courses</Link></div>
       <div ><Link className="a" to="/resources">Resources</Link></div>
+      <div ><Link className="a" to="/visit" to="/contact">Contact Us</Link></div>
       </div>
 
-
-     
-
-      
-    
 
   <Routes>
     <Route path ="/" element={<Home/>}/> 

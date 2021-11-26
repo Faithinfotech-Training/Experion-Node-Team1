@@ -4,7 +4,7 @@ function Resources(){
     return(
     <>
     <div>
-        <h1>Resources Page</h1>
+        <h1 className="centerfooter">Resources Page</h1>
         
     </div>
       </>

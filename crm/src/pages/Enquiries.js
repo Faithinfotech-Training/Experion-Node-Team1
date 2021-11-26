@@ -1,13 +1,14 @@
 import {useState} from 'react';
 import axios from 'axios';
+import '../styles/forms.css';
 
 
 function Enquiry(){
     return(
     <>
     <div>
-        <h1>Enquiry Page</h1>
-        <h4>Welcome to Enquiry Page. Please put any questions in the text box</h4>
+        <h1 className="centerfooter">Enquiry Page</h1>
+        <h4 className="centerfooter">Welcome to Enquiry Page. Please put any questions in the text box</h4>
         <EnquiryBox/>
     </div>
       </>

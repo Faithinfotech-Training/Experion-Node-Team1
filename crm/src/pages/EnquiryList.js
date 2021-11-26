@@ -2,6 +2,7 @@
 import {  useEffect, useState } from "react";
 import axios from "axios";
 import EnquiryDisplay from "./EnquiryDisplay";
+
 function EnquiryList(){
 
 

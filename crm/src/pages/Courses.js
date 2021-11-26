@@ -4,7 +4,7 @@ function Courses(){
     return(
     <>
     <div>
-        <h1>Courses Page</h1>
+        <h1 className="centerfooter">Courses Page</h1>
         
     </div>
       </>
