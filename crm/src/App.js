@@ -6,6 +6,7 @@ import Enquiry from "./pages/Enquiries";
 import EnquiryList from "./pages/EnquiryList";
 import Courses from "./pages/Courses";
 import Resources from "./pages/Resources";
+import ViewAdmin from "./pages/EnquiryViewAdmin";
 import '../src/styles/headers.css'
 
 
@@ -24,15 +25,16 @@ return(
   
       <Router>
         <div className="header">
-  <a  class="logo">CRM Project</a>
-    <div className="header-right"  ></div>
+        <a  class="logo">CRM Project</a>
+        <div className="header-right"  >
       
-      <div ><Link className="a" className="active" to="/">Home</Link></div>
-      <div ><Link className="a" to="/addbook" to="/enquiry">Enquiry</Link></div>
-      <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
+      <div ><Link className="a" className="active" to="/">Home</Link></div></div>
       <div ><Link className="a" to="/about"  to="/courses">Courses</Link></div>
       <div ><Link className="a" to="/resources">Resources</Link></div>
+      <div ><Link className="a" to="/addbook" to="/enquiry">Enquiry</Link></div>
+      <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
       <div ><Link className="a" to="/visit" to="/contact">Contact Us</Link></div>
+      
       </div>
 
 
@@ -42,6 +44,7 @@ return(
     <Route path ="/enquiry" element={<Enquiry/>}/> 
     <Route path ="/enquirylist" element={<EnquiryList/>}/>
     <Route path ="/courses" element={<Courses/>}/>
+    <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
     <Route path ="/resources" element={<Resources/>}/>      
   </Routes>
     

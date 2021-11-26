@@ -1,24 +1,19 @@
 {
   "enquiry": [
+    
     {
-      "id": 1,
-      "user_id": "23451",
-      "enquiry": "How to decide with course to take?"
-    },
-    {
-      "id": 2,
-      "user_id": "45632",
-      "enquiry": "How to decide with resource to take?"
-    },
-    {
-      "user_id": "34563",
-      "enquiry": "How long does an average course take?",
-      "id": 3
-    },
-    {
-      "user_id": "78987",
+      "email_id": "test@test.com",
+      "status": "Course",
+      "name": "FirstName edit 1",
       "enquiry": "How many hours should I put into a course?",
-      "id": 4
+      "id": 1
+    },
+    {
+      "email_id": "testuser6@gmail.com",
+      "status": "Resource",
+      "name": "firstname 6 lastname 6",
+      "enquiry": "jhdhfuiehfue efef",
+      "id": 2
     }
   ]
 }

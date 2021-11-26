@@ -46,13 +46,33 @@ function Enquiry(){
         <form className="formContent" onSubmit={handleSubmit}>
 
             <div >
-            <label className="element">Enter User ID:</label>
+            <label className="element">Enter Email ID:</label>
             <br></br>
-            <input className="element" type="number" name="user_id"
-            value={inputs.user_id || ""}
+            <input className="element" type="email" name="email_id"
+            value={inputs.email_id || ""}
             onChange={handleChange}
             required/>
             </div>
+
+            <div >
+            <label className="element">Enter Name:</label>
+            <br></br>
+            <input className="element" type="text" name="name"
+            value={inputs.name || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
+            <div >
+            <label className="element">Status:</label>
+            <br></br>
+            <input className="element" type="text" name="status"
+            value={inputs.status || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
+            
 
              <div>
             <label className="element">Please Enter you Query:</label>
