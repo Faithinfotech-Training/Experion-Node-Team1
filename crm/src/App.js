@@ -11,7 +11,8 @@ import AddResource from "./pages/Resources/AddResource";
 import AddCourses from "./pages/Courses/AddCourses";
 import EditCourse from "./pages/Courses/EditCourses";
 import EditResource from "./pages/Resources/EditResources";
-// import Resource from "./pages/ResourceManage/Resource";
+import CourseDelete from "./pages/Courses/DeleteCourses";
+import ResourceDelete from "./pages/Resources/DeleteResources";
 import './pages/styles/headers.css'
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -41,7 +42,7 @@ return(
         
       <div >
         
-          <Link className="a" to="/about"  to="/courses">Courses</Link>
+          <Link className="a"   to="/courses">Courses</Link>
        
         
       </div>
@@ -50,7 +51,7 @@ return(
       <div ><Link className="a" to="/addcourse">Add Courses</Link></div>
       <div ><Link className="a"  to="/enquiry">Enquiry</Link></div>
       <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
-      <div ><Link className="a" to="/visit" to="/contact">Contact Us</Link></div>
+      <div ><Link className="a" to="/contact">Contact Us</Link></div>
       
       </div>
 
@@ -64,6 +65,8 @@ return(
     <Route path ="/enquirylist" element={<EnquiryList/>}/>
     <Route path ="/courses" element={<Courses/>}/>
     <Route path ="/editcourses/:id" element={<EditCourse/>}/>
+    <Route path ="/deletecourses/:id" element={<CourseDelete/>}/>
+    <Route path ="/deleteresources/:id" element={<ResourceDelete/>}/>
     <Route path ="/editresources/:id" element={<EditResource/>}/>
     <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
      {/* <Route path ="/resource/:id" element={<ViewAdmin/>}/> */}

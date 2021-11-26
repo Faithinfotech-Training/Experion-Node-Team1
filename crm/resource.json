@@ -7,16 +7,6 @@
       "Fee": "How many hours should I put into a course?",
       "Qualification": "B.Tech5",
       "id": 1
-    },
-    {
-      "ResourceCode": "501",
-      "ResourceName": "ResorceX",
-      "author": "Desc R X",
-      "Fee": "4500",
-      "rating": "B.Tech",
-      "id": 2,
-      "Description": "All about signals",
-      "Qualification": "Class 12"
     }
   ]
 }

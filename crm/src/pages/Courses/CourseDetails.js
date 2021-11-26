@@ -29,7 +29,8 @@ function CourseDisplay(props){
            <br/>
            <button className="edit" onClick={()=>navigate(`/editcourses/${props.details.id}`)}> Edit
           </button>
-           
+          <button className="edit" onClick={()=>navigate(`/deletecourses/${props.details.id}`)}> Delete
+          </button>
            <br/> 
             </div>
             </div>

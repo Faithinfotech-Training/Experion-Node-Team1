@@ -26,6 +26,8 @@ function ResourceDisplay(props){
           </button>
            <br/>
            <button className="edit" onClick={()=>navigate(`/editresources/${props.details.id}`)}> Edit
+          </button>
+          <button className="edit" onClick={()=>navigate(`/deleteresources/${props.details.id}`)}> Delete
           </button> 
             </div>
             </div>
