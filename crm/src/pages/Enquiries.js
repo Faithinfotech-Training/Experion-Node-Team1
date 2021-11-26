@@ -40,7 +40,7 @@ function Enquiry(){
         }
     return(
         <>
-        <h1 className="head">Enquiry Form</h1>
+        <h1 className="head"></h1>
         <div className="centers">
         <form className="formContent" onSubmit={handleSubmit}>
 
