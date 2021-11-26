@@ -1,0 +1,13 @@
+{
+    "resource": [
+      
+      {
+        "ResourceCode": 1,
+        "ResourceName": "Course",
+        "Description": "description",
+        "Fee": "How many hours should I put into a course?",
+        "Qualification": "B.Tech",
+        "id": 1
+      }
+    ]
+  }

@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import axios from 'axios';
-import '../styles/forms.css';
+import './styles/forms.css';
 
 
 function Enquiry(){

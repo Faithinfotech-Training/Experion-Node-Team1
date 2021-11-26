@@ -4,10 +4,11 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Enquiry from "./pages/Enquiries";
 import EnquiryList from "./pages/EnquiryList";
-import Courses from "./pages/Courses";
-import Resources from "./pages/Resources";
+import Courses from "./pages/Courses/Courses";
+import Resources from "./pages/Resources/Resources";
 import ViewAdmin from "./pages/EnquiryViewAdmin";
-import '../src/styles/headers.css'
+// import Resource from "./pages/ResourceManage/Resource";
+import './pages/styles/headers.css'
 
 
 function App(){
@@ -31,7 +32,7 @@ return(
       <div ><Link className="a" className="active" to="/">Home</Link></div></div>
       <div ><Link className="a" to="/about"  to="/courses">Courses</Link></div>
       <div ><Link className="a" to="/resources">Resources</Link></div>
-      <div ><Link className="a" to="/addbook" to="/enquiry">Enquiry</Link></div>
+      <div ><Link className="a"  to="/enquiry">Enquiry</Link></div>
       <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
       <div ><Link className="a" to="/visit" to="/contact">Contact Us</Link></div>
       
@@ -45,6 +46,7 @@ return(
     <Route path ="/enquirylist" element={<EnquiryList/>}/>
     <Route path ="/courses" element={<Courses/>}/>
     <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
+     {/* <Route path ="/resource/:id" element={<ViewAdmin/>}/> */}
     <Route path ="/resources" element={<Resources/>}/>      
   </Routes>
     

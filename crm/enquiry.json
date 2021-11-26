@@ -1,6 +1,5 @@
 {
   "enquiry": [
-    
     {
       "email_id": "test@test.com",
       "status": "Course",
@@ -14,6 +13,20 @@
       "name": "firstname 6 lastname 6",
       "enquiry": "jhdhfuiehfue efef",
       "id": 2
+    },
+    {
+      "email_id": "test2@test.com",
+      "name": "Test User",
+      "status": "resource",
+      "enquiry": "jhdhfuiehfue efef",
+      "id": 3
+    },
+    {
+      "email_id": "testuser3@gmail.com",
+      "name": "firstname 6 lastname 6",
+      "status": "course",
+      "enquiry": "How many hours should I put into a resources?",
+      "id": 4
     }
   ]
 }

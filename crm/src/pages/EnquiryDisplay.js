@@ -1,8 +1,8 @@
 
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
-import '../styles/box.css';
-import '../styles/display.css';
+import './styles/box.css';
+import './styles/display.css';
 
 function EnquiryDisplay(props){
     const navigate = useNavigate();
