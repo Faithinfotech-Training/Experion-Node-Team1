@@ -3,6 +3,7 @@ import './App.css';
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Enquiry from "./pages/Enquiries";
+import EnquiryList from "./pages/EnquiryList";
 
 
 function AppRoute(){
@@ -23,13 +24,15 @@ return(
       <div ><Link  to="/">Home</Link></div>
       <div ><Link  to="/contact">Contact</Link></div>
       <div ><Link  to="/enquiry">Enquiry</Link></div>
+      <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
     </div>
     
 
   <Routes>
     <Route path ="/" element={<Home/>}/> 
     <Route path ="/contact" element={<Contact/>}/>
-    <Route path ="/enquiry" element={<Enquiry/>}/>        
+    <Route path ="/enquiry" element={<Enquiry/>}/> 
+    <Route path ="/enquirylist" element={<EnquiryList/>}/>      
   </Routes>
     
     <br/><br/><br/>
