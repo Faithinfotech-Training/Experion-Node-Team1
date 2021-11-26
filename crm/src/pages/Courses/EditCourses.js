@@ -1,15 +1,37 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import axios from 'axios';
-import '../styles/forms.css'
+import{useParams} from "react-router-dom";
 
 
 
 
+function EditCourse(){
+    const {id} = useParams()
 
+    return(
+        <>
+        <MyForm id={id}/>
+        </>
+    );
+}
 
-function AddResource(){
+function MyForm(props){
 
-    const[inputs,setInputs] = useState({})
+    const[inputs,setInputs] = useState({}); 
+
+    useEffect(()=>{
+        
+        axios
+        .get(`http://localhost:3003/course/${props.id}`)
+        .then(
+            response =>{
+                console.log('promise fullfilled')
+                console.log(response)
+                setInputs(response.data)
+            }
+        )
+        
+    },[])
 
     function handleChange(event){
         const name = event.target.name;
@@ -17,43 +39,54 @@ function AddResource(){
 
         setInputs(values => ({...values,[name]: value}))
     }
-        function handleSubmit(event){
+    
+    function handleSubmit(event){
             event.preventDefault();
             console.log(inputs);
             //send info to server
             axios
-            .post('http://localhost:3002/resource',inputs)
+            .put(`http://localhost:3003/course/${props.id}`,inputs)
             .then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
-                alert('Resource Added')
-                window.location='/resources'
+                alert("The course details are updated")
             })
         }
     return(
         <>
-        <h1 className="centerfooter">Add New Resource</h1>
+        <h1 className="centerfooter">Update Course</h1>
         <div className="centers">
         <form className="formContent" onSubmit={handleSubmit}>
 
             <div >
-            <label className="element">Resource Code:</label>
+            <label className="element">Course Code:</label>
             <br></br>
-            <input className="element" type="number" name="ResourceCode"
-            value={inputs.ResourceCode || ""}
+            <input className="element" type="text" name="CourseCode"
+            value={inputs.CourseCode || ""}
             onChange={handleChange}
             required/>
             </div>
 
              <div>
-            <label className="element">Resource Name :</label>
+            <label className="element">Course Name :</label>
             <br></br>
-            <input className="element" type="text" name="ResourceName"
-            value={inputs.ResourceName || ""}
+            <input className="element" type="text" name="CourseName"
+            value={inputs.CourseName || ""}
             onChange={handleChange}
             required/>
             </div> 
+
             
+            
+            <div>
+            <label className="element">Course Module:</label>
+            <br></br>
+            <input className="element" type="text" name="CourseModule"
+            value={inputs.CourseModule || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
             <div>
             <label className="element">Description:</label>
             <br></br>
@@ -63,12 +96,19 @@ function AddResource(){
             required/>
             </div>
 
-
+            <div>
+            <label className="element">Duration:</label>
+            <br></br>
+            <input className="element" type="text" name="Duration"
+            value={inputs.Duration || ""}
+            onChange={handleChange}
+            required/>
+            </div>
 
             <div>
             <label className="element">Fee:</label>
             <br></br>
-            <input className="element" type="text" name="Fee"
+            <input className="element" type="number" name="Fee"
             value={inputs.Fee || ""}
             onChange={handleChange}
             required/>
@@ -100,4 +140,4 @@ function AddResource(){
 
 
 
-export default AddResource;
+export default EditCourse;

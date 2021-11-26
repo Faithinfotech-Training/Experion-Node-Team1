@@ -1,15 +1,37 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import axios from 'axios';
-import '../styles/forms.css'
+import{useParams} from "react-router-dom";
 
 
 
 
+function EditResource(){
+    const {id} = useParams()
 
+    return(
+        <>
+        <MyForm id={id}/>
+        </>
+    );
+}
 
-function AddResource(){
+function MyForm(props){
 
-    const[inputs,setInputs] = useState({})
+    const[inputs,setInputs] = useState({}); 
+
+    useEffect(()=>{
+        
+        axios
+        .get(`http://localhost:3002/resource/${props.id}`)
+        .then(
+            response =>{
+                console.log('promise fullfilled')
+                console.log(response)
+                setInputs(response.data)
+            }
+        )
+        
+    },[])
 
     function handleChange(event){
         const name = event.target.name;
@@ -17,22 +39,22 @@ function AddResource(){
 
         setInputs(values => ({...values,[name]: value}))
     }
-        function handleSubmit(event){
+    
+    function handleSubmit(event){
             event.preventDefault();
             console.log(inputs);
             //send info to server
             axios
-            .post('http://localhost:3002/resource',inputs)
+            .put(`http://localhost:3002/resource/${props.id}`,inputs)
             .then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
-                alert('Resource Added')
-                window.location='/resources'
+                alert("The resource details are updated")
             })
         }
     return(
         <>
-        <h1 className="centerfooter">Add New Resource</h1>
+        <h1 className="centerfooter">Update Resource</h1>
         <div className="centers">
         <form className="formContent" onSubmit={handleSubmit}>
 
@@ -100,4 +122,4 @@ function AddResource(){
 
 
 
-export default AddResource;
+export default EditResource;

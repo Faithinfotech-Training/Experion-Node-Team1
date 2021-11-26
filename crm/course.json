@@ -1,12 +1,12 @@
 {
   "course": [
     {
-      "CourseCode": 101,
+      "CourseCode": "CC 101",
       "CourseName": "Course",
       "CourseModule": "Course",
       "Description": "FirstName edit 1",
-      "Duration": "2 weeks",
-      "Fee": "How many hours should I put into a course?",
+      "Duration": "3 weeks",
+      "Fee": "4500",
       "Qualification": "B.Tech",
       "id": 1
     },

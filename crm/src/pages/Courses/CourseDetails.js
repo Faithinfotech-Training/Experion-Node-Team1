@@ -26,7 +26,11 @@ function CourseDisplay(props){
           <div className="butto">
           <button className="edit" onClick={()=>navigate(`/`)}> Home
           </button>
-           <br/><br/> 
+           <br/>
+           <button className="edit" onClick={()=>navigate(`/editcourses/${props.details.id}`)}> Edit
+          </button>
+           
+           <br/> 
             </div>
             </div>
           </div>

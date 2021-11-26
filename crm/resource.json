@@ -5,7 +5,7 @@
       "ResourceName": "Course",
       "Description": "description",
       "Fee": "How many hours should I put into a course?",
-      "Qualification": "B.Tech",
+      "Qualification": "B.Tech5",
       "id": 1
     },
     {
@@ -14,7 +14,9 @@
       "author": "Desc R X",
       "Fee": "4500",
       "rating": "B.Tech",
-      "id": 2
+      "id": 2,
+      "Description": "All about signals",
+      "Qualification": "Class 12"
     }
   ]
 }

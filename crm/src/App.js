@@ -9,8 +9,13 @@ import Resources from "./pages/Resources/Resources";
 import ViewAdmin from "./pages/EnquiryViewAdmin";
 import AddResource from "./pages/Resources/AddResource";
 import AddCourses from "./pages/Courses/AddCourses";
+import EditCourse from "./pages/Courses/EditCourses";
+import EditResource from "./pages/Resources/EditResources";
 // import Resource from "./pages/ResourceManage/Resource";
 import './pages/styles/headers.css'
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 function App(){
@@ -31,8 +36,15 @@ return(
         <a  class="logo">CRM Project</a>
         <div className="header-right"  >
       
-      <div ><Link className="a" className="active" to="/">Home</Link></div></div>
-      <div ><Link className="a" to="/about"  to="/courses">Courses</Link></div>
+      <div >
+        <Link className="a" className="active" to="/">Home</Link></div></div>
+        
+      <div >
+        
+          <Link className="a" to="/about"  to="/courses">Courses</Link>
+       
+        
+      </div>
       <div ><Link className="a" to="/resources">Resources</Link></div>
       <div ><Link className="a" to="/addresource">Add Resources</Link></div>
       <div ><Link className="a" to="/addcourse">Add Courses</Link></div>
@@ -51,6 +63,8 @@ return(
     <Route path ="/addcourse" element={<AddCourses/>}/> 
     <Route path ="/enquirylist" element={<EnquiryList/>}/>
     <Route path ="/courses" element={<Courses/>}/>
+    <Route path ="/editcourses/:id" element={<EditCourse/>}/>
+    <Route path ="/editresources/:id" element={<EditResource/>}/>
     <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
      {/* <Route path ="/resource/:id" element={<ViewAdmin/>}/> */}
     <Route path ="/resources" element={<Resources/>}/>      
