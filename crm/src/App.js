@@ -6,30 +6,39 @@ import Enquiry from "./pages/Enquiries";
 import EnquiryList from "./pages/EnquiryList";
 import Courses from "./pages/Courses";
 import Resources from "./pages/Resources";
+import '../src/styles/headers.css'
 
 
-function AppRoute(){
+function App(){
   return(
   <> 
     <Header/>
-    <MyRouter/>
     <Footer/>
  </>
 
   )
 }
 
-function MyRouter(){
+function Header(){
 return(
-  <Router>
-    <div>
-      <div ><Link  to="/">Home</Link></div>
-      <div ><Link  to="/contact">Contact</Link></div>
-      <div ><Link  to="/enquiry">Enquiry</Link></div>
+  
+      <Router>
+        <div className="header">
+  <a  class="logo">CRM Project</a>
+    <div className="header-right"  ></div>
+      
+      <div ><Link className="a" className="active" to="/">Home</Link></div>
+      <div ><Link className="a" to="/visit" to="/contact">Contact</Link></div>
+      <div ><Link className="a" to="/addbook" to="/enquiry">Enquiry</Link></div>
       <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
-      <div ><Link  to="/courses">Courses</Link></div>
-      <div ><Link  to="/resources">Resources</Link></div>
-    </div>
+      <div ><Link className="a" to="/about"  to="/courses">Courses</Link></div>
+      <div ><Link className="a" to="/resources">Resources</Link></div>
+      </div>
+
+
+     
+
+      
     
 
   <Routes>
@@ -47,27 +56,14 @@ return(
     );
 }
 
-function Header(){
-    return(
-        <>
-            <h1 >CRM System</h1>
-            
-                
-                <h3>
-                </h3>
-                
-           
-        </>
 
-    )
-}
 
 function Footer(){
     return(
         <>
-            <p className="centerfooter">Copyright 2021 - Kiran</p>
+            <p className="centerfooter">Copyright 2021 - Team 1 - Node</p>
         </>
     )
 }
 
-export default AppRoute;
+export default App;
