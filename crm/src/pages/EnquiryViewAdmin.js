@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react';
 import axios from 'axios';
 import{useParams} from "react-router-dom";
-import {useNavigate} from "react-router-dom";
+
 
 
 
@@ -18,13 +18,13 @@ function ViewAdmin(){
 
 function MyForm(props){
 
+
     const[inputs,setInputs] = useState({}); 
-    const navigate = useNavigate();
 
     useEffect(()=>{
         
         axios
-        .get(`http://localhost:3001/book/${props.id}`)
+        .get(`http://localhost:3001/enquiry/${props.id}`)
         .then(
             response =>{
                 console.log('promise fullfilled')
@@ -51,21 +51,42 @@ function MyForm(props){
             .then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
+                alert("The resolution status is updated")
+                window.location='/enquirylist';
             })
         }
     return(
         <>
-        <h1 className="centerfooter">Admin View</h1>
+        <h1 className="centerfooter">Resolution Status</h1>
         <div className="centers">
         <form className="formContent" onSubmit={handleSubmit}>
 
             
 
+            
+
+             <div>
+            <label className="element">Please Enter Status:</label>
+            <br></br>
+            <select className="element" type="text" name="resolution"
+            value={inputs.resolution || ""}
+            onChange={handleChange}
+            required>
+                <option className="element" type="text" value="Accepted">Accepted</option>
+                <option className="element" type="text" value="Interested">Interested</option>
+                <option className="element" type="text" value="Selected">Selected</option>
+                <option className="element" type="text" value="Admitted">Admitted</option>
+                <option className="element" type="text" value="Pending">Pending</option>
+            </select>
+            <br></br>
+
+            
+             
+            </div>  
+
             <div>
                 <br></br>
-            <button className="edit" onClick={()=>navigate(``)}>Resolve
-          </button>
-           
+            <input className="submit" type="submit"/>
             </div>
         </form>
         </div>

@@ -1,32 +1,32 @@
 {
   "enquiry": [
     {
-      "email_id": "test@test.com",
-      "status": "Course",
-      "name": "FirstName edit 1",
-      "enquiry": "How many hours should I put into a course?",
+      "email_id": "testuser3@gmail.com",
+      "name": "FirstName edit 3 LastName 3",
+      "mobileNumber": "3333333333",
+      "address": "addresss",
+      "qualification": "qual",
+      "marks": "56.8",
+      "year": "2009",
+      "resource": "res",
+      "course": "Course Two",
+      "date_of_enquiry": "2021-11-12",
+      "resolution": "Interested",
       "id": 1
-    },
-    {
-      "email_id": "testuser6@gmail.com",
-      "status": "Resource",
-      "name": "firstname 6 lastname 6",
-      "enquiry": "jhdhfuiehfue efef",
-      "id": 2
     },
     {
       "email_id": "test2@test.com",
       "name": "Test User",
-      "status": "resource",
-      "enquiry": "jhdhfuiehfue efef",
-      "id": 3
-    },
-    {
-      "email_id": "testuser3@gmail.com",
-      "name": "firstname 6 lastname 6",
-      "status": "course",
-      "enquiry": "How many hours should I put into a resources?",
-      "id": 4
+      "mobileNumber": "6666666666",
+      "address": "addresss",
+      "qualification": "qual",
+      "marks": "95",
+      "course": "Course Three",
+      "year": "907",
+      "resource": "res",
+      "date_of_enquiry": "2021-11-29",
+      "id": 2,
+      "resolution": "Pending"
     }
   ]
 }

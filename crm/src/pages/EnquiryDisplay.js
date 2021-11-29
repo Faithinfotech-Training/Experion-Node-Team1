@@ -1,26 +1,45 @@
 
-import {Link} from "react-router-dom";
+import {  useEffect, useState } from "react";
+import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import{useParams} from "react-router-dom";
 import './styles/box.css';
 import './styles/display.css';
 
-function EnquiryDisplay(props){
+function EnquiryDisplay(){
     const navigate = useNavigate();
-    console.log(props)
+    const[enq,setStaff] = useState([])
+
+    const{id} = useParams()
+
+    useEffect(()=>{
+        
+        axios
+        .get(`http://localhost:3001/enquiry/${id}`)
+        .then(
+            response =>{
+                console.log('promise fullfilled')
+                console.log(response)
+                setStaff(response.data)
+            }
+        )
+        
+    },[])
     return(
         <>
 
             <div >
             <h3 className="centerfooter">
-          Enquiry ID: {props.details.id} </h3>
+          Enquiry  </h3>
           <div className="box1">
-          <h4 className="color">Name : {props.details.name}</h4>
-          <h4 className="color">Email : {props.details.email_id}</h4>
-          <h4 className="color">Status: {props.details.status}</h4>
-          <h4 className="color">Enquiry: {props.details.enquiry}</h4>
+          <h4 className="color">Name : {enq.name}</h4>
+          <h4 className="color">Email : {enq.email_id}</h4>
+          <h4 className="color">Type: {enq.status}</h4>
+          <h4 className="color">Enquiry: {enq.enquiry}</h4>
+          <h4 className="color">Resolution Status: {enq.resolution}</h4>
           <div class="col col-3">
           <div className="butto">
-          <button className="edit" onClick={()=>navigate(`/queryreview/${props.details.id}`)}>View Enquiry
+          <button className="edit" onClick={()=>navigate(`/queryreview/${enq.id}`)}>Resolution Status
           </button>
            <br/><br/> 
             </div>
