@@ -26,7 +26,7 @@ body {
       margin-bottom: 25px;
     }
     .responsive-table  .table-header {
-      background-color: #9ad1d33b;
+      background-color: #7b7f803b;
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.03em;
@@ -85,7 +85,7 @@ body {
   }
   
   .back{
-      background-color: rgb(155, 218, 209); /* Green */
+      background-color: rgba(153, 155, 155, 0.993); /* Green */
     border: none;
     color: black;
     padding: 10px 37px;

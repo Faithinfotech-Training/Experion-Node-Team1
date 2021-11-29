@@ -12,7 +12,7 @@ body {
 }
 
 a {
-  color: #88cacc;
+  color: #868a8a;
   display:inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -75,7 +75,7 @@ h2.inactive {
 
 h2.active {
   color: #0d0d0d;
-  border-bottom: 2px solid #95A5A6;
+  border-bottom: 2px solid #868a8a;
 }
 
 .centers{
@@ -86,8 +86,32 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button], input[type=submit], input[type=reset]  {
-  background-color: #88cacc;
+select,option
+{
+  background-color: #868a8a;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type=button], input[type=submit], input[type=reset] 
+ {
+  background-color: #868a8a;
   border: none;
   color: white;
   padding: 15px 80px;
@@ -109,7 +133,7 @@ input[type=button], input[type=submit], input[type=reset]  {
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-  background-color: #39ace7;
+  background-color: #010303;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -120,7 +144,9 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text],input[type=number],input[type=date],input[type=email],input[type=password] {
+select,option
+
+{
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
@@ -141,9 +167,31 @@ input[type=text],input[type=number],input[type=date],input[type=email],input[typ
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text],input[type=number],input[type=date],input[type=email],input[type=password]:focus {
+input[type=text],input[type=number],input[type=date],input[type=email],input[type=password] 
+{
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=text],input[type=number],input[type=select],input[type=date],input[type=email],input[type=password]:focus {
   background-color: #fff;
-  border-bottom: 2px solid #88cacc;
+  border-bottom: 2px solid #868a8a;
 }
 
 input[type=text],input[type=number],input[type=date],input[type=email],input[type=password]:placeholder {
@@ -241,7 +289,7 @@ input[type=text],input[type=number],input[type=date],input[type=email],input[typ
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #070e11;
   content: "";
   transition: width 0.2s;
 }

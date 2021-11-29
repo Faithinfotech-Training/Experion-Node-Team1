@@ -16,7 +16,8 @@ function Enquiry(){
     )
   }
   
-  function EnquiryBox(){
+  function 
+  EnquiryBox(){
 
     const[inputs,setInputs] = useState({})
 
@@ -54,6 +55,8 @@ function Enquiry(){
             required/>
             </div>
 
+        
+
             <div >
             <label className="element">Enter Name:</label>
             <br></br>
@@ -64,24 +67,94 @@ function Enquiry(){
             </div>
 
             <div >
-            <label className="element">Status:</label>
+            <label className="element">Enter Mobile Number:</label>
             <br></br>
-            <input className="element" type="text" name="status"
-            value={inputs.status || ""}
+            <input className="element" type="number" name="mobileNumber"
+            value={inputs.mobileNumber || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
+            <div >
+            <label className="element">Enter Address:</label>
+            <br></br>
+            <input className="element" type="text" name="address"
+            value={inputs.address || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
+            <div >
+            <label className="element">Enter Qualification:</label>
+            <br></br>
+            <input className="element" type="text" name="qualification"
+            value={inputs.qualification || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
+            <div >
+            <label className="element">Enter Percentage of Marks:</label>
+            <br></br>
+            <input className="element" type="number" name="marks"
+            value={inputs.marks || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
+            <div >
+            <label className="element">Enter Year of Passout:</label>
+            <br></br>
+            <input className="element" type="number" name="year"
+            value={inputs.year || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
+            <div >
+            <label className="element">Enter Resource Name:</label>
+            <br></br>
+            <input className="element" type="text" name="resource"
+            value={inputs.resource || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
+
+            
+
+            <div >
+            <label className="element">Course :</label>
+            <br></br>
+        
+            <select className="element" type="text" name="course"
+            value={inputs.course || ""}
+            onChange={handleChange}
+            required>
+                <option className="element" type="text" value="c1">Course1</option>
+                <option className="element" type="text" value="c2">Course2</option>
+            </select>
+            </div>
+
+            <div >
+            <label className="element">Enter Date:</label>
+            <br></br>
+            <input className="element" type="date" name="date_of_enquiry"
+            value={inputs.date_of_enquiry || ""}
             onChange={handleChange}
             required/>
             </div>
 
             
 
-             <div>
+             {/* <div>
             <label className="element">Please Enter you Query:</label>
             <br></br>
             <input className="element" type="text" name="enquiry"
             value={inputs.enquiry || ""}
             onChange={handleChange}
             required/>
-            </div> 
+            </div>  */}
 
             <div>
                 <br></br>

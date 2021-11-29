@@ -1,5 +1,6 @@
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom"
 // import './App.css';
+import { Navbar,NavDropdown,Container,Nav } from 'react-bootstrap';
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Enquiry from "./pages/Enquiries";
@@ -17,6 +18,7 @@ import './pages/styles/headers.css'
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Dropdown from 'react-bootstrap/Dropdown';
+import EnquiryDisplay from "./pages/EnquiryDisplay";
 
 
 function App(){
@@ -33,7 +35,42 @@ function Header(){
 return(
   
       <Router>
-        <div className="header">
+        <Navbar variant="dark" bg="dark" expand="lg">
+     <Container fluid>
+
+  <Navbar.Brand href="#home">CRM-Project</Navbar.Brand>
+   <Navbar.Toggle aria-controls="navbar-dark-example" />
+    <Navbar.Collapse id="navbar-dark-example">
+     
+      <Nav>
+      <NavDropdown
+           id="nav-dropdown-dark-example"
+           title="Courses"
+           menuVariant="dark">
+           <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
+           <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown
+           id="nav-dropdown-dark-example"
+           title="Resource"
+           menuVariant="dark"
+         >
+           <NavDropdown.Item href="/resources">Resource</NavDropdown.Item>
+           <NavDropdown.Item href="/resources">Res 2</NavDropdown.Item>
+           
+        </NavDropdown>
+        <Nav.Link href='/'>Home</Nav.Link>
+        <Nav.Link className="a"  href="/enquiry">Enquiry</Nav.Link>
+        <Nav.Link className="a" href="/enquirylist">Enquiry List</Nav.Link>
+        <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>
+        <Nav.Link className="a" href="/addcourse">Add Courses</Nav.Link>
+        <Nav.Link className="a" href="/contact">Contact Us</Nav.Link>
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
+
+        {/* <div className="header">
         <a  class="logo">CRM Project</a>
         <div className="header-right"  >
       
@@ -46,14 +83,8 @@ return(
        
         
       </div>
-      <div ><Link className="a" to="/resources">Resources</Link></div>
-      <div ><Link className="a" to="/addresource">Add Resources</Link></div>
-      <div ><Link className="a" to="/addcourse">Add Courses</Link></div>
-      <div ><Link className="a"  to="/enquiry">Enquiry</Link></div>
-      <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
-      <div ><Link className="a" to="/contact">Contact Us</Link></div>
-      
-      </div>
+      <div ><Link className="a" to="/resources">Resources</Link></div> 
+      </div> */}
 
 
   <Routes>
@@ -68,7 +99,9 @@ return(
     <Route path ="/deletecourses/:id" element={<CourseDelete/>}/>
     <Route path ="/deleteresources/:id" element={<ResourceDelete/>}/>
     <Route path ="/editresources/:id" element={<EditResource/>}/>
+    <Route path ="/queryview/:id" element={<EnquiryDisplay/>}/>
     <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
+
      {/* <Route path ="/resource/:id" element={<ViewAdmin/>}/> */}
     <Route path ="/resources" element={<Resources/>}/>      
   </Routes>

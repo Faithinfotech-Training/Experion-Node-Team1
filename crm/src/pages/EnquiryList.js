@@ -2,6 +2,8 @@
 import {  useEffect, useState } from "react";
 import axios from "axios";
 import EnquiryDisplay from "./EnquiryDisplay";
+import ViewAdmin from "./EnquiryViewAdmin";
+import EnquirySummary from "./EnquirySummary";
 
 function EnquiryList(){
 
@@ -32,7 +34,8 @@ function EnquiryList(){
           <div>
               {enquiries.map(enquiry=>
                 <li key={enquiry.id}>
-                    <EnquiryDisplay details ={enquiry}/>
+                    <EnquirySummary details ={enquiry}/>
+                    {/* <ViewAdmin details ={enquiry}/> */}
                     </li>
                 )}
           </div>
