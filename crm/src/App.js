@@ -66,8 +66,10 @@ return(
            
         </NavDropdown>
         <Nav.Link href='/'>Home</Nav.Link>
-        <Nav.Link cl
-        assName="a"  href="/enquiry">Enquiry</Nav.Link>
+        {!localStorage.getItem('mytoken')&&<div><Link to="/Login">Login</Link></div>}
+        {localStorage.getItem('mytoken')&&<div><Link onClick={()=>window.location='/Login'} to='/Login'>Logout</Link></div>}
+      <div ><Link className="a" to="/Register">Resources</Link></div>
+        <Nav.Link className="a"  href="/enquiry">Enquiry</Nav.Link>
         <Nav.Link className="a" href="/enquirylist">Enquiry List</Nav.Link>
         <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>
         <Nav.Link className="a" href="/addcourse">Add Courses</Nav.Link>
