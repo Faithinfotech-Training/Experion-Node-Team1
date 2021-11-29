@@ -1,5 +1,7 @@
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom"
 // import './App.css';
+import Login from "./pages/Login";
+import Register from "./pages/Register"
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Enquiry from "./pages/Enquiries";
@@ -24,6 +26,8 @@ function App(){
   <> 
     <Header/>
     <Footer/>
+    
+  
  </>
 
   )
@@ -46,6 +50,9 @@ return(
        
         
       </div>
+      {!localStorage.getItem('mytoken')&&<div><Link to="/Login">Login</Link></div>}
+        {localStorage.getItem('mytoken')&&<div><Link onClick={()=>window.location='/Login'} to='/Login'>Logout</Link></div>}
+      <div ><Link className="a" to="/Register">Resources</Link></div>
       <div ><Link className="a" to="/resources">Resources</Link></div>
       <div ><Link className="a" to="/addresource">Add Resources</Link></div>
       <div ><Link className="a" to="/addcourse">Add Courses</Link></div>
@@ -59,6 +66,8 @@ return(
   <Routes>
     <Route path ="/" element={<Home/>}/> 
     <Route path ="/contact" element={<Contact/>}/>
+    <Route path ="/Login" element={<Login/>}/>
+    <Route path ="/Register" element={<Register/>}/>
     <Route path ="/enquiry" element={<Enquiry/>}/>
     <Route path ="/addresource" element={<AddResource/>}/> 
     <Route path ="/addcourse" element={<AddCourses/>}/> 
