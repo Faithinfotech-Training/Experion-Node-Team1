@@ -12,7 +12,7 @@ function EnquiryList(){
 
     useEffect(()=>{
         axios
-        .get('http://localhost:3003/course')
+        .get('http://localhost:4500/courses')
         .then(
             response =>{
                 console.log('promise fullfilled')
@@ -31,7 +31,7 @@ function EnquiryList(){
           <p>
           <div>
               {enquiries.map(enquiry=>
-                <li key={enquiry.id}>
+                <li key={enquiry.CourseCode}>
                     <EnquiryDisplay details ={enquiry}/>
                     </li>
                 )}

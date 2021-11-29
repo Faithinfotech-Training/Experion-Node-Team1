@@ -10,18 +10,19 @@ function ResourceDelete(){
     const navigate = useNavigate();
     const[staff,setStaff] = useState([])
 
-    const{id} = useParams()
+    const{ResourceCode} = useParams()
 
     useEffect(()=>{
         
         axios
-        .delete(`http://localhost:3002/resource/${id}`)
+        .delete(`http://localhost:4500/resources/${ResourceCode}`)
         .then(
             response =>{
                 console.log('promise fullfilled')
                 console.log(response)
-                alert('Resource Successfully Deleted')
+               
                 setStaff(response.data)
+                alert('Resource Successfully Deleted')
             }
         )
         

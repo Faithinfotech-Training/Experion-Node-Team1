@@ -12,22 +12,23 @@ function ResourceDisplay(props){
 
             <div >
             <h3 className="centerfooter">
-          Resource {props.details.id} </h3>
+          Resource {props.details.ResourceCode} </h3>
           <div className="box1">
           <h4 className="color">Name : {props.details.ResourceCode}</h4>
           <h4 className="color">Email : {props.details.ResourceName}</h4>
           <h4 className="color">Description: {props.details.Description}</h4>
-          <h4 className="color">Fee: {props.details.Fee}</h4>
-          <h4 className="color">Qualification: {props.details.Qualification}</h4>
+          <h4 className="color">Fee: {props.details.Fees}</h4>
+         {// <h4 className="color">Qualification: {props.details.Qualification}</h4>
+}
         
           <div class="col col-3">
           <div className="butto">
           <button className="edit" onClick={()=>navigate(`/`)}> Home
           </button>
            <br/>
-           <button className="edit" onClick={()=>navigate(`/editresources/${props.details.id}`)}> Edit
+           <button className="edit" onClick={()=>navigate(`/editresources/${props.details.ResourceCode}`)}> Edit
           </button>
-          <button className="edit" onClick={()=>navigate(`/deleteresources/${props.details.id}`)}> Delete
+          <button className="edit" onClick={()=>navigate(`/deleteresources/${props.details.ResourceCode}`)}> Delete
           </button> 
             </div>
             </div>

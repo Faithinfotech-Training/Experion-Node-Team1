@@ -22,7 +22,7 @@ function AddResource(){
             console.log(inputs);
             //send info to server
             axios
-            .post('http://localhost:3002/resource',inputs)
+            .post('http://localhost:4500/resources',inputs)
             .then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
@@ -68,20 +68,20 @@ function AddResource(){
             <div>
             <label className="element">Fee:</label>
             <br></br>
-            <input className="element" type="text" name="Fee"
-            value={inputs.Fee || ""}
+            <input className="element" type="text" name="Fees"
+            value={inputs.Fees || ""}
             onChange={handleChange}
             required/>
             </div>
 
-            <div>
+           {/* <div>
             <label className="element">Qualification:</label>
             <br></br>
             <input className="element" type="text" name="Qualification"
             value={inputs.Qualification || ""}
             onChange={handleChange}
             required/>
-            </div>
+            </div> */}
 
             
 
