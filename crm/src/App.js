@@ -1,5 +1,9 @@
 import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom"
 // import './App.css';
+
+import Login from "./pages/Login";
+import Register from "./pages/Register"
+
 import { Navbar,NavDropdown,Container,Nav } from 'react-bootstrap';
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -26,6 +30,8 @@ function App(){
   <> 
     <Header/>
     <Footer/>
+    
+  
  </>
 
   )
@@ -60,7 +66,8 @@ return(
            
         </NavDropdown>
         <Nav.Link href='/'>Home</Nav.Link>
-        <Nav.Link className="a"  href="/enquiry">Enquiry</Nav.Link>
+        <Nav.Link cl
+        assName="a"  href="/enquiry">Enquiry</Nav.Link>
         <Nav.Link className="a" href="/enquirylist">Enquiry List</Nav.Link>
         <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>
         <Nav.Link className="a" href="/addcourse">Add Courses</Nav.Link>
@@ -83,6 +90,18 @@ return(
        
         
       </div>
+      
+{!localStorage.getItem('mytoken')&&<div><Link to="/Login">Login</Link></div>}
+        {localStorage.getItem('mytoken')&&<div><Link onClick={()=>window.location='/Login'} to='/Login'>Logout</Link></div>}
+      <div ><Link className="a" to="/Register">Resources</Link></div>
+      <div ><Link className="a" to="/resources">Resources</Link></div>
+      <div ><Link className="a" to="/addresource">Add Resources</Link></div>
+      <div ><Link className="a" to="/addcourse">Add Courses</Link></div>
+      <div ><Link className="a"  to="/enquiry">Enquiry</Link></div>
+      <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
+      <div ><Link className="a" to="/contact">Contact Us</Link></div>
+      
+      </div>
       <div ><Link className="a" to="/resources">Resources</Link></div> 
       </div> */}
 
@@ -90,6 +109,8 @@ return(
   <Routes>
     <Route path ="/" element={<Home/>}/> 
     <Route path ="/contact" element={<Contact/>}/>
+    <Route path ="/Login" element={<Login/>}/>
+    <Route path ="/Register" element={<Register/>}/>
     <Route path ="/enquiry" element={<Enquiry/>}/>
     <Route path ="/addresource" element={<AddResource/>}/> 
     <Route path ="/addcourse" element={<AddCourses/>}/> 
