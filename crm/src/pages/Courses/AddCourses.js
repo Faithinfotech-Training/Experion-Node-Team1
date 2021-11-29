@@ -22,7 +22,7 @@ function AddCourses(){
             console.log(inputs);
             //send info to server
             axios
-            .post('http://localhost:3003/course',inputs)
+            .post('http://localhost:4500/courses',inputs)
             .then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
@@ -86,8 +86,8 @@ function AddCourses(){
             <div>
             <label className="element">Fee:</label>
             <br></br>
-            <input className="element" type="number" name="Fee"
-            value={inputs.Fee || ""}
+            <input className="element" type="number" name="Fees"
+            value={inputs.Fees || ""}
             onChange={handleChange}
             required/>
             </div>
