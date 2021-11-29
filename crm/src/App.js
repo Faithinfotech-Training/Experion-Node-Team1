@@ -53,22 +53,24 @@ return(
            id="nav-dropdown-dark-example"
            title="Courses"
            menuVariant="dark">
-           <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
-           <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
+           <NavDropdown.Item href="/courses">Courses 1</NavDropdown.Item>
+           <NavDropdown.Item href="/courses">Courses 2</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown
            id="nav-dropdown-dark-example"
            title="Resource"
            menuVariant="dark"
          >
-           <NavDropdown.Item href="/resources">Resource</NavDropdown.Item>
-           <NavDropdown.Item href="/resources">Res 2</NavDropdown.Item>
+           <NavDropdown.Item href="/resources">Resource 1</NavDropdown.Item>
+           <NavDropdown.Item href="/resources">Resource 2</NavDropdown.Item>
            
         </NavDropdown>
         <Nav.Link href='/'>Home</Nav.Link>
-        {!localStorage.getItem('mytoken')&&<div><Link to="/Login">Login</Link></div>}
-        {localStorage.getItem('mytoken')&&<div><Link onClick={()=>window.location='/Login'} to='/Login'>Logout</Link></div>}
-      <div ><Link className="a" to="/Register">Resources</Link></div>
+        
+          {!localStorage.getItem('mytoken')&&<div><Nav.Link href="/Login">Login</Nav.Link></div>}
+          {localStorage.getItem('mytoken')&&<div><Nav.Link onClick={()=>window.location='/Login'} href='/Login'>Logout</Nav.Link></div>}
+          
+      <div ><Nav.Link className="a" href="/Register">Resources</Nav.Link></div>
         <Nav.Link className="a"  href="/enquiry">Enquiry</Nav.Link>
         <Nav.Link className="a" href="/enquirylist">Enquiry List</Nav.Link>
         <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>
@@ -118,10 +120,10 @@ return(
     <Route path ="/addcourse" element={<AddCourses/>}/> 
     <Route path ="/enquirylist" element={<EnquiryList/>}/>
     <Route path ="/courses" element={<Courses/>}/>
-    <Route path ="/editcourses/:CourseCode" element={<EditCourse/>}/>
-    <Route path ="/deletecourses/:CourseCode" element={<CourseDelete/>}/>
-    <Route path ="/deleteresources/:ResourceCode" element={<ResourceDelete/>}/>
-    <Route path ="/editresources/:ResourceCode" element={<EditResource/>}/>
+    <Route path ="/editcourses/:id" element={<EditCourse/>}/>
+    <Route path ="/deletecourses/:id" element={<CourseDelete/>}/>
+    <Route path ="/deleteresources/:id" element={<ResourceDelete/>}/>
+    <Route path ="/editresources/:id" element={<EditResource/>}/>
     <Route path ="/queryview/:id" element={<EnquiryDisplay/>}/>
     <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
 
