@@ -29,3 +29,4 @@ const Resource=db.define('resource',{
 });
 
 module.exports=Resource;
+//resource
