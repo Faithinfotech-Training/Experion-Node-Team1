@@ -1,18 +1,18 @@
 
 import {  useEffect, useState } from "react";
 import axios from "axios";
-import EnquiryDisplay from "./ResourceDetails";
+import ResourceDisplay from "./ResourceDetails";
 
 function EnquiryList(){
 
 
-    const[enquiries,setStaffs] = useState([])
+    const[resources,setStaffs] = useState([])
 
     
 
     useEffect(()=>{
         axios
-        .get('http://localhost:3002/resource')
+        .get('http://localhost:4500/resources')
         .then(
             response =>{
                 console.log('promise fullfilled')
@@ -30,9 +30,9 @@ function EnquiryList(){
           Resource List</h1>
           <p>
           <div>
-              {enquiries.map(enquiry=>
-                <li key={enquiry.id}>
-                    <EnquiryDisplay details ={enquiry}/>
+              {resources.map(resource=>
+                <li key={resource.id}>
+                    <ResourceDisplay details ={resource}/>
                     </li>
                 )}
           </div>

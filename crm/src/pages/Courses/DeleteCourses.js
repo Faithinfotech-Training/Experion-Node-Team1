@@ -10,12 +10,12 @@ function CourseDelete(){
     const navigate = useNavigate();
     const[staff,setStaff] = useState([])
 
-    const{id} = useParams()
+    const{CourseCode} = useParams()
 
     useEffect(()=>{
         
         axios
-        .delete(`http://localhost:3003/course/${id}`)
+        .delete(`http://localhost:4500/courses/${CourseCode}`)
         .then(
             response =>{
                 console.log('promise fullfilled')

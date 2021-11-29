@@ -6,11 +6,11 @@ import{useParams} from "react-router-dom";
 
 
 function EditResource(){
-    const {id} = useParams()
+    const {ResourceCode} = useParams()
 
     return(
         <>
-        <MyForm id={id}/>
+        <MyForm ResourceCode={ResourceCode}/>
         </>
     );
 }
@@ -22,7 +22,7 @@ function MyForm(props){
     useEffect(()=>{
         
         axios
-        .get(`http://localhost:3002/resource/${props.id}`)
+        .get(`http://localhost:4500/resources/${props.ResourceCode}`)
         .then(
             response =>{
                 console.log('promise fullfilled')
@@ -45,7 +45,7 @@ function MyForm(props){
             console.log(inputs);
             //send info to server
             axios
-            .put(`http://localhost:3002/resource/${props.id}`,inputs)
+            .put(`http://localhost:4500/resources/${props.ResourceCode}`,inputs)
             .then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
@@ -90,20 +90,20 @@ function MyForm(props){
             <div>
             <label className="element">Fee:</label>
             <br></br>
-            <input className="element" type="text" name="Fee"
-            value={inputs.Fee || ""}
+            <input className="element" type="text" name="Fees"
+            value={inputs.Fees || ""}
             onChange={handleChange}
             required/>
             </div>
 
-            <div>
+             {/* <div>
             <label className="element">Qualification:</label>
             <br></br>
-            <input className="element" type="text" name="Qualification"
+             <input className="element" type="text" name="Qualification"
             value={inputs.Qualification || ""}
             onChange={handleChange}
-            required/>
-            </div>
+            required/> 
+            </div>  */}
 
             
 

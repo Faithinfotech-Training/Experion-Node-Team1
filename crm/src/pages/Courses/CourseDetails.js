@@ -13,7 +13,7 @@ function CourseDisplay(props){
 
             <div >
             <h3 className="centerfooter">
-          Course {props.details.id} </h3>
+          Course {props.details.CourseCode} </h3>
           <div className="box1">
           <h4 className="color">Name : {props.details.CourseName}</h4>
           <h4 className="color">Email : {props.details.CourseCode}</h4>
@@ -27,9 +27,9 @@ function CourseDisplay(props){
           <button className="edit" onClick={()=>navigate(`/`)}> Home
           </button>
            <br/>
-           <button className="edit" onClick={()=>navigate(`/editcourses/${props.details.id}`)}> Edit
+           <button className="edit" onClick={()=>navigate(`/editcourses/${props.details.CourseCode}`)}> Edit
           </button>
-          <button className="edit" onClick={()=>navigate(`/deletecourses/${props.details.id}`)}> Delete
+          <button className="edit" onClick={()=>navigate(`/deletecourses/${props.details.CourseCode}`)}> Delete
           </button>
            <br/> 
             </div>

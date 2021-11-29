@@ -6,11 +6,11 @@ import{useParams} from "react-router-dom";
 
 
 function EditCourse(){
-    const {id} = useParams()
+    const {CourseCode} = useParams()
 
     return(
         <>
-        <MyForm id={id}/>
+        <MyForm CourseCode={CourseCode}/>
         </>
     );
 }
@@ -22,7 +22,7 @@ function MyForm(props){
     useEffect(()=>{
         
         axios
-        .get(`http://localhost:3003/course/${props.id}`)
+        .get(`http://localhost:4500/courses/${props.CourseCode}`)
         .then(
             response =>{
                 console.log('promise fullfilled')
@@ -45,7 +45,7 @@ function MyForm(props){
             console.log(inputs);
             //send info to server
             axios
-            .put(`http://localhost:3003/course/${props.id}`,inputs)
+            .put(`http://localhost:4500/courses/${props.CourseCode}`,inputs)
             .then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
@@ -108,8 +108,8 @@ function MyForm(props){
             <div>
             <label className="element">Fee:</label>
             <br></br>
-            <input className="element" type="number" name="Fee"
-            value={inputs.Fee || ""}
+            <input className="element" type="number" name="Fees"
+            value={inputs.Fees || ""}
             onChange={handleChange}
             required/>
             </div>

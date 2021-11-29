@@ -118,10 +118,10 @@ return(
     <Route path ="/addcourse" element={<AddCourses/>}/> 
     <Route path ="/enquirylist" element={<EnquiryList/>}/>
     <Route path ="/courses" element={<Courses/>}/>
-    <Route path ="/editcourses/:id" element={<EditCourse/>}/>
-    <Route path ="/deletecourses/:id" element={<CourseDelete/>}/>
-    <Route path ="/deleteresources/:id" element={<ResourceDelete/>}/>
-    <Route path ="/editresources/:id" element={<EditResource/>}/>
+    <Route path ="/editcourses/:CourseCode" element={<EditCourse/>}/>
+    <Route path ="/deletecourses/:CourseCode" element={<CourseDelete/>}/>
+    <Route path ="/deleteresources/:ResourceCode" element={<ResourceDelete/>}/>
+    <Route path ="/editresources/:ResourceCode" element={<EditResource/>}/>
     <Route path ="/queryview/:id" element={<EnquiryDisplay/>}/>
     <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
 
