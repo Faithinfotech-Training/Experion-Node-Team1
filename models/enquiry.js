@@ -41,8 +41,8 @@ const Enquiry=db.define('enquiry',{
         
     },
     Type:{
-        type:Sequelize.INTEGER,
-        allowNull:false
+        type:Sequelize.INTEGER
+      
         
     },
     Course_Name:{
