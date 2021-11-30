@@ -79,9 +79,12 @@ return(
           
       <div ><Nav.Link className="a" href="/Register">Resources</Nav.Link></div> */}
         <Nav.Link className="a"  href="/enquiry">Enquiry</Nav.Link>
-        <Nav.Link className="a" href="/enquirylist">Enquiry List</Nav.Link>
-        <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>
-        <Nav.Link className="a" href="/addcourse">Add Courses</Nav.Link>
+        {localStorage.getItem('mytoken')&&
+        <Nav.Link className="a" href="/enquirylist">Enquiry List</Nav.Link>}
+        {localStorage.getItem('mytoken')&&
+        <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>}
+        {localStorage.getItem('mytoken')&&
+        <Nav.Link className="a" href="/addcourse">Add Courses</Nav.Link>}
         <Nav.Link className="a" href="/contact">Contact Us</Nav.Link>
       </Nav>
     </Navbar.Collapse>
@@ -124,20 +127,29 @@ return(
     <Route path ="/Register" element={<Registerartion/>}/>
     <Route path ="/enquiry" element={<Enquiry/>}/>
     <Route path ="/addresource" element={<AddResource/>}/> 
-    <Route path ="/addcourse" element={<AddCourses/>}/> 
-    <Route path ="/enquirylist" element={<EnquiryList/>}/>
+    {localStorage.getItem('mytoken')&&
+    <Route path ="/addcourse" element={<AddCourses/>}/> }
+    {localStorage.getItem('mytoken')&&
+    <Route path ="/enquirylist" element={<EnquiryList/>}/>}
+    
     <Route path ="/courses" element={<Courses/>}/> 
     {/* <Route path ="/courselist" element={<CourseList/>}/> */}
     {/* <Route path ="/courseview/:CourseCode" element={<CourseDisplay/>}/> */}
 
+ 
     <Route path ="/courseview/:CourseCode" element={<CourseDisplay/>}/>
+ 
     <Route path ="/resourceview/:ResourceCode" element={<ResourceDisplay/>}/>
+
     <Route path ="/editcourses/:CourseCode" element={<EditCourse/>}/>
+ 
     <Route path ="/deletecourses/:CourseCode" element={<CourseDelete/>}/>
+
     <Route path ="/deleteresources/:ResourceCode" element={<ResourceDelete/>}/>
+
     <Route path ="/editresources/:ResourceCode" element={<EditResource/>}/>
-    <Route path ="/queryview/:id" element={<EnquiryDisplay/>}/>
-    <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
+    <Route path ="/queryview/:EnquiryId" element={<EnquiryDisplay/>}/>
+    <Route path ="/queryreview/:EnquiryId" element={<ViewAdmin/>}/>
 
 
      {/* <Route path ="/resource/:id" element={<ViewAdmin/>}/> */}

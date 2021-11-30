@@ -6,7 +6,8 @@ import axios from "axios";
 function Login(){
  localStorage.clear();  
     return(<>
-    <h1>Please Login to this page</h1>
+    <br/>
+    <h1 className="centerfooter">Please Login using this page</h1>
     <MyForm/>
     </>);
     }
@@ -97,10 +98,10 @@ function Login(){
       <input className="element" type="text" name="usertype" placeholder="enter the user type" onChange={handleChange} value={inputs.usertype || ""}/>
       </div><br/>
 
-      <div>
+      {/* <div>
       <label className="element">Pin: </label><br/>
       <input className="element" type="number" name="pin" placeholder="enter the pin" onChange={handleChange} value={inputs.pin || ""}/>
-      </div><br/>
+      </div><br/> */}
 
       
       <div>

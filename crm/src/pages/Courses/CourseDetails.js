@@ -36,18 +36,20 @@ function CourseDisplay(){
           <h4 className="color">Name : {enq.CourseName}</h4>
           <h4 className="color">Description : {enq.Description}</h4>
           <h4 className="color">Duration: {enq.Duration}</h4>
-          <h4 className="color">Course Module: {enq.CourseModules}</h4>
+          {/* <h4 className="color">Course Module: {enq.CourseModules}</h4> */}
           <h4 className="color">Fee: {enq.Fees}</h4>
           <h4 className="color">Qualification: {enq.Qualification}</h4>
           <div class="col col-3">
           <div className="butto">
-          <button className="edit" onClick={()=>navigate(`/`)}> Home
+          <button className="edit" onClick={()=>navigate(`/courses`)}> Back
           </button>
            <br/>
+           {localStorage.getItem('mytoken')&&
            <button className="edit" onClick={()=>navigate(`/editcourses/${enq.CourseCode}`)}> Edit
-          </button>
+          </button>}
+          {localStorage.getItem('mytoken')&&
           <button className="edit" onClick={()=>navigate(`/deletecourses/${enq.CourseCode}`)}> Delete
-          </button> 
+          </button> }
             </div>
             </div>
           </div>
