@@ -2,6 +2,7 @@
 import {  useEffect, useState } from "react";
 import axios from "axios";
 import CourseList from "./CourseList";
+import CourseDisplay from "./CourseDetails";
 
 function Courses(){
 

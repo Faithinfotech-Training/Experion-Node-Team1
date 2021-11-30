@@ -2,6 +2,7 @@
 import {  useEffect, useState } from "react";
 import axios from "axios";
 import ResourceDisplay from "./ResourceDetails";
+import ResourceList from "./ResourceList";
 
 function EnquiryList(){
 
@@ -32,7 +33,7 @@ function EnquiryList(){
           <div>
               {resources.map(resource=>
                 <li key={resource.id}>
-                    <ResourceDisplay details ={resource}/>
+                    <ResourceList details ={resource}/>
                     </li>
                 )}
           </div>

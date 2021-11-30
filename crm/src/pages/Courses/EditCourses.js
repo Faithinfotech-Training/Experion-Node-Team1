@@ -81,8 +81,8 @@ function MyForm(props){
             <div>
             <label className="element">Course Module:</label>
             <br></br>
-            <input className="element" type="text" name="CourseModule"
-            value={inputs.CourseModule || ""}
+            <input className="element" type="text" name="CourseModules"
+            value={inputs.CourseModules || ""}
             onChange={handleChange}
             required/>
             </div>
@@ -119,6 +119,15 @@ function MyForm(props){
             <br></br>
             <input className="element" type="text" name="Qualification"
             value={inputs.Qualification || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
+            <div>
+            <label className="element">Image URL:</label>
+            <br></br>
+            <input className="element" type="text" name="url"
+            value={inputs.url || ""}
             onChange={handleChange}
             required/>
             </div>

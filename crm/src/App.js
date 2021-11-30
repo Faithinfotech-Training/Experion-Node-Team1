@@ -26,6 +26,7 @@ import EnquiryDisplay from "./pages/EnquiryDisplay";
 import Registerartion from "./pages/Registration";
 import CourseList from "./pages/Courses/CourseList";
 import CourseDisplay from "./pages/Courses/CourseDetails";
+import ResourceDisplay from "./pages/Resources/ResourceDetails";
 
 
 function App(){
@@ -56,16 +57,16 @@ return(
            id="nav-dropdown-dark-example"
            title="Courses"
            menuVariant="dark">
-           <NavDropdown.Item href="/courses">Courses 1</NavDropdown.Item>
-           <NavDropdown.Item href="/courses">Courses 2</NavDropdown.Item>
+           <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
+           {/* <NavDropdown.Item href="/courses">Courses 2</NavDropdown.Item> */}
             </NavDropdown>
             <NavDropdown
            id="nav-dropdown-dark-example"
            title="Resource"
            menuVariant="dark"
          >
-           <NavDropdown.Item href="/resources">Resource 1</NavDropdown.Item>
-           <NavDropdown.Item href="/resources">Resource 2</NavDropdown.Item>
+           <NavDropdown.Item href="/resources">Resources</NavDropdown.Item>
+           {/* <NavDropdown.Item href="/resources">Resource 2</NavDropdown.Item> */}
            
         </NavDropdown>
         <Nav.Link href='/'>Home</Nav.Link>
@@ -126,12 +127,15 @@ return(
     <Route path ="/addcourse" element={<AddCourses/>}/> 
     <Route path ="/enquirylist" element={<EnquiryList/>}/>
     <Route path ="/courses" element={<Courses/>}/> 
-    {/* <Route path ="/courselist" element={<Courses/>}/> */}
+    {/* <Route path ="/courselist" element={<CourseList/>}/> */}
+    {/* <Route path ="/courseview/:CourseCode" element={<CourseDisplay/>}/> */}
+
     <Route path ="/courseview/:CourseCode" element={<CourseDisplay/>}/>
+    <Route path ="/resourceview/:ResourceCode" element={<ResourceDisplay/>}/>
     <Route path ="/editcourses/:CourseCode" element={<EditCourse/>}/>
     <Route path ="/deletecourses/:CourseCode" element={<CourseDelete/>}/>
-    <Route path ="/deleteresources/:ResourseCode" element={<ResourceDelete/>}/>
-    <Route path ="/editresources/:ResourseCode" element={<EditResource/>}/>
+    <Route path ="/deleteresources/:ResourceCode" element={<ResourceDelete/>}/>
+    <Route path ="/editresources/:ResourceCode" element={<EditResource/>}/>
     <Route path ="/queryview/:id" element={<EnquiryDisplay/>}/>
     <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
 

@@ -1,37 +1,53 @@
 
 
-import {Link} from "react-router-dom";
+import {  useEffect, useState } from "react";
+import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import{useParams} from "react-router-dom";
 import '../styles/box.css';
 import '../styles/display.css';
 
-function CourseDisplay(props){
+function CourseDisplay(){
     const navigate = useNavigate();
-    console.log(props)
+    const[enq,setStaff] = useState([])
+
+    const{CourseCode} = useParams()
+
+    useEffect(()=>{
+        
+        axios
+        .get(`http://localhost:4500/courses/${CourseCode}`)
+        .then(
+            response =>{
+                console.log('promise fullfilled')
+                console.log(response)
+                setStaff(response.data)
+            }
+        )
+        
+    },[])
     return(
         <>
 
             <div >
             <h3 className="centerfooter">
-          Course {props.details.CourseCode} </h3>
+          Course Details  </h3>
           <div className="box1">
-          <h4 className="color">Name : {props.details.CourseName}</h4>
-          <h4 className="color">Code : {props.details.CourseCode}</h4>
-          <h4 className="color">Description: {props.details.Description}</h4>
-          <h4 className="color">Duration: {props.details.Duration}</h4>
-          <h4 className="color">Fee: {props.details.Fees}</h4>
-          <h4 className="color">Qualification: {props.details.Qualification}</h4>
-        
+          <h4 className="color">Name : {enq.CourseName}</h4>
+          <h4 className="color">Description : {enq.Description}</h4>
+          <h4 className="color">Duration: {enq.Duration}</h4>
+          <h4 className="color">Course Module: {enq.CourseModules}</h4>
+          <h4 className="color">Fee: {enq.Fees}</h4>
+          <h4 className="color">Qualification: {enq.Qualification}</h4>
           <div class="col col-3">
           <div className="butto">
           <button className="edit" onClick={()=>navigate(`/`)}> Home
           </button>
            <br/>
-           <button className="edit" onClick={()=>navigate(`/editcourses/${props.details.CourseCode}`)}> Edit
+           <button className="edit" onClick={()=>navigate(`/editcourses/${enq.CourseCode}`)}> Edit
           </button>
-          <button className="edit" onClick={()=>navigate(`/deletecourses/${props.details.CourseCode}`)}> Delete
-          </button>
-           <br/> 
+          <button className="edit" onClick={()=>navigate(`/deletecourses/${enq.CourseCode}`)}> Delete
+          </button> 
             </div>
             </div>
           </div>

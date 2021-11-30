@@ -61,7 +61,7 @@ function Login(){
         .then(response=>{
          alert(response.data.accessToken)
             localStorage.setItem('mytoken',response.data.accessToken);
-              window.location='/EnquiryList'
+              window.location='/'
               
         })
         .catch(error=>{
@@ -75,30 +75,31 @@ function Login(){
 
 
    
-  return(<div style={div}>
+  return(<div className="centers" //style={div}
+  >
 
      
-    <form onSubmit = {handleSubmit}>
+    <form className="formContent" onSubmit = {handleSubmit}>
       
       
        <div>
-      <label>Email: </label><br/>
-      <input style={header}type="email" name="email"placeholder="enter your email" onChange={handleChange} value={inputs.email || ""}/>
+      <label className="element">Email: </label><br/>
+      <input className="element" type="email" name="email"placeholder="enter your email" onChange={handleChange} value={inputs.email || ""}/>
       </div><br/>
 
       <div>
-      <label>Password: </label><br/>
-      <input style={header}type="password" name="password" placeholder="enter the password" onChange={handleChange} value={inputs.password || ""}/>
+      <label className="element">Password: </label><br/>
+      <input className="element" type="password" name="password" placeholder="enter the password" onChange={handleChange} value={inputs.password || ""}/>
       </div><br/>
 
       <div>
-      <label>User Type: </label><br/>
-      <input style={header}type="text" name="usertype" placeholder="enter the user type" onChange={handleChange} value={inputs.usertype || ""}/>
+      <label className="element">User Type: </label><br/>
+      <input className="element" type="text" name="usertype" placeholder="enter the user type" onChange={handleChange} value={inputs.usertype || ""}/>
       </div><br/>
 
       <div>
-      <label>Pin: </label><br/>
-      <input style={header}type="number" name="pin" placeholder="enter the pin" onChange={handleChange} value={inputs.pin || ""}/>
+      <label className="element">Pin: </label><br/>
+      <input className="element" type="number" name="pin" placeholder="enter the pin" onChange={handleChange} value={inputs.pin || ""}/>
       </div><br/>
 
       
