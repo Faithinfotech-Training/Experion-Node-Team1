@@ -58,7 +58,7 @@ return(
            title="Courses"
            menuVariant="dark">
            <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
-           {/* <NavDropdown.Item href="/courses">Courses 2</NavDropdown.Item> */}
+         
             </NavDropdown>
             <NavDropdown
            id="nav-dropdown-dark-example"
@@ -66,8 +66,7 @@ return(
            menuVariant="dark"
          >
            <NavDropdown.Item href="/resources">Resources</NavDropdown.Item>
-           {/* <NavDropdown.Item href="/resources">Resource 2</NavDropdown.Item> */}
-           
+          
         </NavDropdown>
         <Nav.Link href='/'>Home</Nav.Link>
         {!localStorage.getItem('mytoken')&&<div><Nav.Link href="/Login">Login</Nav.Link></div>}
