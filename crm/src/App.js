@@ -23,6 +23,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import EnquiryDisplay from "./pages/EnquiryDisplay";
+import Registerartion from "./pages/Registration";
 
 
 function App(){
@@ -66,9 +67,9 @@ return(
            
         </NavDropdown>
         <Nav.Link href='/'>Home</Nav.Link>
-        {!localStorage.getItem('mytoken')&&<div><Link to="/Login">Login</Link></div>}
-        {localStorage.getItem('mytoken')&&<div><Link onClick={()=>window.location='/Login'} to='/Login'>Logout</Link></div>}
-      <div ><Link className="a" to="/Register">Resources</Link></div>
+        {!localStorage.getItem('mytoken')&&<div><Nav.Link href="/Login">Login</Nav.Link></div>}
+        {localStorage.getItem('mytoken')&&<div><Nav.Link onClick={()=>window.location='/Login'} href='/Login'>Logout</Nav.Link></div>}
+      <Nav.Link className="a" href="/Register">Register</Nav.Link>
         <Nav.Link className="a"  href="/enquiry">Enquiry</Nav.Link>
         <Nav.Link className="a" href="/enquirylist">Enquiry List</Nav.Link>
         <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>
@@ -112,7 +113,7 @@ return(
     <Route path ="/" element={<Home/>}/> 
     <Route path ="/contact" element={<Contact/>}/>
     <Route path ="/Login" element={<Login/>}/>
-    <Route path ="/Register" element={<Register/>}/>
+    <Route path ="/Register" element={<Registerartion/>}/>
     <Route path ="/enquiry" element={<Enquiry/>}/>
     <Route path ="/addresource" element={<AddResource/>}/> 
     <Route path ="/addcourse" element={<AddCourses/>}/> 
@@ -124,6 +125,7 @@ return(
     <Route path ="/editresources/:ResourceCode" element={<EditResource/>}/>
     <Route path ="/queryview/:id" element={<EnquiryDisplay/>}/>
     <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
+
 
      {/* <Route path ="/resource/:id" element={<ViewAdmin/>}/> */}
     <Route path ="/resources" element={<Resources/>}/>      
