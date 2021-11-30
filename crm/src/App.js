@@ -23,9 +23,10 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import EnquiryDisplay from "./pages/EnquiryDisplay";
-import CourseList from "./pages/Courses/Courses";
-//import CourseDisplay from "./pages/Courses/CourseDetails";
-
+import Registerartion from "./pages/Registration";
+import CourseList from "./pages/Courses/CourseList";
+import CourseDisplay from "./pages/Courses/CourseDetails";
+import ResourceDisplay from "./pages/Resources/ResourceDetails";
 
 
 function App(){
@@ -57,21 +58,26 @@ return(
            title="Courses"
            menuVariant="dark">
            <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
-           <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
+           {/* <NavDropdown.Item href="/courses">Courses 2</NavDropdown.Item> */}
             </NavDropdown>
             <NavDropdown
            id="nav-dropdown-dark-example"
            title="Resource"
            menuVariant="dark"
          >
-           <NavDropdown.Item href="/resources">Resource</NavDropdown.Item>
-           <NavDropdown.Item href="/resources">Res 2</NavDropdown.Item>
+           <NavDropdown.Item href="/resources">Resources</NavDropdown.Item>
+           {/* <NavDropdown.Item href="/resources">Resource 2</NavDropdown.Item> */}
            
         </NavDropdown>
         <Nav.Link href='/'>Home</Nav.Link>
-        {!localStorage.getItem('mytoken')&&<div><Link to="/Login">Login</Link></div>}
-        {localStorage.getItem('mytoken')&&<div><Link onClick={()=>window.location='/Login'} to='/Login'>Logout</Link></div>}
-      <div ><Link className="a" to="/Register">Resources</Link></div>
+        {!localStorage.getItem('mytoken')&&<div><Nav.Link href="/Login">Login</Nav.Link></div>}
+        {localStorage.getItem('mytoken')&&<div><Nav.Link onClick={()=>window.location='/Login'} href='/Login'>Logout</Nav.Link></div>}
+      <Nav.Link className="a" href="/Register">Register</Nav.Link>
+        
+          {/* {!localStorage.getItem('mytoken')&&<div><Nav.Link href="/Login">Login</Nav.Link></div>}
+          {localStorage.getItem('mytoken')&&<div><Nav.Link onClick={()=>window.location='/Login'} href='/Login'>Logout</Nav.Link></div>}
+          
+      <div ><Nav.Link className="a" href="/Register">Resources</Nav.Link></div> */}
         <Nav.Link className="a"  href="/enquiry">Enquiry</Nav.Link>
         <Nav.Link className="a" href="/enquirylist">Enquiry List</Nav.Link>
         <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>
@@ -115,12 +121,17 @@ return(
     <Route path ="/" element={<Home/>}/> 
     <Route path ="/contact" element={<Contact/>}/>
     <Route path ="/Login" element={<Login/>}/>
-    <Route path ="/Register" element={<Register/>}/>
+    <Route path ="/Register" element={<Registerartion/>}/>
     <Route path ="/enquiry" element={<Enquiry/>}/>
     <Route path ="/addresource" element={<AddResource/>}/> 
     <Route path ="/addcourse" element={<AddCourses/>}/> 
     <Route path ="/enquirylist" element={<EnquiryList/>}/>
-    <Route path ="/courses" element={<CourseList/>}/>
+    <Route path ="/courses" element={<Courses/>}/> 
+    {/* <Route path ="/courselist" element={<CourseList/>}/> */}
+    {/* <Route path ="/courseview/:CourseCode" element={<CourseDisplay/>}/> */}
+
+    <Route path ="/courseview/:CourseCode" element={<CourseDisplay/>}/>
+    <Route path ="/resourceview/:ResourceCode" element={<ResourceDisplay/>}/>
     <Route path ="/editcourses/:CourseCode" element={<EditCourse/>}/>
     <Route path ="/deletecourses/:CourseCode" element={<CourseDelete/>}/>
     <Route path ="/deleteresources/:ResourceCode" element={<ResourceDelete/>}/>
@@ -130,6 +141,7 @@ return(
     
 
     
+
 
      {/* <Route path ="/resource/:id" element={<ViewAdmin/>}/> */}
     <Route path ="/resources" element={<Resources/>}/>      

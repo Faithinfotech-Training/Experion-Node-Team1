@@ -1,9 +1,10 @@
 //comment
 import {  useEffect, useState } from "react";
 import axios from "axios";
+import CourseList from "./CourseList";
 import CourseDisplay from "./CourseDetails";
 
-function CourseList(){
+function Courses(){
 
 
     const[courses,setStaffs] = useState([])
@@ -32,7 +33,7 @@ function CourseList(){
           <div>
               {courses.map(course=>
                 <li key={course.CourseCode}>
-                    <CourseDisplay details ={course}/>
+                    <CourseList details ={course}/>
                     </li>
                 )}
           </div>
@@ -46,4 +47,4 @@ function CourseList(){
 
 
 
-export default CourseList;
+export default Courses;

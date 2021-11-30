@@ -83,6 +83,15 @@ function AddResource(){
             required/>
             </div> */}
 
+            <div>
+            <label className="element">Image URL:</label>
+            <br></br>
+            <input className="element" type="text" name="url"
+            value={inputs.url || ""}
+            onChange={handleChange}
+            required/>
+            </div>
+
             
 
             <div>
