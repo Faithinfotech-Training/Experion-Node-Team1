@@ -12,7 +12,7 @@ function EnquirySummary(props){
   <ul class="responsive-table">
     <li class="table-header">
       <div class="col col-1"> </div>
-      <div class="col col-2"><h3>Course Name: <Link to={`/queryview/${props.details.id}`}> {props.details.course}</Link></h3></div>
+      <div class="col col-2"><h3>Enquiry Code: <Link to={`/queryview/${props.details.EnquiryId}`}> {props.details.EnquiryId}</Link></h3></div>
       <div class="col col-3">
       <div className="butto">
           {/* <button className="edit" onClick={()=>navigate(`/bookedit/${props.details.id}`)}>Edit

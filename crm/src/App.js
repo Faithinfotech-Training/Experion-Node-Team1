@@ -23,6 +23,9 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 import EnquiryDisplay from "./pages/EnquiryDisplay";
+import CourseList from "./pages/Courses/Courses";
+//import CourseDisplay from "./pages/Courses/CourseDetails";
+
 
 
 function App(){
@@ -117,13 +120,16 @@ return(
     <Route path ="/addresource" element={<AddResource/>}/> 
     <Route path ="/addcourse" element={<AddCourses/>}/> 
     <Route path ="/enquirylist" element={<EnquiryList/>}/>
-    <Route path ="/courses" element={<Courses/>}/>
+    <Route path ="/courses" element={<CourseList/>}/>
     <Route path ="/editcourses/:CourseCode" element={<EditCourse/>}/>
     <Route path ="/deletecourses/:CourseCode" element={<CourseDelete/>}/>
     <Route path ="/deleteresources/:ResourceCode" element={<ResourceDelete/>}/>
     <Route path ="/editresources/:ResourceCode" element={<EditResource/>}/>
-    <Route path ="/queryview/:id" element={<EnquiryDisplay/>}/>
-    <Route path ="/queryreview/:id" element={<ViewAdmin/>}/>
+    <Route path ="/queryview/:EnquiryId" element={<EnquiryDisplay/>}/>
+    <Route path ="/queryreview/:EnquiryId" element={<ViewAdmin/>}/>
+    
+
+    
 
      {/* <Route path ="/resource/:id" element={<ViewAdmin/>}/> */}
     <Route path ="/resources" element={<Resources/>}/>      

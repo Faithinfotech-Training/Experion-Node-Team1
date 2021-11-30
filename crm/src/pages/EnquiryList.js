@@ -14,7 +14,7 @@ function EnquiryList(){
 
     useEffect(()=>{
         axios
-        .get('http://localhost:3001/enquiry')
+        .get('http://localhost:4500/enquiries')
         .then(
             response =>{
                 console.log('promise fullfilled')

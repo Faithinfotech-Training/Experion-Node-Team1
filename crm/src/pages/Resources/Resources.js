@@ -3,7 +3,7 @@ import {  useEffect, useState } from "react";
 import axios from "axios";
 import ResourceDisplay from "./ResourceDetails";
 
-function EnquiryList(){
+function ResourceList(){
 
 
     const[resources,setStaffs] = useState([])
@@ -46,4 +46,4 @@ function EnquiryList(){
 
 
 
-export default EnquiryList;
+export default ResourceList;

@@ -7,11 +7,11 @@ import{useParams} from "react-router-dom";
 
 
 function ViewAdmin(){
-    const {id} = useParams()
+    const {EnquiryId} = useParams()
 
     return(
         <>
-        <MyForm id={id}/>
+        <MyForm EnquiryId={EnquiryId}/>
         </>
     );
 }
@@ -24,7 +24,7 @@ function MyForm(props){
     useEffect(()=>{
         
         axios
-        .get(`http://localhost:3001/enquiry/${props.id}`)
+        .get(`http://localhost:4500/enquiries/${props.EnquiryId}`)
         .then(
             response =>{
                 console.log('promise fullfilled')
@@ -47,7 +47,7 @@ function MyForm(props){
             console.log(inputs);
             //send info to server
             axios
-            .put(`http://localhost:3001/enquiry/${props.id}`,inputs)
+            .put(`http://localhost:4500/enquiries/${props.EnquiryId}`,inputs)
             .then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
@@ -68,8 +68,8 @@ function MyForm(props){
              <div>
             <label className="element">Please Enter Status:</label>
             <br></br>
-            <select className="element" type="text" name="resolution"
-            value={inputs.resolution || ""}
+            <select className="element" type="text" name="Status"
+            value={inputs.Status || ""}
             onChange={handleChange}
             required>
                 <option className="element" type="text" value="Accepted">Accepted</option>

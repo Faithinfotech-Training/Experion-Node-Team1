@@ -81,8 +81,8 @@ function MyForm(props){
             <div>
             <label className="element">Course Module:</label>
             <br></br>
-            <input className="element" type="text" name="CourseModule"
-            value={inputs.CourseModule || ""}
+            <input className="element" type="text" name="CourseModules"
+            value={inputs.CourseModules || ""}
             onChange={handleChange}
             required/>
             </div>
