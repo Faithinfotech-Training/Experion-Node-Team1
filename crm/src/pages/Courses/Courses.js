@@ -1,12 +1,12 @@
 //comment
 import {  useEffect, useState } from "react";
 import axios from "axios";
-import EnquiryDisplay from "./CourseDetails";
+import CourseList from "./CourseList";
 
-function EnquiryList(){
+function Courses(){
 
 
-    const[enquiries,setStaffs] = useState([])
+    const[courses,setStaffs] = useState([])
 
     
 
@@ -30,9 +30,9 @@ function EnquiryList(){
           Course List</h1>
           <p>
           <div>
-              {enquiries.map(enquiry=>
-                <li key={enquiry.CourseCode}>
-                    <EnquiryDisplay details ={enquiry}/>
+              {courses.map(course=>
+                <li key={course.CourseCode}>
+                    <CourseList details ={course}/>
                     </li>
                 )}
           </div>
@@ -46,4 +46,4 @@ function EnquiryList(){
 
 
 
-export default EnquiryList;
+export default Courses;

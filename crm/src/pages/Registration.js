@@ -263,7 +263,7 @@ function MyForm() {
         <input className="submit" type="submit" value="submit"  onClick={()=>{window.location="/login"}}/>
 
           <input className="submit" type="reset" value="exit"  onClick={()=>{
-              window.location="/Home"
+              window.location="/"
           }}  />
         </div>
       </form>
