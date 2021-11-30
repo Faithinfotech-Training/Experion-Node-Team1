@@ -34,18 +34,20 @@ function ResourceDisplay(){
         <h4 className="color">Resource Name : {enq.ResourceName}</h4>
         <h4 className="color">Description : {enq.Description}</h4>
         <h4 className="color">Fees: {enq.Fees}</h4>
-        <h4 className="color">Resource Modules: {enq.ResourceModules}</h4>
+        {/* <h4 className="color">Resource Modules: {enq.ResourceModules}</h4> */}
         {/* <h4 className="color">Resolution Status: {enq.resolution}</h4> */}
         
           <div class="col col-3">
           <div className="butto">
-          <button className="edit" onClick={()=>navigate(`/`)}> Home
+          <button className="edit" onClick={()=>navigate(`/resources`)}> Back
           </button>
            <br/>
+           {localStorage.getItem('mytoken')&&
            <button className="edit" onClick={()=>navigate(`/editresources/${enq.ResourceCode}`)}> Edit
-          </button>
+          </button>}
+          {localStorage.getItem('mytoken')&&
           <button className="edit" onClick={()=>navigate(`/deleteresources/${enq.ResourceCode}`)}> Delete
-          </button> 
+          </button> }
             </div>
             </div>
           </div>

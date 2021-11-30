@@ -1,10 +1,10 @@
 
 import {  useEffect, useState } from "react";
 import axios from "axios";
-import ResourceDisplay from "./ResourceDetails";
+//import ResourceDisplay from "./ResourceDetails";
 import ResourceList from "./ResourceList";
 
-function ResourceList(){
+function Resources(){
 
 
     const[resources,setStaffs] = useState([])
@@ -47,4 +47,4 @@ function ResourceList(){
 
 
 
-export default ResourceList;
+export default Resources;
