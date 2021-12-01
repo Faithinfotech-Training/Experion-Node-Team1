@@ -9,3 +9,6 @@ router.get('/:EnquiryId',enquirystatusController.findEnquiryById);
 router.put('/:EnquiryId',enquirystatusController.updateEnquiryStatus);
 router.delete('/:EnquiryId',enquirystatusController.deleteById);
 module.exports = router;
+
+
+

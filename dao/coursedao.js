@@ -42,3 +42,4 @@ var courseDao={
      return Course.update(updateCourse,{where:{CourseCode:CourseCode}});
  }
  module.exports=courseDao;
+ //comment

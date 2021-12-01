@@ -8,3 +8,4 @@ router.get('/:ResourceCode',resourceController.findResourceByCode);
 router.put('/:ResourceCode',resourceController.updateResource);
 router.delete('/:ResourceCode',resourceController.deleteByCode);
 module.exports = router;
+

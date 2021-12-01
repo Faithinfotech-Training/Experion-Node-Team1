@@ -42,3 +42,4 @@ var resourceDao={
      return Resource.update(updateResource,{where:{ResourceCode:ResourceCode}});
  }
  module.exports=resourceDao;
+ //comment

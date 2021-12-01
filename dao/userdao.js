@@ -44,3 +44,4 @@ var userDao={
      return User.update(updateUser,{where:{id:id}});
  }
  module.exports=userDao;
+ //comment

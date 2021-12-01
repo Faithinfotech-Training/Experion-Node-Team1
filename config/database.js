@@ -13,3 +13,4 @@ const db=new Sequelize('codegig','sqlite','Welcome123',{
 });
 
 module.exports=db;
+//comment

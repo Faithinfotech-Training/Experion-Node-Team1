@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db=require('../config/database');
 
 const EnquiryStatus=db.define('enquirystatus',{
-    
+   //comment 
 
     EnquiryId:{
         type:Sequelize.INTEGER,

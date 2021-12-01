@@ -59,3 +59,4 @@ var enquiryDao={
      return Enquiry.update(updateEnquiry,{where:{EnquiryId:EnquiryId}});
  }
  module.exports=enquiryDao;
+ //comment

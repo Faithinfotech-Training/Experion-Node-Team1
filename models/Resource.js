@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db=require('../config/database');
-
+//comment
 const Resource=db.define('resource',{
     ResourceCode:{
         type:Sequelize.INTEGER,
