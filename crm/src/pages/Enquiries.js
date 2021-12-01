@@ -203,15 +203,33 @@ function Enquiry(){
             event.preventDefault();
             console.log(inputs);
             //send info to server
-            axios
-            .post('http://localhost:4500/enquiries',inputs)
-            .then(response =>{
+            let endpoints = [
+                'http://localhost:4500/enquiries'
+              ];
+              
+              axios.all(endpoints.map((endpoint) => axios.post(endpoint,inputs))).then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
                 alert('Your query has been submitted')
                 window.location='/'
             })
         }
+
+
+
+
+
+
+
+        //     axios
+        //     .post('http://localhost:4500/enquiries',inputs)
+        //     .then(response =>{
+        //         console.log('promise fullfilled')
+        //         console.log(response)
+        //         alert('Your query has been submitted')
+        //         window.location='/'
+        //     })
+        // }
     return(
         <>
         <h1 className="head"></h1>
