@@ -6,14 +6,7 @@ import Table from 'react-bootstrap/Table'
  
 
 function ResourceEnquiryReport(props){
-var cstatus=""
-  if((props.details.rStatus)=="Available"){
-    cstatus="Not Available";
-  }
-  else{
-    cstatus="Available";
-  }
- 
+
 
     return(<>
 <Table stripped bordered hover size="sm">
@@ -24,7 +17,7 @@ var cstatus=""
       <td width="370">{props.details.resourceName}</td>
      
       <td width="170">{props.details.updatedAt.toString().substr(0 ,10)}</td>
-      <td width="170">{cstatus}</td>
+      <td width="170">{props.details.Previous_Status}</td>
       <td width="170">{props.details.rStatus}</td>
      
  

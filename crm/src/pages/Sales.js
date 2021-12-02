@@ -12,11 +12,11 @@ function Sales(props){
     <tr>
       <td width="170">{props.details.EnquiryId}</td>
       <td width="370">{props.details.Name}</td>
-      <td width="170">{props.details.Course_Name}</td>
+     
      
       <td width="170">{props.details.updatedAt.toString().substr(0 ,10)}</td>
-      
-      <td width="170">{props.details.Status}</td>
+      <td width="170">{props.details.Previous_Status}</td>
+      <td width="170">{props.details.Current_Status}</td>
      
  
     </tr></tbody></Table>

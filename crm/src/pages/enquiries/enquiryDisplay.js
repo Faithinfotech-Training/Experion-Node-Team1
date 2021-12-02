@@ -52,7 +52,7 @@ function EnquiryDisplay(){
  
           <h4 className="color">EnquiryDate: {enq.EnquiryDate}</h4>
           <h4 className="color">Enquiry: {enq.Enquiry}</h4>
-          <h4 className="color">Resolution Status: {enq.Status}</h4>
+          <h4 className="color">Resolution Status: {enq.Current_Status}</h4>
           <div class="col col-3">
           <div className="butto">
           <button className="edit" onClick={()=>navigate(`/queryreview/${enq.EnquiryId}`)}>Resolution Status

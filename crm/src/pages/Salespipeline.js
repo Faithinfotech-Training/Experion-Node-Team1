@@ -34,9 +34,9 @@ function CourseEnquiryStatus(){
      <tr>
        <th width="170">Enquiry Code</th>
        <th width="370">User Name</th>
-       <th width="170">Course Name</th>
+       {/* <th width="170">Course Name</th> */}
        <th width="170">Updated Date</th>
-       
+       <th width="170">Previous Status</th>
        <th width="170">Current Status</th>
      
     
