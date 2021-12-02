@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import axios from 'axios';
 import '../styles/forms.css'
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -9,6 +10,7 @@ import '../styles/forms.css'
 
 function AddResource(){
 
+    const navigate = useNavigate();
     const[inputs,setInputs] = useState({})
 
     function handleChange(event){
@@ -18,6 +20,8 @@ function AddResource(){
         setInputs(values => ({...values,[name]: value}))
     }
         function handleSubmit(event){
+           
+            
             event.preventDefault();
             console.log(inputs);
             //send info to server
@@ -27,7 +31,8 @@ function AddResource(){
                 console.log('promise fullfilled')
                 console.log(response)
                 alert('Resource Added')
-                window.location='/resources'
+                navigate('/resources');
+               
             })
         }
     return(

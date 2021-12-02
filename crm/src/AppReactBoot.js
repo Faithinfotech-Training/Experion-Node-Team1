@@ -71,3 +71,35 @@
 //   );
 // }
 
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+
+function Counter() {
+  const id=0;
+  const [count, setCount] = useState(id);
+    
+  // const incrementTwo = () =>{
+  //  for(let i =0;i<2;i++){
+  //    setCount(prevcount => prevcount + 1)
+  //  }
+  // }
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      {/* <input type="number" name="id"/> */}
+      <button onClick={() =>  setCount(id+1)}>
+        normal count 
+      </button>
+      <button onClick={() =>  setCount(id)}>
+        State 
+      </button>
+      <button onClick={() =>  setCount(prevcount => prevcount + 1)}>
+        inc
+      </button>
+      <button onClick={() => setCount(prevcount => prevcount - 1)}>dec</button>
+    </div>
+  );
+}
+
+export default Counter;

@@ -15,8 +15,6 @@ const router=express.Router();
 router.use(bodyParser.urlencoded({extended:false}));
 router.use(bodyParser.json());
 
-            
-    
 
 router.post('/register',(req,res)=>{
     const username=req.body.username;

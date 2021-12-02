@@ -1,0 +1,20 @@
+{
+  "enquiries": [
+    {
+      "EnquiryId": 1,
+      "Email_id": "testuser3@gmail.com",
+      "Name": "FirstName edit 3 LastName 3",
+      "mobile_number": "3333333333",
+      "Address": "addresss",
+      "HighestQualification": "qual",
+      "PercentageOfMarks": "56.8",
+      "YearOfPassout": "2009",
+      "Resource_Name": "res",
+      "Course_Name": "Course Two",
+      "dob": "2021-11-12",
+      "Status": "Selected",
+      "Prevstate": "",
+      "id": 1
+    }
+  ]
+}

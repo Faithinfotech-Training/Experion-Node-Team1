@@ -1,19 +1,19 @@
-//comment
+
 import {  useEffect, useState } from "react";
 import axios from "axios";
-import CourseList from "./CourseList";
-import CourseDisplay from "./CourseDetails";
+import ResourceDisplay from "./resourceDetails";
+import ResourceList from "./resourceList";
 
-function Courses(){
+function EnquiryList(){
 
 
-    const[courses,setStaffs] = useState([])
+    const[resources,setStaffs] = useState([])
 
     
 
     useEffect(()=>{
         axios
-        .get('http://localhost:4500/courses')
+        .get('http://localhost:4500/resources')
         .then(
             response =>{
                 console.log('promise fullfilled')
@@ -28,12 +28,12 @@ function Courses(){
   <>
   <div>
       <h1 className="centerfooter">
-          Course List</h1>
+          Resource List</h1>
           <p>
           <div>
-              {courses.map(course=>
-                <li key={course.CourseCode}>
-                    <CourseList details ={course}/>
+              {resources.map(resource=>
+                <li key={resource.id}>
+                    <ResourceList details ={resource}/>
                     </li>
                 )}
           </div>
@@ -47,4 +47,4 @@ function Courses(){
 
 
 
-export default Courses;
+export default EnquiryList;

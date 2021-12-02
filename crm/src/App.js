@@ -7,26 +7,34 @@ import Register from "./pages/Register"
 import { Navbar,NavDropdown,Container,Nav } from 'react-bootstrap';
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
-import Enquiry from "./pages/Enquiries";
-import EnquiryList from "./pages/EnquiryList";
-import Courses from "./pages/Courses/Courses";
-import Resources from "./pages/Resources/Resources";
-import ViewAdmin from "./pages/EnquiryViewAdmin";
-import AddResource from "./pages/Resources/AddResource";
-import AddCourses from "./pages/Courses/AddCourses";
-import EditCourse from "./pages/Courses/EditCourses";
-import EditResource from "./pages/Resources/EditResources";
-import CourseDelete from "./pages/Courses/DeleteCourses";
-import ResourceDelete from "./pages/Resources/DeleteResources";
+import Enquiry from "./pages/enquiries/enquiriesIndex";
+import ResEnquiry from "./pages/enquiriesResources/enquiriesResIndex";
+import EnquiryList from "./pages/enquiries/enquiryList";
+import ResEnquiryList from "./pages/enquiriesResources/enquiryResList";
+import Courses from "./pages/courses/coursesIndex";
+import Resources from "./pages/resources/resourceIndex";
+import ViewAdmin from "./pages/enquiries/enquiryViewAdmin";
+import ResViewAdmin from "./pages/enquiriesResources/enquiryResViewAdmin";
+import AddResource from "./pages/resources/addResource";
+import AddCourses from "./pages/courses/addCourses";
+import EditCourse from "./pages/courses/editCourses";
+import EditResource from "./pages/resources/editResources";
+import CourseDelete from "./pages/courses/deleteCourses";
+import ResourceDelete from "./pages/resources/deleteResources";
 import './pages/styles/headers.css'
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Dropdown from 'react-bootstrap/Dropdown';
-import EnquiryDisplay from "./pages/EnquiryDisplay";
+import EnquiryDisplay from "./pages/enquiries/enquiryDisplay";
+import ResEnquiryDisplay from "./pages/enquiriesResources/enquiryResDisplay";
 import Registerartion from "./pages/Registration";
-import CourseList from "./pages/Courses/CourseList";
-import CourseDisplay from "./pages/Courses/CourseDetails";
-import ResourceDisplay from "./pages/Resources/ResourceDetails";
+import CourseList from "./pages/courses/courseList";
+import CourseDisplay from "./pages/courses/courseDetails";
+import ResourceDisplay from "./pages/resources/resourceDetails";
+import AddEvent from "./pages/EventsAndAnnouncements/AddEvent";
+import Events from "./pages/EventsAndAnnouncements/Events";
+import EditEvent from "./pages/EventsAndAnnouncements/EditEvents";
+import EventDelete from "./pages/EventsAndAnnouncements/DeleteEvents";
 
 
 function App(){
@@ -72,14 +80,14 @@ return(
         {!localStorage.getItem('mytoken')&&<div><Nav.Link href="/Login">Login</Nav.Link></div>}
         {localStorage.getItem('mytoken')&&<div><Nav.Link onClick={()=>window.location='/Login'} href='/Login'>Logout</Nav.Link></div>}
       <Nav.Link className="a" href="/Register">Register</Nav.Link>
-        
-          {/* {!localStorage.getItem('mytoken')&&<div><Nav.Link href="/Login">Login</Nav.Link></div>}
-          {localStorage.getItem('mytoken')&&<div><Nav.Link onClick={()=>window.location='/Login'} href='/Login'>Logout</Nav.Link></div>}
-          
-      <div ><Nav.Link className="a" href="/Register">Resources</Nav.Link></div> */}
-        <Nav.Link className="a"  href="/enquiry">Enquiry</Nav.Link>
+        <Nav.Link className="a"  href="/enquiry"> Course Enquiry</Nav.Link>
+        <Nav.Link className="a"  href="/resenquiry"> Resource Enquiry</Nav.Link>
+        <Nav.Link className="a"  href="/events">Events</Nav.Link>
+        <Nav.Link className="a"  href="/addevent">Add Event</Nav.Link>
         {localStorage.getItem('mytoken')&&
         <Nav.Link className="a" href="/enquirylist">Enquiry List</Nav.Link>}
+        {localStorage.getItem('mytoken')&&
+        <Nav.Link className="a" href="/resenquirylist"> Resource Enquiry List</Nav.Link>}
         {localStorage.getItem('mytoken')&&
         <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>}
         {localStorage.getItem('mytoken')&&
@@ -90,34 +98,7 @@ return(
   </Container>
 </Navbar>
 
-        {/* <div className="header">
-        <a  class="logo">CRM Project</a>
-        <div className="header-right"  >
-      
-      <div >
-        <Link className="a" className="active" to="/">Home</Link></div></div>
-        
-      <div >
-        
-          <Link className="a"   to="/courses">Courses</Link>
-       
-        
-      </div>
-      
-{!localStorage.getItem('mytoken')&&<div><Link to="/Login">Login</Link></div>}
-        {localStorage.getItem('mytoken')&&<div><Link onClick={()=>window.location='/Login'} to='/Login'>Logout</Link></div>}
-      <div ><Link className="a" to="/Register">Resources</Link></div>
-      <div ><Link className="a" to="/resources">Resources</Link></div>
-      <div ><Link className="a" to="/addresource">Add Resources</Link></div>
-      <div ><Link className="a" to="/addcourse">Add Courses</Link></div>
-      <div ><Link className="a"  to="/enquiry">Enquiry</Link></div>
-      <div ><Link className="a" to="/enquirylist">Enquiry List</Link></div>
-      <div ><Link className="a" to="/contact">Contact Us</Link></div>
-      
-      </div>
-      <div ><Link className="a" to="/resources">Resources</Link></div> 
-      </div> */}
-
+    
 
   <Routes>
     <Route path ="/" element={<Home/>}/> 
@@ -125,11 +106,16 @@ return(
     <Route path ="/Login" element={<Login/>}/>
     <Route path ="/Register" element={<Registerartion/>}/>
     <Route path ="/enquiry" element={<Enquiry/>}/>
-    <Route path ="/addresource" element={<AddResource/>}/> 
+    <Route path ="/resenquiry" element={<ResEnquiry/>}/>
+    <Route path ="/addresource" element={<AddResource/>}/>
+    <Route path ="/addevent" element={<AddEvent/>}/>
+     
     {localStorage.getItem('mytoken')&&
     <Route path ="/addcourse" element={<AddCourses/>}/> }
     {localStorage.getItem('mytoken')&&
     <Route path ="/enquirylist" element={<EnquiryList/>}/>}
+    {localStorage.getItem('mytoken')&&
+    <Route path ="/resenquirylist" element={<ResEnquiryList/>}/>}
     
     <Route path ="/courses" element={<Courses/>}/> 
     {/* <Route path ="/courselist" element={<CourseList/>}/> */}
@@ -141,18 +127,22 @@ return(
     <Route path ="/resourceview/:ResourceCode" element={<ResourceDisplay/>}/>
 
     <Route path ="/editcourses/:CourseCode" element={<EditCourse/>}/>
- 
+    <Route path ="/editevents/:EventCode" element={<EditEvent/>}/>
+    <Route path ="/deleteevents/:EventCode" element={<EventDelete/>}/>
     <Route path ="/deletecourses/:CourseCode" element={<CourseDelete/>}/>
 
     <Route path ="/deleteresources/:ResourceCode" element={<ResourceDelete/>}/>
 
     <Route path ="/editresources/:ResourceCode" element={<EditResource/>}/>
     <Route path ="/queryview/:EnquiryId" element={<EnquiryDisplay/>}/>
+    <Route path ="/resqueryview/:rEnquiryId" element={<ResEnquiryDisplay/>}/>
     <Route path ="/queryreview/:EnquiryId" element={<ViewAdmin/>}/>
+    <Route path ="/rqueryreview/:rEnquiryId" element={<ResViewAdmin/>}/>
 
 
      {/* <Route path ="/resource/:id" element={<ViewAdmin/>}/> */}
-    <Route path ="/resources" element={<Resources/>}/>      
+    <Route path ="/resources" element={<Resources/>}/> 
+    <Route path ="/events" element={<Events/>}/>      
   </Routes>
     
     <br/><br/><br/>

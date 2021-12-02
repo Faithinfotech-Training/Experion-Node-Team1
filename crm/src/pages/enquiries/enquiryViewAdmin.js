@@ -1,14 +1,8 @@
 
-
- 
 import {useState,useEffect} from 'react';
 import axios from 'axios';
 import{useParams} from "react-router-dom";
- 
- 
- 
- 
- 
+
 function ViewAdmin(){
     const {EnquiryId} = useParams()
  
@@ -19,23 +13,30 @@ function ViewAdmin(){
     );
 }
  
-function MyForm(props){
- 
- 
+function MyForm(props)
+{
+
     const[inputs,setInputs] = useState({});
- 
+
     useEffect(()=>{
        
         axios
         .get(`http://localhost:4500/enquiries/${props.EnquiryId}`)
         .then(
-            response =>{
-                console.log('promise fullfilled')
-                console.log(response)
+            function (response){
+                // console.log('promise fullfilled')
+                //console.log(response)
+                doaccess(response.data.Status);
                 setInputs(response.data)
+                
             }
         )
-       
+
+        function doaccess(stat)
+        {
+            console.log(stat);
+        }
+        
     },[])
  
     function handleChange(event){
@@ -48,6 +49,7 @@ function MyForm(props){
     function handleSubmit(event){
             event.preventDefault();
             console.log(inputs);
+
             //send info to server
             axios
             .put(`http://localhost:4500/enquiries/${props.EnquiryId}`,inputs)
@@ -55,7 +57,7 @@ function MyForm(props){
                 console.log('promise fullfilled')
                 console.log(response)
                 alert("The resolution status is updated")
-                window.location='/enquirylist';
+                // window.location='/enquirylist';
             })
         }
     return(
@@ -63,11 +65,8 @@ function MyForm(props){
         <h1 className="centerfooter">Resolution Status</h1>
         <div className="centers">
         <form className="formContent" onSubmit={handleSubmit}>
- 
-           
- 
-           
- 
+            
+
              <div>
             <label className="element">Please Enter Status:</label>
             <br></br>
@@ -82,23 +81,16 @@ function MyForm(props){
                 <option className="element" type="text" value="Pending">Pending</option>
             </select>
             <br></br>
- 
-           
-             
             </div>  
- 
             <div>
                 <br></br>
-            <input className="submit" type="submit"/>
+            <input className="submit" type="submit" 
+            />
             </div>
         </form>
         </div>
         </>
     )
 }
- 
- 
- 
- 
- 
+
 export default ViewAdmin;
