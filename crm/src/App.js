@@ -36,6 +36,11 @@ import Events from "./pages/EventsAndAnnouncements/Events";
 import EditEvent from "./pages/EventsAndAnnouncements/EditEvents";
 import EventDelete from "./pages/EventsAndAnnouncements/DeleteEvents";
 
+// import CourseList from "./pages/Courses/CourseList";
+// import CourseDisplay from "./pages/Courses/CourseDetails";
+// import ResourceDisplay from "./pages/Resources/ResourceDetails";
+import Bootstraptab from "./pages/Salespipeline";
+import TableExample from "./pages/Salespipeline";
 
 function App(){
   return(
@@ -93,6 +98,7 @@ return(
         {localStorage.getItem('mytoken')&&
         <Nav.Link className="a" href="/addcourse">Add Courses</Nav.Link>}
         <Nav.Link className="a" href="/contact">Contact Us</Nav.Link>
+        <Nav.Link className="a" href="/salespipeline">SalesPipeline</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Container>
@@ -103,6 +109,7 @@ return(
   <Routes>
     <Route path ="/" element={<Home/>}/> 
     <Route path ="/contact" element={<Contact/>}/>
+    <Route path ="/salespipeline" element={<TableExample/>}/>
     <Route path ="/Login" element={<Login/>}/>
     <Route path ="/Register" element={<Registerartion/>}/>
     <Route path ="/enquiry" element={<Enquiry/>}/>

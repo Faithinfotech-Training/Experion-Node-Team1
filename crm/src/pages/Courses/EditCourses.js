@@ -44,13 +44,26 @@ function MyForm(props){
             event.preventDefault();
             console.log(inputs);
             //send info to server
+          
+
+           
+
+             
+           
+
+
+            if (window.confirm("Do you want to save changes?")) {
+
             axios
             .put(`http://localhost:4500/courses/${props.CourseCode}`,inputs)
             .then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
                 alert("The course details are updated")
-            })
+            })}
+            // else{
+            //     window.location=`/editcourses/${props.CourseCode}`
+            // }
         }
     return(
         <>

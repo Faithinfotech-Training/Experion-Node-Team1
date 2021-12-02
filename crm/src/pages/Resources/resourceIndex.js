@@ -1,10 +1,12 @@
 
 import {  useEffect, useState } from "react";
 import axios from "axios";
-import ResourceDisplay from "./resourceDetails";
+// import ResourceDisplay from "./resourceDetails";
 import ResourceList from "./resourceList";
+//import ResourceDisplay from "./ResourceDetails";
+// import ResourceList from "./ResourceList";
 
-function EnquiryList(){
+function Resources(){
 
 
     const[resources,setStaffs] = useState([])
@@ -47,4 +49,4 @@ function EnquiryList(){
 
 
 
-export default EnquiryList;
+export default Resources;
