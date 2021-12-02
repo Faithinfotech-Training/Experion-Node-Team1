@@ -35,7 +35,7 @@ import AddEvent from "./pages/EventsAndAnnouncements/AddEvent";
 import Events from "./pages/EventsAndAnnouncements/Events";
 import EditEvent from "./pages/EventsAndAnnouncements/EditEvents";
 import EventDelete from "./pages/EventsAndAnnouncements/DeleteEvents";
-
+//Course
 // import CourseList from "./pages/Courses/CourseList";
 // import CourseDisplay from "./pages/Courses/CourseDetails";
 // import ResourceDisplay from "./pages/Resources/ResourceDetails";
