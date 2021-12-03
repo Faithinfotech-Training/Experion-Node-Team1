@@ -6,6 +6,17 @@ import ResourceList from "./resourceList";
 //import ResourceDisplay from "./ResourceDetails";
 // import ResourceList from "./ResourceList";
 
+
+function handleHomeChange(props){
+    axios
+    .put(`http://localhost:4500/pagevisits/${props}`)
+    .then(response =>{
+        console.log('promise fullfilled')
+        console.log(response)
+      
+        // window.location='/enquirylist';
+    })
+  }
 function Resources(){
 
 
@@ -14,6 +25,7 @@ function Resources(){
     
 
     useEffect(()=>{
+        {handleHomeChange(3)}
         axios
         .get('http://localhost:4500/resources')
         .then(

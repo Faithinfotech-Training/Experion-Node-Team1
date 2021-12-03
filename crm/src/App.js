@@ -37,6 +37,7 @@ import EditEvent from "./pages/EventsAndAnnouncements/EditEvents";
 import EventDelete from "./pages/EventsAndAnnouncements/DeleteEvents";
 import Bootstraptab from "./pages/Salespipeline";
 import TableExample from "./pages/Salespipeline";
+import Barchartss from "./pages/siteVisit/chart";
 
 function App(){
   return(
@@ -50,10 +51,25 @@ function App(){
   )
 }
 
+// function handleHomeChange(props){
+//   axios
+//   .put(`http://localhost:4500/pagevisits/${props}`)
+//   .then(response =>{
+//       console.log('promise fullfilled')
+//       console.log(response)
+    
+//       // window.location='/enquirylist';
+//   })
+// }
+
+
+
+
 function Header(){
 return(
   
       <Router>
+       
         <Navbar variant="dark" bg="dark" expand="lg">
      <Container fluid>
 
@@ -61,28 +77,30 @@ return(
    <Navbar.Toggle aria-controls="navbar-dark-example" />
     <Navbar.Collapse id="navbar-dark-example">
      
-      <Nav>
-      <NavDropdown
+       <Nav> 
+      {/* <NavDropdown
            id="nav-dropdown-dark-example"
            title="Courses"
-           menuVariant="dark">
-           <NavDropdown.Item href="/courses">Courses</NavDropdown.Item>
+           menuVariant="dark"> */}
+           <Nav.Link href="/courses">Courses</Nav.Link>
          
-            </NavDropdown>
-            <NavDropdown
-           id="nav-dropdown-dark-example"
+            {/* </NavDropdown>
+            <NavDropdown */}
+           {/* id="nav-dropdown-dark-example"
            title="Resource"
            menuVariant="dark"
-         >
-           <NavDropdown.Item href="/resources">Resources</NavDropdown.Item>
+         > */}
+           <Nav.Link href="/resources" >Resources</Nav.Link>
           
-        </NavDropdown>
-        <Nav.Link href='/'>Home</Nav.Link>
+        {/* </NavDropdown> */}
+        <Nav.Link href='/'  >Home</Nav.Link>
+        <Nav.Link href="/resources">Resources</Nav.Link>
         {!localStorage.getItem('mytoken')&&<div><Nav.Link href="/Login">Login</Nav.Link></div>}
         {localStorage.getItem('mytoken')&&<div><Nav.Link onClick={()=>window.location='/Login'} href='/Login'>Logout</Nav.Link></div>}
       <Nav.Link className="a" href="/Register">Register</Nav.Link>
-        <Nav.Link className="a"  href="/enquiry"> Course Enquiry</Nav.Link>
+        <Nav.Link className="a"  href="/enquiry" > Course Enquiry</Nav.Link>
         <Nav.Link className="a"  href="/resenquiry"> Resource Enquiry</Nav.Link>
+       
         <Nav.Link className="a"  href="/events">Events</Nav.Link>
         <Nav.Link className="a"  href="/addevent">Add Event</Nav.Link>
         {localStorage.getItem('mytoken')&&
@@ -95,6 +113,7 @@ return(
         <Nav.Link className="a" href="/addcourse">Add Courses</Nav.Link>}
         <Nav.Link className="a" href="/contact">Contact Us</Nav.Link>
         <Nav.Link className="a" href="/salespipeline">SalesPipeline</Nav.Link>
+        <Nav.Link className="a" href="/sitevisit">Site Visit</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Container>
@@ -103,7 +122,8 @@ return(
     
 
   <Routes>
-    <Route path ="/" element={<Home/>}/> 
+    <Route path ="/"   element={<Home/>}/> 
+    <Route path ="/sitevisit"   element={<Barchartss/>}/> 
     <Route path ="/contact" element={<Contact/>}/>
     <Route path ="/salespipeline" element={<TableExample/>}/>
     <Route path ="/Login" element={<Login/>}/>

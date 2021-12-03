@@ -26,16 +26,13 @@ function MyForm(props)
             function (response){
                 // console.log('promise fullfilled')
                 //console.log(response)
-                doaccess(response.data.Status);
+                //doaccess(response.data.Status);
                 setInputs(response.data)
                 
             }
         )
 
-        function doaccess(stat)
-        {
-            console.log(stat);
-        }
+      
         
     },[])
  
@@ -71,7 +68,7 @@ function MyForm(props)
             <label className="element">Please Enter Status:</label>
             <br></br>
             <select className="element" type="text" name="Current_Status"
-            value={inputs.Current_Status || ""}
+            // value={inputs.Current_Status || ""}
             onChange={handleChange}
             required>
                 <option className="element" type="text" value="Accepted">Accepted</option>
