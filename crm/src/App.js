@@ -90,7 +90,7 @@ return(
            title="Resource"
            menuVariant="dark"
          > */}
-           <Nav.Link href="/resources" >Resources</Nav.Link>
+          
           
         {/* </NavDropdown> */}
         <Nav.Link href='/'  >Home</Nav.Link>
