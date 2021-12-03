@@ -5,18 +5,20 @@ import Table from 'react-bootstrap/Table'
 
  
 
-function Sales(props){
+function ResourceEnquiryReport(props){
+
+
     return(<>
 <Table stripped bordered hover size="sm">
 <tbody>
     <tr>
-      <td width="170">{props.details.EnquiryId}</td>
-      <td width="370">{props.details.Name}</td>
-     
+      <td width="170">{props.details.rEnquiryId}</td>
+      {/* <td width="370">{props.details.Name}</td> */}
+      <td width="370">{props.details.resourceName}</td>
      
       <td width="170">{props.details.updatedAt.toString().substr(0 ,10)}</td>
       <td width="170">{props.details.Previous_Status}</td>
-      <td width="170">{props.details.Current_Status}</td>
+      <td width="170">{props.details.rStatus}</td>
      
  
     </tr></tbody></Table>
@@ -27,7 +29,7 @@ function Sales(props){
  
  
 
-export default Sales
+export default ResourceEnquiryReport
 
 
 

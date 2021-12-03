@@ -161,7 +161,6 @@ function Enquiry(){
             onChange={handleChange}
             required>
                 <option className="element" type="text" value="Python">Python</option>
-                <option className="element" type="text" value="Web Development">Web Development</option>
                 <option className="element" type="text" value="Signals And Systems">Signals And Systems</option>
             </select>
             </div>

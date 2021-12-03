@@ -70,8 +70,8 @@ function MyForm(props)
              <div>
             <label className="element">Please Enter Status:</label>
             <br></br>
-            <select className="element" type="text" name="Status"
-            value={inputs.Status || ""}
+            <select className="element" type="text" name="Current_Status"
+            value={inputs.Current_Status || ""}
             onChange={handleChange}
             required>
                 <option className="element" type="text" value="Accepted">Accepted</option>
