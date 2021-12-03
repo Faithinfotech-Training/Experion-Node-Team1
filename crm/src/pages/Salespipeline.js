@@ -27,7 +27,7 @@ function CourseEnquiryStatus(){
        
     },[])
     return(<>
-     <h3> SalesPipeline Report</h3>
+     <h3 className="centerfooter"> Activity Log - Course</h3>
  <br/>
   <Table stripped bordered hover size="sm">
    <thead>
@@ -53,7 +53,7 @@ function CourseEnquiryStatus(){
           
         </li>
       )}
-      
+      <br/>
       
               </>)
       }
@@ -73,13 +73,13 @@ function CourseEnquiryStatus(){
              
           },[])
           return(<>
-           <h3> SalesPipeline Report</h3>
+           <h3 className="centerfooter"> Activity Log - Resource </h3>
        <br/>
         <Table stripped bordered hover size="sm">
          <thead>
            <tr>
              <th width="170">Enquiry Code</th>
-             <th width="370">User Name</th>
+             <th width="370">Resource Name</th>
              {/* <th width="170">Resource Name</th> */}
              <th width="170">Updated Date</th>
              <th width="170">Previous Status</th>
