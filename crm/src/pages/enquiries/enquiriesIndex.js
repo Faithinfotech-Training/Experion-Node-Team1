@@ -160,8 +160,8 @@ function Enquiry(){
             value={inputs.Course_Name || ""}
             onChange={handleChange}
             required>
-                <option className="element" type="text" value="Course1">Select Course</option>
-                <option className="element" type="text" value="Course2">Course2</option>
+                <option className="element" type="text" value="Python">Python</option>
+                <option className="element" type="text" value="Signals And Systems">Signals And Systems</option>
             </select>
             </div>
  
