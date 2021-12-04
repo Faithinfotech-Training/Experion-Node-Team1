@@ -21,6 +21,7 @@ function Resources(){
 
 
     const[resources,setStaffs] = useState([])
+    const[searchTerm,setSearchTerm] = useState("");
 
     
 
@@ -43,13 +44,37 @@ function Resources(){
   <div>
       <h1 className="centerfooter">
           Resource List</h1>
+          <input type="text" placeholder="search" onChange={(event)=>{setSearchTerm(event.target.value);
+          }}/>
           <p>
           <div>
-              {resources.map(resource=>
+          {resources.filter((resource)=>{
+                  if(searchTerm==""){
+                      return resource
+                  }
+                  else if (resource.ResourceName.toLowerCase().includes(searchTerm.toLowerCase())){
+                      return (
+                      <li key={resource.ResourceCode}>
+                      <ResourceList details ={resource}/>
+                      </li>)
+                   
+              }
+             
+            }).map((resource,key)=>{
+           
+  return(
+                <li style={{listStyleType:"none"}} key={resource.ResourceCode}>
+                    <ResourceList details ={resource}/>
+                    </li>
+                  )
+ } 
+ )
+ }
+              {/* {resources.map(resource=>
                 <li key={resource.id}>
                     <ResourceList details ={resource}/>
                     </li>
-                )}
+                )} */}
           </div>
           </p>
       

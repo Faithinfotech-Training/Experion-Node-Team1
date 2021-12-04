@@ -21,23 +21,19 @@ import EditCourse from "./pages/courses/editCourses";
 import EditResource from "./pages/resources/editResources";
 import CourseDelete from "./pages/courses/deleteCourses";
 import ResourceDelete from "./pages/resources/deleteResources";
-import './pages/styles/headers.css'
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
 import EnquiryDisplay from "./pages/enquiries/enquiryDisplay";
 import ResEnquiryDisplay from "./pages/enquiriesResources/enquiryResDisplay";
 import Registerartion from "./pages/Registration";
 import CourseDisplay from "./pages/courses/courseDetails";
 import ResourceDisplay from "./pages/resources/resourceDetails";
-import AddEvent from "./pages/EventsAndAnnouncements/AddEvent";
-import Events from "./pages/EventsAndAnnouncements/Events";
-import EditEvent from "./pages/EventsAndAnnouncements/EditEvents";
-import EventDelete from "./pages/EventsAndAnnouncements/DeleteEvents";
 import EnquiryDelete from "./pages/enquiries/enquiryDelete";
-import Bootstraptab from "./pages/Salespipeline";
+// import Bootstraptab from "./pages/Salespipeline";
 import TableExample from "./pages/Salespipeline";
 import Barchartss from "./pages/siteVisit/chart";
-import ResEnquiryDelete from './pages/enquiriesResources/enquiryResDelete'
+import ResEnquiryDelete from './pages/enquiriesResources/enquiryResDelete';
+import './pages/styles/headers.css'
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   return (

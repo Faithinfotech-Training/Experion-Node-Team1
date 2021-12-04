@@ -19,6 +19,7 @@ function Courses(){
 
 
     const[courses,setStaffs] = useState([])
+    const[searchTerm,setSearchTerm] = useState("");
 
     
 
@@ -41,13 +42,39 @@ function Courses(){
   <div>
       <h1 className="centerfooter">
           Course List</h1>
+          <input type="text" placeholder="search" onChange={(event)=>{setSearchTerm(event.target.value);
+          }}/>
           <p>
           <div>
-              {courses.map(course=>
+
+
+          {courses.filter((course)=>{
+                  if(searchTerm==""){
+                      return course
+                  }
+                  else if (course.CourseName.toLowerCase().includes(searchTerm.toLowerCase())){
+                      return (
+                      <li key={course.CourseCode}>
+                      <CourseList details ={course}/>
+                      </li>)
+                   
+              }
+             
+            }).map((course,key)=>{
+           
+  return(
+                <li style={{listStyleType:"none"}} key={course.CourseCode}>
+                    <CourseList details ={course}/>
+                    </li>
+                  )
+ } 
+ )
+ }
+              {/* {courses.map(course=>
                 <li key={course.CourseCode}>
                     <CourseList details ={course}/>
                     </li>
-                )}
+                )} */}
           </div>
           </p>
       
