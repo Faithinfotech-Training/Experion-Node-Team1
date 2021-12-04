@@ -17,8 +17,7 @@ function ResEnquiryDisplay(){
         .get(`http://localhost:4500/resenquiries/${rEnquiryId}`)
         .then(
             response =>{
-                console.log('promise fullfilled')
-                console.log(response)
+                
                 setStaff(response.data)
             }
         )

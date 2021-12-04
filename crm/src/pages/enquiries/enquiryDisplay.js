@@ -43,13 +43,6 @@ function EnquiryDisplay(){
           <h4 className="color">PercentageOfMarks : {enq.PercentageOfMarks}</h4>
           <h4 className="color">YearOfPassout: {enq.YearOfPassout}</h4>
           <h4 className="color">Course_Name : {enq.Course_Name}</h4>
-          <h4 className="color">Resource_Name : {enq.Resource_Name}</h4>
- 
- 
- 
- 
- 
- 
           <h4 className="color">EnquiryDate: {enq.EnquiryDate}</h4>
           <h4 className="color">Enquiry: {enq.Enquiry}</h4>
           <h4 className="color">Resolution Status: {enq.Current_Status}</h4>

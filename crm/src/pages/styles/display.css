@@ -8,6 +8,10 @@ body {
     padding-left: 10px;
     padding-right: 10px;
   }
+
+  ul.ba {
+    list-style-type: none;
+}
   
   h2 {
     font-size: 26px;

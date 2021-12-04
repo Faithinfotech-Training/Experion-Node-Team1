@@ -17,9 +17,9 @@ function ResEnquirySummary(props){
       <div className="butto">
           {/* <button className="edit" onClick={()=>navigate(`/bookedit/${props.details.id}`)}>Edit
           </button>
-           <br/><br/>
-           <button className="delete" onClick={()=>navigate(`/bookdelete/${props.details.id}`)}>Delete
-            </button> */}
+           <br/><br/>*/}
+           <button className="delete" onClick={()=>navigate(`/resenqdelete/${props.details.rEnquiryId}`)}>Delete
+            </button> 
             </div>
         </div>
       </li>

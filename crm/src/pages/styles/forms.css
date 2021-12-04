@@ -189,6 +189,10 @@ input[type=text],input[type=tel],input[type=number],input[type=date],input[type=
   border-radius: 5px 5px 5px 5px;
 }
 
+ul.ba {
+  list-style-type: none;
+}
+
 input[type=text],input[type=tel],input[type=number],input[type=select],input[type=date],input[type=email],input[type=password]:focus {
   background-color: #fff;
   border-bottom: 2px solid #868a8a;

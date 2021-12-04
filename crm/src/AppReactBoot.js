@@ -1,105 +1,153 @@
 // import React from 'react';
 // import 'bootstrap/dist/css/bootstrap.css';
-// import { MDBCard, MDBCardBody,MDBRow,MDBCol, MDBCardTitle, MDBCardText, MDBCardImage, MDBBtn, MDBRipple } from 'mdb-react-ui-kit';
+//import { MDBCard, MDBCardBody,MDBRow,MDBCol, MDBCardTitle, MDBCardText, MDBCardImage, MDBBtn, MDBRipple } from 'mdb-react-ui-kit';
+
+// import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
 
 // export default function App() {
 //   return (
-//     <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
-//       <MDBCol>
-//         <MDBCard className='h-100'>
-//         <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-//           <MDBCardImage
-//             src='https://mdbcdn.b-cdn.net/img/new/standard/city/041.jpg'
-//             alt='...'
-//             position='top'
-//           />
-//           </MDBRipple>
-//           <MDBCardBody>
-//             <MDBCardTitle>Card title</MDBCardTitle>
-//             <MDBCardText>
-//               This is a longer card with supporting text below as a natural lead-in to additional content.
-//               This content is a little bit longer.
-//             </MDBCardText>
-//           </MDBCardBody>
-//         </MDBCard>
-//       </MDBCol>
-//       <MDBCol>
-//         <MDBCard className='h-100'>
-//           <MDBCardImage
-//             src='https://mdbcdn.b-cdn.net/img/new/standard/city/042.jpg'
-//             alt='...'
-//             position='top'
-//           />
-//           <MDBCardBody>
-//             <MDBCardTitle>Card title</MDBCardTitle>
-//             <MDBCardText>This is a short card.</MDBCardText>
-//           </MDBCardBody>
-//         </MDBCard>
-//       </MDBCol>
-//       <MDBCol>
-//         <MDBCard className='h-100'>
-//           <MDBCardImage
-//             src='https://mdbcdn.b-cdn.net/img/new/standard/city/043.jpg'
-//             alt='...'
-//             position='top'
-//           />
-//           <MDBCardBody>
-//             <MDBCardTitle>Card title</MDBCardTitle>
-//             <MDBCardText>
-//               This is a longer card with supporting text below as a natural lead-in to additional content.
-//             </MDBCardText>
-//           </MDBCardBody>
-//         </MDBCard>
-//       </MDBCol>
-//       <MDBCol>
-//         <MDBCard className='h-100'>
-//           <MDBCardImage
-//             src='https://mdbcdn.b-cdn.net/img/new/standard/city/044.jpg'
-//             alt='...'
-//             position='top'
-//           />
-//           <MDBCardBody>
-//             <MDBCardTitle>Card title</MDBCardTitle>
-//             <MDBCardText>
-//               This is a longer card with supporting text below as a natural lead-in to additional content.
-//               This content is a little bit longer.
-//             </MDBCardText>
-//           </MDBCardBody>
-//         </MDBCard>
-//       </MDBCol>
-//     </MDBRow>
-//   );
+//     <MDBContainer>
+//       <MDBRow>
+//         <MDBCol md="6">
+//           <form>
+//             <p className="h4 text-center mb-4">Sign up</p>
+//             <label htmlFor="defaultFormRegisterNameEx" className="grey-text">
+//               Your name
+//             </label>
+//             <input type="text" id="defaultFormRegisterNameEx" className="form-control" />
+//             <br />
+//             <label htmlFor="defaultFormRegisterEmailEx" className="grey-text">
+//               Your email
+//             </label>
+//             <input type="email" id="defaultFormRegisterEmailEx" className="form-control" />
+//             <br />
+//             <label htmlFor="defaultFormRegisterConfirmEx" className="grey-text">
+//               Confirm your email
+//             </label>
+//             <input type="email" id="defaultFormRegisterConfirmEx" className="form-control" />
+//             <br />
+//             <label htmlFor="defaultFormRegisterPasswordEx" className="grey-text">
+//               Your password
+//             </label>
+//             <input type="password" id="defaultFormRegisterPasswordEx" className="form-control" />
+//             <div className="text-center mt-4">
+//               <MDBBtn color="unique" type="submit">
+//                 Register
+//               </MDBBtn>
+//             </div>
+//           </form>
+//         </MDBCol>
+//       </MDBRow>
+//     </MDBContainer>
+//     );
 // }
 
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'mdbreact/dist/css/mdb.css';
+// import React from "react";
+// import '@fortawesome/fontawesome-free/css/all.min.css';
+// import {
+//   MDBContainer,
+//   MDBRow,
+//   MDBCol,
+//   MDBCard,
+//   MDBCardBody,
+//   MDBModalFooter,
+//   MDBIcon,
+//   MDBCardHeader,
+//   MDBBtn,
+//   MDBInput
+// } from "mdbreact";
 
-function Counter() {
-  const id=0;
-  const [count, setCount] = useState(id);
-    
-  // const incrementTwo = () =>{
-  //  for(let i =0;i<2;i++){
-  //    setCount(prevcount => prevcount + 1)
-  //  }
-  // }
+// export default function App() {
+//   return (
+//     <MDBContainer>
+//       <MDBRow>
+//         <MDBCol md="6">
+//           <MDBCard>
+//             <MDBCardBody>
+//               <MDBCardHeader className="form-header deep-blue-gradient rounded">
+//                 <h3 className="my-3">
+//                   <MDBIcon icon="lock" /> Login:
+//                 </h3>
+//               </MDBCardHeader>
+//               <form>
+//                 <div className="grey-text">
+//                   <MDBInput
+//                     label="Type your email"
+//                     icon="envelope"
+//                     group
+//                     type="email"
+//                     validate
+//                     error="wrong"
+//                     success="right"
+//                   />
+//                   <MDBInput
+//                     label="Type your password"
+//                     icon="lock"
+//                     group
+//                     type="password"
+//                     validate
+//                   />
+//                 </div>
 
-  return (
-    <div>
-      <h1>{count}</h1>
-      {/* <input type="number" name="id"/> */}
-      <button onClick={() =>  setCount(id+1)}>
-        normal count 
-      </button>
-      <button onClick={() =>  setCount(id)}>
-        State 
-      </button>
-      <button onClick={() =>  setCount(prevcount => prevcount + 1)}>
-        inc
-      </button>
-      <button onClick={() => setCount(prevcount => prevcount - 1)}>dec</button>
-    </div>
-  );
+//               <div className="text-center mt-4">
+//                 <MDBBtn
+//                   color="light-blue"
+//                   className="mb-3"
+//                   type="submit"
+//                 >
+//                   Login
+//                 </MDBBtn>
+//               </div>
+//               </form>
+//               <MDBModalFooter>
+//                 <div className="font-weight-light">
+//                   <p>Not a member? Sign Up</p>
+//                   <p>Forgot Password?</p>
+//                 </div>
+//               </MDBModalFooter>
+//             </MDBCardBody>
+//           </MDBCard>
+//         </MDBCol>
+//       </MDBRow>
+//     </MDBContainer>
+//   );
+// };
+
+import React, { Component } from "react";
+
+export default class SignUp extends Component {
+    render() {
+        return (
+            <form>
+                <h3>Register</h3>
+
+                <div className="form-group">
+                    <label>First name</label>
+                    <input type="text" className="form-control" placeholder="First name" />
+                </div>
+
+                <div className="form-group">
+                    <label>Last name</label>
+                    <input type="text" className="form-control" placeholder="Last name" />
+                </div>
+
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" className="form-control" placeholder="Enter email" />
+                </div>
+
+                <div className="form-group">
+                    <label>Password</label>
+                    <input type="password" className="form-control" placeholder="Enter password" />
+                </div>
+
+                <button type="submit" className="btn btn-dark btn-lg btn-block">Register</button>
+                <p className="forgot-password text-right">
+                    Already registered <a href="#">log in?</a>
+                </p>
+            </form>
+        );
+    }
 }
-
-export default Counter;

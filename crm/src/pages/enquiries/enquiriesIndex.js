@@ -140,14 +140,14 @@ function Enquiry(){
             required/>
             </div>
  
-            <div >
+            {/* <div >
             <label className="element">Enter Resource Name:</label>
             <br></br>
             <input className="element" type="text" name="Resource_Name"
             value={inputs.Resource_Name || ""}
             onChange={handleChange}
             required/>
-            </div>
+            </div> */}
  
  
            

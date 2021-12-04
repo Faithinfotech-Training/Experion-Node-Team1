@@ -25,8 +25,8 @@ function MyForm(props){
         .get(`http://localhost:4500/courses/${props.CourseCode}`)
         .then(
             response =>{
-                console.log('promise fullfilled')
-                console.log(response)
+                // console.log('promise fullfilled')
+                // console.log(response)
                 setInputs(response.data)
             }
         )

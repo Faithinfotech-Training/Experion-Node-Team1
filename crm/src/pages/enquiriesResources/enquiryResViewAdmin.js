@@ -54,7 +54,7 @@ function MyForm(props)
             .then(response =>{
                 console.log('promise fullfilled')
                 console.log(response)
-                alert("The resolution status is updated")
+                // alert("The resolution status is updated")
                 // window.location='/enquirylist';
                 navigate('/resenquirylist')
             })
@@ -73,6 +73,7 @@ function MyForm(props)
             value={inputs.rStatus || ""}
             onChange={handleChange}
             required>
+                <option className="element" type="text" value="null">Select Option</option>
                 <option className="element" type="text" value="Available">Available</option>
                 <option className="element" type="text" value="Not Available">Not Available</option>
                 

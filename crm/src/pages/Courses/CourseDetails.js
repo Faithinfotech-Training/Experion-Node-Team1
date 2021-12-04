@@ -43,13 +43,14 @@ function CourseDisplay(){
           <div className="butto">
           <button className="edit" onClick={()=>navigate(`/courses`)}> Back
           </button>
-           <br/>
-           {localStorage.getItem('mytoken')&&
-           <button className="edit" onClick={()=>navigate(`/editcourses/${enq.CourseCode}`)}> Edit
-          </button>}
+           <br/>   
+                 
+           <button className="edit" onClick={()=>navigate(`/enquiry`)}> Edit
+          </button> 
+          {/*
           {localStorage.getItem('mytoken')&&
           <button className="edit" onClick={()=>navigate(`/deletecourses/${enq.CourseCode}`)}> Delete
-          </button> }
+          </button> } */}
             </div>
             </div>
           </div>

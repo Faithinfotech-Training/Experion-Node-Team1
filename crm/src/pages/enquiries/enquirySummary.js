@@ -20,11 +20,9 @@ function EnquirySummary(props){
       <div class="col col-2"><h3>Enquiry Code: <Link to={`/queryview/${props.details.EnquiryId}`} > {props.details.EnquiryId}</Link></h3></div>
       <div class="col col-3">
       <div className="butto">
-          {/* <button className="edit" onClick={()=>navigate(`/bookedit/${props.details.id}`)}>Edit
-          </button>
-           <br/><br/>
-           <button className="delete" onClick={()=>navigate(`/bookdelete/${props.details.id}`)}>Delete
-            </button> */}
+      {localStorage.getItem('mytoken')&&
+          <button className="delete" onClick={()=>navigate(`/deleteenquiry/${props.details.EnquiryId}`)}> Delete
+          </button> }
             </div>
         </div>
       </li>

@@ -4,24 +4,25 @@ import {useNavigate} from "react-router-dom";
 import{useParams} from "react-router-dom";
 import '../styles/display.css';
 
-function CourseDelete(){
+function EnquiryDelete(){
 
     //initialize use case to empty
     const navigate = useNavigate();
     const[staff,setStaff] = useState([])
 
-    const{CourseCode} = useParams()
+    const{EnquiryId} = useParams()
 
     useEffect(()=>{
         
         axios
-        .delete(`http://localhost:4500/courses/${CourseCode}`)
+        .delete(`http://localhost:4500/enquiries/${EnquiryId}`)
         .then(
             response =>{
-                // console.log('promise fullfilled')
-                // console.log(response)
-                // alert('Course Successfully Deleted')
+                console.log('promise fullfilled')
+                console.log(response)
+               
                 setStaff(response.data)
+               
             }
         )
         
@@ -31,10 +32,10 @@ function CourseDelete(){
   <>
   <div>
       <h1 className="centerfooter">
-          Course Successfully Deleted</h1>
+          Course Enquiry Successfully Deleted</h1>
 
           <div >
-          <button className="back"  onClick={()=>navigate("/courses")}>Back to Course List
+          <button className="back"  onClick={()=>navigate("/enquirylist")}>Back to Enquiry List
           </button></div>
          
           
@@ -47,4 +48,4 @@ function CourseDelete(){
 
 
 
-export default CourseDelete;
+export default EnquiryDelete;
