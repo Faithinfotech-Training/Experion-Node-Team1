@@ -37,11 +37,13 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import AdminResources from "./pages/admin/resources/adminResource";
 import AdminCourses from './pages/admin/courses/adminCourse'
+import CarouselDisplay from "./pages/components/carousel";
 
 function App() {
   return (
     <>
       <Header />
+      
       <Footer />
 
 
@@ -50,16 +52,7 @@ function App() {
   )
 }
 
-// function handleHomeChange(props){
-//   axios
-//   .put(`http://localhost:4500/pagevisits/${props}`)
-//   .then(response =>{
-//       console.log('promise fullfilled')
-//       console.log(response)
 
-//       // window.location='/enquirylist';
-//   })
-// }
 
 
 
@@ -69,55 +62,8 @@ function Header() {
 
     <Router>
       <Header1/>
-       {/*<Navbar variant="dark" bg="dark" expand="lg">
-        <Container fluid>
-
-          <Navbar.Brand href="#home">CRM-Project</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar-dark-example" />
-          <Navbar.Collapse id="navbar-dark-example">
-
-            <Nav>
-            <Nav.Link href='/'  >Home</Nav.Link>
-               <NavDropdown
-           id="nav-dropdown-dark-example"
-           title="Courses"
-           menuVariant="dark"> 
-              <Nav.Link href="/courses">Courses</Nav.Link>
-              <Nav.Link className="a" href="/addcourse">Add Courses</Nav.Link>
-
-               </NavDropdown>
-            <NavDropdown
-              id="nav-dropdown-dark-example"
-           title="Resource"
-           menuVariant="dark"
-         > 
-         <Nav.Link href="/resources">Resources</Nav.Link>
-         <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>
-
-
-               </NavDropdown>
-              
-            
-              {!localStorage.getItem('mytoken') && <div><Nav.Link href="/Login">Login</Nav.Link></div>}
-              {localStorage.getItem('mytoken') && <div><Nav.Link onClick={() => window.location = '/Login'} href='/Login'>Logout</Nav.Link></div>}
-              <Nav.Link className="a" href="/Register">Register</Nav.Link>
-             
-              {localStorage.getItem('mytoken') &&
-                <Nav.Link className="a" href="/enquirylist">Course Enquiry List</Nav.Link>}
-              {localStorage.getItem('mytoken') &&
-                <Nav.Link className="a" href="/resenquirylist"> Resource Enquiry List</Nav.Link>}
-              
-              
-              {localStorage.getItem('mytoken') &&
-              <Nav.Link className="a" href="/salespipeline">SalesPipeline</Nav.Link>}
-              {localStorage.getItem('mytoken') &&
-              <Nav.Link className="a" href="/sitevisit">Site Visit</Nav.Link>}
-              <Nav.Link className="a" href="/contact">Contact Us</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar> */}
-         <br/><br/>
+      <CarouselDisplay/>
+       
 
 
       <Routes>
@@ -161,7 +107,7 @@ function Header() {
 
       <br /><br /><br />
     </Router>
-
+    
   );
 }
 
