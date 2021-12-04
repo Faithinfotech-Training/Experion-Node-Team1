@@ -1,14 +1,16 @@
 * {
     box-sizing: border-box;
+    /* padding-left: 800px; */
   }
   
-  ul.ba {
+  ul {
     list-style-type: none;
 }
   .box1 {
-    /* width: 300px; */
-    text-align: center;
+    margin-left: 460px;
+    width: 500px;
+    text-align: left;
     padding: 40px;  
-    /* border: 15px solid rgb(155, 218, 209); */
+    border: 15px solid rgb(239, 242, 245);
     background: rgba(166, 170, 169, 0.267);
   }

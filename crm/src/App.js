@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom"
 
 import Login from "./pages/Login";
 import Register from "./pages/Register"
-
+//for authentication
+import Header1 from "./pages/header/header";
 import { Navbar, NavDropdown, Container, Nav } from 'react-bootstrap';
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
@@ -34,6 +35,8 @@ import ResEnquiryDelete from './pages/enquiriesResources/enquiryResDelete';
 import './pages/styles/headers.css'
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import AdminResources from "./pages/admin/resources/adminResource";
+import AdminCourses from './pages/admin/courses/adminCourse'
 
 function App() {
   return (
@@ -65,8 +68,8 @@ function Header() {
   return (
 
     <Router>
-
-      <Navbar variant="dark" bg="dark" expand="lg">
+      <Header1/>
+       {/*<Navbar variant="dark" bg="dark" expand="lg">
         <Container fluid>
 
           <Navbar.Brand href="#home">CRM-Project</Navbar.Brand>
@@ -94,23 +97,16 @@ function Header() {
 
                </NavDropdown>
               
-              {/* <Nav.Link href="/resources">Resources</Nav.Link> */}
+            
               {!localStorage.getItem('mytoken') && <div><Nav.Link href="/Login">Login</Nav.Link></div>}
               {localStorage.getItem('mytoken') && <div><Nav.Link onClick={() => window.location = '/Login'} href='/Login'>Logout</Nav.Link></div>}
               <Nav.Link className="a" href="/Register">Register</Nav.Link>
-              {/* <Nav.Link className="a" href="/enquiry" > Course Enquiry</Nav.Link>
-              <Nav.Link className="a" href="/resenquiry"> Resource Enquiry</Nav.Link> */}
-
-               {/* <Nav.Link className="a" href="/events">Events</Nav.Link>
-              <Nav.Link className="a" href="/addevent">Add Event</Nav.Link>  */}
+             
               {localStorage.getItem('mytoken') &&
                 <Nav.Link className="a" href="/enquirylist">Course Enquiry List</Nav.Link>}
               {localStorage.getItem('mytoken') &&
                 <Nav.Link className="a" href="/resenquirylist"> Resource Enquiry List</Nav.Link>}
-              {/* {localStorage.getItem('mytoken') &&
-                <Nav.Link className="a" href="/addresource">Add Resources</Nav.Link>}
-              {localStorage.getItem('mytoken') &&
-                <Nav.Link className="a" href="/addcourse">Add Courses</Nav.Link>} */}
+              
               
               {localStorage.getItem('mytoken') &&
               <Nav.Link className="a" href="/salespipeline">SalesPipeline</Nav.Link>}
@@ -120,7 +116,7 @@ function Header() {
             </Nav>
           </Navbar.Collapse>
         </Container>
-      </Navbar>
+      </Navbar> */}
          <br/><br/>
 
 
@@ -143,6 +139,8 @@ function Header() {
         {localStorage.getItem('mytoken') &&
         <Route path="/resenquirylist" element={<ResEnquiryList />} />}
         <Route path="/courses" element={<Courses />} />
+        <Route path="/admincourse" element={<AdminCourses />} />
+        <Route path="/adminresource" element={<AdminResources />} />
         <Route path="/courseview/:CourseCode" element={<CourseDisplay />} />
         <Route path="/resourceview/:ResourceCode" element={<ResourceDisplay />} />
         <Route path="/editcourses/:CourseCode" element={<EditCourse />} />

@@ -15,12 +15,12 @@ function CourseList(props) {
             <div class="col col-2"><h3>Course Name: <Link to={`/courseview/${props.details.CourseCode}`}> {props.details.CourseName}</Link></h3></div>
             <div class="col col-3">
               <div className="butto">
-              {localStorage.getItem('mytoken')&&
+              {/* {localStorage.getItem('mytoken')&&
            <button className="edit" onClick={()=>navigate(`/editcourses/${props.details.CourseCode}`)}> Edit
           </button>}
           {localStorage.getItem('mytoken')&&
           <button className="delete" onClick={()=>navigate(`/deletecourses/${props.details.CourseCode}`)}> Delete
-          </button> }
+          </button> } */}
               </div>
             </div>
           </li>

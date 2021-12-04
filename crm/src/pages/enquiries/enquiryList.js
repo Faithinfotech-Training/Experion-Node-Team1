@@ -28,13 +28,13 @@ function EnquiryList(){
   <>
   <div>
       <h1 className="centerfooter">
-          Enquiry List</h1>
+          Course Enquiry List</h1>
           <p>
           <div>
               {enquiries.map(enquiry=>
-                <li key={enquiry.id}>
+                <li style={{listStyleType:"none"}} key={enquiry.id}>
                     <EnquirySummary details ={enquiry}/>
-                    {/* <ViewAdmin details ={enquiry}/> */}
+                 
                     </li>
                 )}
           </div>

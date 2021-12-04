@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router';
 
 function ResViewAdmin(){
     const {rEnquiryId} = useParams()
+    
  
     return(
         <>
@@ -18,6 +19,7 @@ function MyForm(props)
 
     const[inputs,setInputs] = useState({});
     const navigate = useNavigate()
+    var myToken = localStorage.getItem("mytoken")
 
     useEffect(()=>{
        
@@ -49,15 +51,30 @@ function MyForm(props)
             console.log(inputs);
 
             //send info to server
-            axios
-            .put(`http://localhost:4500/resenquiries/${props.rEnquiryId}`,inputs)
-            .then(response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                // alert("The resolution status is updated")
-                // window.location='/enquirylist';
-                navigate('/resenquirylist')
-            })
+            var data = JSON.stringify({
+                
+                "rStatus": inputs.rStatus
+              });
+              var config = {
+                method: 'put',
+                url: `http://localhost:4500/resenquiries/${props.rEnquiryId}`,
+                headers: { 
+                  'Authorization': `Bearer ${myToken} `, 
+                  'Content-Type': 'application/json'
+                },
+                data : data
+              };
+              
+              axios(config)
+              .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                navigate("/resenquirylist")
+              })
+              .catch(function (error) {
+                console.log(error);
+                 navigate(`/resqueryreview/${props.rStatus}`)
+              });
+        
         }
     return(
         <>

@@ -1,7 +1,7 @@
 
 import {useState,useEffect} from 'react';
 import axios from 'axios';
-import{useParams} from "react-router-dom";
+import{useParams,useNavigate} from "react-router-dom";
 
 function ViewAdmin(){
     const {EnquiryId} = useParams()
@@ -17,6 +17,8 @@ function MyForm(props)
 {
 
     const[inputs,setInputs] = useState({});
+    var myToken = localStorage.getItem("mytoken")
+    const navigate = useNavigate()
 
     useEffect(()=>{
        
@@ -47,15 +49,29 @@ function MyForm(props)
             event.preventDefault();
             console.log(inputs);
 
-            //send info to server
-            axios
-            .put(`http://localhost:4500/enquiries/${props.EnquiryId}`,inputs)
-            .then(response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                alert("The resolution status is updated")
-                // window.location='/enquirylist';
-            })
+            var data = JSON.stringify({
+                
+                "Current_Status": inputs.Current_Status
+              });
+              var config = {
+                method: 'put',
+                url: `http://localhost:4500/enquiries/${props.EnquiryId}`,
+                headers: { 
+                  'Authorization': `Bearer ${myToken} `, 
+                  'Content-Type': 'application/json'
+                },
+                data : data
+              };
+              
+              axios(config)
+              .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                navigate("/enquirylist")
+              })
+              .catch(function (error) {
+                console.log(error);
+                 navigate(`/queryreview/${props.EnquiryId}`)
+              });
         }
     return(
         <>

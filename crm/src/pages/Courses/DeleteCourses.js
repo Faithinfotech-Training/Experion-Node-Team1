@@ -8,22 +8,38 @@ function CourseDelete(){
 
     //initialize use case to empty
     const navigate = useNavigate();
+    
+    var myToken = localStorage.getItem("mytoken")
     const[staff,setStaff] = useState([])
+
 
     const{CourseCode} = useParams()
 
     useEffect(()=>{
         
-        axios
-        .delete(`http://localhost:4500/courses/${CourseCode}`)
-        .then(
-            response =>{
-                // console.log('promise fullfilled')
-                // console.log(response)
-                // alert('Course Successfully Deleted')
-                setStaff(response.data)
+        var config = {
+            method: 'delete',
+            url: `http://localhost:4500/courses/${CourseCode}`,
+            headers: { 
+              'Authorization': `Bearer ${myToken} `, 
+              'Content-Type': 'application/json'
             }
-        )
+           
+            
+          };
+          
+          axios(config)
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            alert('Course Deleted Successfully')
+            
+//    navigate('/admincourse')
+          })
+          .catch(function (error) {
+            console.log(error);
+            alert('Try Again!')
+            navigate('/addcourse')
+          });
         
     },[])
 
@@ -34,7 +50,7 @@ function CourseDelete(){
           Course Successfully Deleted</h1>
 
           <div >
-          <button className="back"  onClick={()=>navigate("/courses")}>Back to Course List
+          <button className="back"  onClick={()=>navigate("/admincourse")}>Back to Course List
           </button></div>
          
           

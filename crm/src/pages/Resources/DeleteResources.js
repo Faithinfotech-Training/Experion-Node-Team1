@@ -9,22 +9,35 @@ function ResourceDelete(){
     //initialize use case to empty
     const navigate = useNavigate();
     const[staff,setStaff] = useState([])
+    var myToken = localStorage.getItem("mytoken")
 
     const{ResourceCode} = useParams()
 
     useEffect(()=>{
         
-        axios
-        .delete(`http://localhost:4500/resources/${ResourceCode}`)
-        .then(
-            response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-               
-                setStaff(response.data)
-                alert('Resource Successfully Deleted')
+        var config = {
+            method: 'delete',
+            url: `http://localhost:4500/resources/${ResourceCode}`,
+            headers: { 
+              'Authorization': `Bearer ${myToken} `, 
+              'Content-Type': 'application/json'
             }
-        )
+           
+            
+          };
+          
+          axios(config)
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            alert('Resource Deleted Successfully')
+            
+//    navigate('/admincourse')
+          })
+          .catch(function (error) {
+            console.log(error);
+            alert('Try Again!')
+            navigate('/addresource')
+          });
         
     },[])
 
@@ -35,7 +48,7 @@ function ResourceDelete(){
           Resource Successfully Deleted</h1>
 
           <div >
-          <button className="back"  onClick={()=>navigate("/resources")}>Back to Resource List
+          <button className="back"  onClick={()=>navigate("/adminresource")}>Back to Resource List
           </button></div>
          
           

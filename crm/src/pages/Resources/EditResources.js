@@ -1,6 +1,6 @@
 import {useState,useEffect} from 'react';
 import axios from 'axios';
-import{useParams} from "react-router-dom";
+import{useParams,useNavigate} from "react-router-dom";
 
 
 
@@ -18,7 +18,8 @@ function EditResource(){
 function MyForm(props){
 
     const[inputs,setInputs] = useState({}); 
-
+    var myToken = localStorage.getItem("mytoken")
+    const navigate = useNavigate()
     useEffect(()=>{
         
         axios
@@ -44,14 +45,41 @@ function MyForm(props){
             event.preventDefault();
             console.log(inputs);
             //send info to server
-            if (window.confirm("Do you want to save changes?")) {
-            axios
-            .put(`http://localhost:4500/resources/${props.ResourceCode}`,inputs)
-            .then(response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                alert("The resource details are updated")
-            })}
+            var data = JSON.stringify({
+                "ResourceName": inputs.ResourceName,
+                "Description": inputs.Description,
+                "Duration": inputs.Duration,
+                "Fees": inputs.Fees,
+                "ResourceModules": inputs.ResourceModules,
+                "url": inputs.url
+              });
+              var config = {
+                method: 'put',
+                url: `http://localhost:4500/resources/${props.ResourceCode}`,
+                headers: { 
+                  'Authorization': `Bearer ${myToken} `, 
+                  'Content-Type': 'application/json'
+                },
+                data : data
+              };
+              
+              axios(config)
+              .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                navigate("/adminresource")
+              })
+              .catch(function (error) {
+                console.log(error);
+                 navigate(`/editresource/${props.ResourceCode}`)
+              });
+            // if (window.confirm("Do you want to save changes?")) {
+            // axios
+            // .put(`http://localhost:4500/resources/${props.ResourceCode}`,inputs)
+            // .then(response =>{
+            //     console.log('promise fullfilled')
+            //     console.log(response)
+            //     alert("The resource details are updated")
+            // })}
         }
     return(
         <>

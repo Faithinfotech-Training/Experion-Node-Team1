@@ -42,7 +42,7 @@ function Courses(){
   <div>
       <h1 className="centerfooter">
           Course List</h1>
-          <input type="text" placeholder="search" onChange={(event)=>{setSearchTerm(event.target.value);
+          <input style={{marginLeft:"150"}} type="text" placeholder="search" onChange={(event)=>{setSearchTerm(event.target.value);
           }}/>
           <p>
           <div>
@@ -54,7 +54,7 @@ function Courses(){
                   }
                   else if (course.CourseName.toLowerCase().includes(searchTerm.toLowerCase())){
                       return (
-                      <li key={course.CourseCode}>
+                      <li style={{listStyleType:"none"}} key={course.CourseCode}>
                       <CourseList details ={course}/>
                       </li>)
                    

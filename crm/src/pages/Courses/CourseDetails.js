@@ -11,10 +11,18 @@ function CourseDisplay(){
     const navigate = useNavigate();
     const[enq,setStaff] = useState([])
 
+
     const{CourseCode} = useParams()
+    let [user, setUser] = useState(false);
+
+    const Users = () => {
+        if (localStorage.getItem("role") === "user" || "User") {
+            setUser(true);
+        }
+    };
 
     useEffect(()=>{
-        
+        Users()
         axios
         .get(`http://localhost:4500/courses/${CourseCode}`)
         .then(
@@ -44,13 +52,10 @@ function CourseDisplay(){
           <button className="edit" onClick={()=>navigate(`/courses`)}> Back
           </button>
            <br/>   
-                 
-           <button className="edit" onClick={()=>navigate(`/enquiry`)}> Edit
-          </button> 
-          {/*
-          {localStorage.getItem('mytoken')&&
-          <button className="edit" onClick={()=>navigate(`/deletecourses/${enq.CourseCode}`)}> Delete
-          </button> } */}
+            {localStorage.getItem("role") === "User" &&    
+           <button className="edit" onClick={()=>navigate(`/enquiry`)}> Enquiry
+          </button>} 
+          
             </div>
             </div>
           </div>

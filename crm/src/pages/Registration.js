@@ -87,18 +87,24 @@ function MyForm() {
     //to prevent default html form submit behaviour
 
     event.preventDefault();
+    const inputs = {
+      "name": users.name,
+      "email": users.email,
+      "password": users.password,
+      "role": "User"
+  }
     //alert the current state
     console.log(users);
     if(passwordcheck(users)){
         axios
-    .post("/register",users)//server id 3001 is changed
+    .post("http://localhost:4500/users/register",inputs)//server id 3001 is changed
     .then((response) => {
-      console.log("promise was fullfilled");
-      console.log(response);
-      window.location='/Home'
-      
 
-      setusers(response.data);
+      localStorage.setItem('mytoken', response.data.accessToken);
+      localStorage.setItem('role', response.data.user.role);
+      if(response.data.user.role === 'User'){ 
+            console.log(response);
+      }
       
     });
     }
@@ -108,8 +114,8 @@ function MyForm() {
     
   }
  function passwordcheck(users){
-     if(users.password.length<6){
-         alert("pass is not strong")
+     if(users.password.length<3){
+         alert("Pass is not strong")
      }
      if(users.password===users.Password)return 1
      else return 0
@@ -123,8 +129,8 @@ function MyForm() {
              Name:
             <input className="element"
               type="text"
-              name="Name"
-              value={users.Name || ""}
+              name="name"
+              value={users.name || ""}
               onChange={handleChange}
               required
             ></input>
@@ -176,8 +182,8 @@ function MyForm() {
             Mobile Number:
             <input className="element"
               type="tel"
-              name="mobile_no"
-              value={users.mobile_no || ""}
+              name="mobile_number"
+              value={users.mobile_number || ""}
               onChange={handleChange}
               
               required
@@ -190,8 +196,8 @@ function MyForm() {
            Address:
             <input className="element"
               type="text"
-              name="address"
-              value={users.address || ""}
+              name="Address"
+              value={users.Address || ""}
               onChange={handleChange}
               
               required
@@ -221,8 +227,8 @@ function MyForm() {
             <input
                 className="element"
               type="text"
-              name="highest"
-              value={users.highest || ""}
+              name="HighestQualification"
+              value={users.HighestQualification || ""}
               onChange={handleChange}
               
               required
@@ -235,8 +241,8 @@ function MyForm() {
            Percentage of marks:
             <input className="element"
               type="number"
-              name="marks"
-              value={users.marks || ""}
+              name="PercentageOfMarks"
+              value={users.PercentageOfMarks || ""}
               onChange={handleChange}
               required
             ></input>
@@ -248,11 +254,10 @@ function MyForm() {
             <input
               className="element"
               type="text"
-              name="year"
+              name="YearOfPassout"
                onChange={handleChange}
-               value={users.year}
-              onFocus={(e)=>(e.currentTarget.type="year")}
-              onBlur={(e)=>(e.currentTarget.type="text")}
+               value={users.YearOfPassout}
+              
               
             required
             ></input>

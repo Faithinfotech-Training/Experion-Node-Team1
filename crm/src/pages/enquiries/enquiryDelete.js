@@ -9,22 +9,35 @@ function EnquiryDelete(){
     //initialize use case to empty
     const navigate = useNavigate();
     const[staff,setStaff] = useState([])
+    var myToken = localStorage.getItem("mytoken")
 
     const{EnquiryId} = useParams()
 
     useEffect(()=>{
         
-        axios
-        .delete(`http://localhost:4500/enquiries/${EnquiryId}`)
-        .then(
-            response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-               
-                setStaff(response.data)
-               
+        var config = {
+            method: 'delete',
+            url: `http://localhost:4500/enquiries/${EnquiryId}`,
+            headers: { 
+              'Authorization': `Bearer ${myToken} `, 
+              'Content-Type': 'application/json'
             }
-        )
+           
+            
+          };
+          
+          axios(config)
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            alert('Course Enquiry Deleted Successfully')
+            
+//    navigate('/admincourse')
+          })
+          .catch(function (error) {
+            console.log(error);
+            alert('Try Again!')
+            navigate('/enquirylist')
+          });
         
     },[])
 

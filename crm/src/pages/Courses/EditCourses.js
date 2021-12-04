@@ -1,12 +1,14 @@
 import {useState,useEffect} from 'react';
 import axios from 'axios';
-import{useParams} from "react-router-dom";
+import{useParams,useNavigate} from "react-router-dom";
+
 
 
 
 
 function EditCourse(){
     const {CourseCode} = useParams()
+    
 
     return(
         <>
@@ -16,9 +18,10 @@ function EditCourse(){
 }
 
 function MyForm(props){
-
+    
     const[inputs,setInputs] = useState({}); 
-
+    var myToken = localStorage.getItem("mytoken")
+    const navigate = useNavigate()
     useEffect(()=>{
         
         axios
@@ -44,26 +47,52 @@ function MyForm(props){
             event.preventDefault();
             console.log(inputs);
             //send info to server
-          
-
+            var data = JSON.stringify({
+                "CourseName": inputs.CourseName,
+                "Description": inputs.Description,
+                "Duration": inputs.Duration,
+                "Fees": inputs.Fees,
+                "Qualification": inputs.Qualification,
+                "CourseModules": inputs.CourseModules,
+                "url": inputs.url
+              });
+              var config = {
+                method: 'put',
+                url: `http://localhost:4500/courses/${props.CourseCode}`,
+                headers: { 
+                  'Authorization': `Bearer ${myToken} `, 
+                  'Content-Type': 'application/json'
+                },
+                data : data
+              };
+              
+              axios(config)
+              .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                navigate("/admincourse")
+              })
+              .catch(function (error) {
+                console.log(error);
+                 navigate(`/editcourses/${props.CourseCode}`)
+              });
            
 
              
            
 
 
-            if (window.confirm("Do you want to save changes?")) {
+        //     if (window.confirm("Do you want to save changes?")) {
 
-            axios
-            .put(`http://localhost:4500/courses/${props.CourseCode}`,inputs)
-            .then(response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                alert("The course details are updated")
-            })}
-            // else{
-            //     window.location=`/editcourses/${props.CourseCode}`
-            // }
+        //     axios
+        //     .put(`http://localhost:4500/courses/${props.CourseCode}`,inputs)
+        //     .then(response =>{
+        //         // console.log('promise fullfilled')
+        //         console.log(response)
+        //         alert("The course details are updated")
+        //     })}
+        //     // else{
+        //     //     window.location=`/editcourses/${props.CourseCode}`
+        //     // }
         }
     return(
         <>

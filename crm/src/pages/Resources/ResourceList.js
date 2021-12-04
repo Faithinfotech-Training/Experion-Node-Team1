@@ -17,12 +17,12 @@ function ResourceList(props){
       <div class="col col-2"><h3>Resource Name: <Link to={`/resourceview/${props.details.ResourceCode}`}> {props.details.ResourceName}</Link></h3></div>
       <div class="col col-3">
       <div className="butto">
-      {localStorage.getItem('mytoken')&&
+      {/* {localStorage.getItem('mytoken')&&
           <button className="edit" onClick={()=>navigate(`/editresources/${props.details.ResourceCode}`)}> Edit
           </button>}
           {localStorage.getItem('mytoken')&&
           <button className="delete" onClick={()=>navigate(`/deleteresources/${props.details.ResourceCode}`)}> Delete
-          </button> }
+          </button> } */}
             </div>
         </div>
       </li>

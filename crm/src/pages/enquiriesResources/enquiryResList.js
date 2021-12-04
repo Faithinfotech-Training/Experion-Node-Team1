@@ -30,8 +30,8 @@ function ResEnquiryList(){
           <p>
           <div>
               {enquiries.map(enquiry=>
-                <li key={enquiry.id}>
-                    <ResEnquirySummary details ={enquiry}/>
+                <li style={{listStyleType:"none"}} key={enquiry.id}>
+                    <ResEnquirySummary  details ={enquiry}/>
                     {/* <ViewAdmin details ={enquiry}/> */}
                     </li>
                 )}

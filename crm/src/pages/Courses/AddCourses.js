@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import axios from 'axios';
 import '../styles/forms.css'
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -8,8 +10,9 @@ import '../styles/forms.css'
 
 
 function AddCourses(){
-
+    var myToken = localStorage.getItem("mytoken")
     const[inputs,setInputs] = useState({})
+    const navigate = useNavigate()
 
     function handleChange(event){
         const name = event.target.name;
@@ -21,14 +24,44 @@ function AddCourses(){
             event.preventDefault();
             console.log(inputs);
             //send info to server
-            axios
-            .post('http://localhost:4500/courses',inputs)
-            .then(response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                alert('Course Added')
-                window.location='/courses'
-            })
+            var data = JSON.stringify({
+                "CourseName": inputs.CourseName,
+                "Description": inputs.Description,
+                "Duration": inputs.Duration,
+                "Fees": inputs.Fees,
+                "Qualification": inputs.Qualification,
+                "CourseModules": inputs.CourseModules,
+                "url": inputs.url
+              });
+
+              var config = {
+                method: 'post',
+                url: `http://localhost:4500/courses`,
+                headers: { 
+                  'Authorization': `Bearer ${myToken} `, 
+                  'Content-Type': 'application/json'
+                },
+                data : data
+              };
+              
+              axios(config)
+              .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                navigate("/admincourse")
+              })
+              .catch(function (error) {
+                console.log(error);
+                 navigate(`/addcourse`)
+              });
+
+            // axios
+            // .post('http://localhost:4500/courses',inputs)
+            // .then(response =>{
+            //     console.log('promise fullfilled')
+            //     console.log(response)
+            //     alert('Course Added')
+            //     window.location='/courses'
+            // })
         }
     return(
         <>

@@ -12,6 +12,8 @@ function AddResource(){
 
     const navigate = useNavigate();
     const[inputs,setInputs] = useState({})
+    var myToken = localStorage.getItem("mytoken")
+   
 
     function handleChange(event){
         const name = event.target.name;
@@ -25,15 +27,31 @@ function AddResource(){
             event.preventDefault();
             console.log(inputs);
             //send info to server
-            axios
-            .post('http://localhost:4500/resources',inputs)
-            .then(response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                alert('Resource Added')
-                navigate('/resources');
-               
-            })
+            var data = JSON.stringify({
+                "ResourceName": inputs.ResourceName,
+                "Description": inputs.Description,
+                "Fees": inputs.Fees,
+                "url": inputs.url
+              });
+              var config = {
+                method: 'post',
+                url: `http://localhost:4500/resources`,
+                headers: { 
+                  'Authorization': `Bearer ${myToken} `, 
+                  'Content-Type': 'application/json'
+                },
+                data : data
+              };
+              
+              axios(config)
+              .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                navigate("/adminresource")
+              })
+              .catch(function (error) {
+                console.log(error);
+                 navigate(`/addresource`)
+              });
         }
     return(
         <>

@@ -1,6 +1,7 @@
 
 import { useState} from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function Login(){
@@ -12,6 +13,7 @@ function Login(){
     </>);
     }
     function MyForm(props){
+      const navigate=useNavigate()
     var header={
         width:"20%",
         borderRadius:"8px",
@@ -54,26 +56,47 @@ function Login(){
   }
 
   function handleSubmit(event){
+    
     event.preventDefault();
     console.log(inputs);
 
     axios
-        .post('/login',inputs)
+        .post('http://localhost:4500/users/login',inputs)
         .then(response=>{
-         alert(response.data.accessToken)
-            localStorage.setItem('mytoken',response.data.accessToken);
-              window.location='/'
+      //    alert(response.data.accessToken)
+      //       localStorage.setItem('mytoken',response.data.accessToken);
+      //         window.location='/'
               
-        })
-        .catch(error=>{
-          localStorage.clear();
-          if(error.response){
-            alert(error.response.data);
-            window.location='/register'
-          }
-        })
-      }
+      //   })
+      //   .catch(error=>{
+      //     localStorage.clear();
+      //     if(error.response){
+      //       alert(error.response.data);
+      //       window.location='/register'
+      //     }
+      //   })
+      // }
+      let role = response.data.user.role;
+      let id = response.data.user.id;
+      localStorage.setItem('mytoken', response.data.accessToken);
+      console.log(response.data.user.role)
+      localStorage.setItem('role', response.data.user.role);
+      localStorage.setItem('username', response.data.user.name)
 
+      if (role === "Admin" ||"admin") {
+
+          navigate('/');
+      } else if (role === "Manager" ) {
+          navigate('/');
+          
+}else{
+          navigate(`/courses`);
+      }
+  }).catch((error)=>{
+      alert("Wrong Credentials");
+      navigate("/register")
+  })
+  }
 
    
   return(<div className="centers" //style={div}
@@ -93,10 +116,10 @@ function Login(){
       <input className="element" type="password" name="password" placeholder="enter the password" onChange={handleChange} value={inputs.password || ""}/>
       </div><br/>
 
-      <div>
+      {/* <div>
       <label className="element">User Type: </label><br/>
       <input className="element" type="text" name="usertype" placeholder="enter the user type" onChange={handleChange} value={inputs.usertype || ""}/>
-      </div><br/>
+      </div><br/> */}
 
       {/* <div>
       <label className="element">Pin: </label><br/>
