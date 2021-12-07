@@ -24,9 +24,9 @@ function ResEnquiryList(){
  
   return(
   <>
-  <div>
+  <div>&nbsp;
       <h1 className="centerfooter">
-          Enquiry List</h1>
+          Resource Enquiry List</h1>&nbsp;
           <p>
           <div>
               {enquiries.map(enquiry=>

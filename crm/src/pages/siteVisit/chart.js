@@ -5,6 +5,7 @@ import { useState,useEffect } from "react";
 // import CourseCounter from "../counter/courseCounter";
 // import HomeCounter from "../counter/homeCounter";
 // import Counter from "./count";
+import './chart.css'
 
 import {
   PieChart,
@@ -73,6 +74,7 @@ const[input,setInputs]=useState([])
           <Tooltip />
         </PieChart>
         <BarChart
+          caption={"Bar Chart"}
           width={700}
           height={300}
           data={data}

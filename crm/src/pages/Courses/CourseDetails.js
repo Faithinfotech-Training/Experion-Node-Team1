@@ -1,18 +1,20 @@
-
-
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
-import{useParams} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from 'react-bootstrap/Button'
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import '../styles/box.css';
 import '../styles/display.css';
 
-function CourseDisplay(){
+
+function CourseDisplay() {
     const navigate = useNavigate();
-    const[enq,setStaff] = useState([])
+    const [enq, setStaff] = useState([])
 
 
-    const{CourseCode} = useParams()
+    const { CourseCode } = useParams()
     let [user, setUser] = useState(false);
 
     const Users = () => {
@@ -21,49 +23,54 @@ function CourseDisplay(){
         }
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         Users()
         axios
-        .get(`http://localhost:4500/courses/${CourseCode}`)
-        .then(
-            response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                setStaff(response.data)
-            }
-        )
-        
-    },[])
-    return(
+            .get(`http://localhost:4500/courses/${CourseCode}`)
+            .then(
+                response => {
+                    console.log('promise fullfilled')
+                    console.log(response)
+                    setStaff(response.data)
+                }
+            )
+
+    }, [])
+    return (
         <>
 
-            <div >
-            <h3 className="centerfooter">
-          Course Details  </h3>
-          <div className="box1">
-          <h4 className="color">Name : {enq.CourseName}</h4>
-          <h4 className="color">Description : {enq.Description}</h4>
-          <h4 className="color">Duration: {enq.Duration}</h4>
-          {/* <h4 className="color">Course Module: {enq.CourseModules}</h4> */}
-          <h4 className="color">Fee: {enq.Fees}</h4>
-          <h4 className="color">Qualification: {enq.Qualification}</h4>
-          <div class="col col-3">
-          <div className="butto">
-          <button className="edit" onClick={()=>navigate(`/courses`)}> Back
-          </button>
-           <br/>   
-            {localStorage.getItem("role") === "User" &&    
-           <button className="edit" onClick={()=>navigate(`/enquiry`)}> Enquiry
-          </button>} 
-          
+            <div ><br />
+                <h3 className="centerfooter">
+                {enq.CourseName}  </h3>
+                
+                <MDBContainer style={{marginLeft:50}} >
+                    <MDBRow >
+                        <MDBCol ><img src={enq.url} alt="Course image" width="260px" height="300px"></img></MDBCol>
+                         <MDBCol md="6" style={{marginLeft:50}}><br /><br />
+                            
+                         <h3>About The Course</h3>
+                            <h6>{enq.Description}</h6>
+                            <h6>{enq.Duration}</h6>
+                            <h6>Fee : {enq.Fees}</h6>
+                            <h6>Qualification : {enq.Qualification}</h6>
+                            <h6>Course Modules : {enq.CourseModules}</h6>
+                        </MDBCol>
+                        <MDBCol>
+                            <br /><br />
+                            <Button variant="outline-secondary" onClick={() => navigate(`/courses`)}> &nbsp; &nbsp;Back  &nbsp; &nbsp;</Button>
+                            <br /><br /><br /><br />
+                            {localStorage.getItem("role") === "User" &&
+                                <Button variant="outline-secondary" onClick={() => navigate(`/enquiry`)}>&nbsp;&nbsp;Enquiry&nbsp;</Button>}
+                                <br /><br /><br /><br />
+                                {localStorage.getItem("role") === "User" &&
+                                <Button variant="outline-secondary" onClick={() => navigate(`/`)}>&nbsp;&nbsp;Enroll&nbsp;</Button>}
+                        </MDBCol> 
+                    </MDBRow>
+                    <br/><br/>
+                    
+                </MDBContainer>
+                <br/><br/><br/><br/>
             </div>
-            </div>
-          </div>
-          <br/><br/>
-
-          
-      
-  </div>
 
         </>
     )

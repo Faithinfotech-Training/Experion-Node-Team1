@@ -26,9 +26,9 @@ function EnquiryList(){
  
   return(
   <>
-  <div>
+  <div><br/>
       <h1 className="centerfooter">
-          Course Enquiry List</h1>
+          Course Enquiry List</h1><br/>
           <p>
           <div>
               {enquiries.map(enquiry=>

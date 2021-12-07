@@ -1,68 +1,112 @@
-
-
-
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
-import{useParams} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import '../styles/box.css';
 import '../styles/display.css';
- 
-function EnquiryDisplay(){
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from 'react-bootstrap/Button'
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import courseback from './courseback.png'
+
+function EnquiryDisplay() {
     const navigate = useNavigate();
-    const[enq,setStaff] = useState([])
- 
-    const{EnquiryId} = useParams()
- 
-    useEffect(()=>{
-       
+    const [enq, setStaff] = useState([])
+
+    const { EnquiryId } = useParams()
+
+    useEffect(() => {
+
         axios
-        .get(`http://localhost:4500/enquiries/${EnquiryId}`)
-        .then(
-            response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                setStaff(response.data)
-            }
-        )
-       
-    },[])
-    return(
+            .get(`http://localhost:4500/enquiries/${EnquiryId}`)
+            .then(
+                response => {
+                    console.log('promise fullfilled')
+                    console.log(response)
+                    setStaff(response.data)
+                }
+            )
+
+    }, [])
+    return (
         <>
- 
             <div >
-            <h3 className="centerfooter">
-          Enquiry  </h3>
-          <div className="box1">
-          <h4 className="color">Name : {enq.Name}</h4>
-          <h4 className="color">Email : {enq.Email_id}</h4>
-          <h4 className="color">Date Of Birth : {enq.dob}</h4>
-          <h4 className="color">Mobile Number : {enq.mobile_number}</h4>
-          <h4 className="color">Address : {enq.Address}</h4>
-          <h4 className="color">HighestQualification : {enq.HighestQualification}</h4>
-          <h4 className="color">PercentageOfMarks : {enq.PercentageOfMarks}</h4>
-          <h4 className="color">YearOfPassout: {enq.YearOfPassout}</h4>
-          <h4 className="color">Course_Name : {enq.Course_Name}</h4>
-          <h4 className="color">EnquiryDate: {enq.EnquiryDate}</h4>
-          <h4 className="color">Enquiry: {enq.Enquiry}</h4>
-          <h4 className="color">Resolution Status: {enq.Current_Status}</h4>
-          <div class="col col-3">
-          <div className="butto">
-          <button className="edit" onClick={()=>navigate(`/queryreview/${enq.EnquiryId}`)}>Resolution Status
-          </button>
-           <br/><br/>
+                <img style={{ paddingLeft: 52 }} src={courseback}
+                    height="400"
+                    width="1350"
+                ></img>
+                <br /><br />
+                <div style={{ marginLeft: 50, marginRight: 50 }}>
+                    <MDBTable responsive>
+                        <MDBTableHead style={{ width: 70 }}>
+                            <tr>
+                                <th style={{ width: 30 }}>#</th>
+                                <th style={{ width: 40 }}>Name</th>
+                                <th style={{ width: 40 }}>Email</th>
+                                <th style={{ width: 40 }}>DOB</th>
+                                <th style={{ width: 40 }}>Mobile No.</th>
+                                <th style={{ width: 40 }}>Address</th>
+                                <th style={{ width: 40 }}>Qualification</th>
+                                
+
+                            </tr>
+                        </MDBTableHead>
+                        <MDBTableBody>
+                            <tr>
+                                <td></td>
+                                <td>{enq.Name}</td>
+                                <td>{enq.Email_id}</td>
+                                <td>{enq.dob}</td>
+                                <td>{enq.mobile_number}</td>
+                                <td>{enq.Address}</td>
+                                <td>{enq.HighestQualification}</td>
+                                
+                            </tr>
+
+                        </MDBTableBody>
+                    </MDBTable>
+                    <br/>
+                </div>
+                <div style={{ marginLeft: 50, marginRight: 50 }}>
+                    <MDBTable responsive>
+                        <MDBTableHead style={{ width: 70 }}>
+                            <tr>
+                                <th style={{ width: 40 }}>#</th>
+                                <th style={{ width: 40 }}>Marks(%)</th>
+                                <th style={{ width: 40 }}>Passout Year</th>
+                                <th style={{ width: 40 }}>Course Name</th>
+                                <th style={{ width: 40 }}>Enquiry Date</th>
+                                <th style={{ width: 40 }}>Resolution Status</th>
+                                <th style={{ width: 40 }}>Change Status</th>
+
+                            </tr>
+                        </MDBTableHead>
+                        <MDBTableBody>
+                            <tr>
+                                <td></td>
+                                <td>{enq.PercentageOfMarks}</td>
+                                <td>{enq.YearOfPassout}</td>
+                                <td>{enq.Course_Name}</td>
+                                <td>{enq.EnquiryDate}</td>
+                                <td>{enq.Current_Status}</td>
+                                <td>
+                                    <Button variant="outline-secondary" onClick={() => navigate(`/queryreview/${enq.EnquiryId}`)}>&nbsp;Set Status&nbsp;</Button>
+                                </td>
+                            </tr>
+
+                        </MDBTableBody>
+                    </MDBTable>
+                    <br />
+                    <Button variant="outline-secondary" onClick={() => navigate(`/enquirylist`)}> &nbsp; &nbsp;&nbsp;Back &nbsp; &nbsp; &nbsp;</Button>
+                </div>
             </div>
-            </div>
-          </div>
-          <br/><br/>
- 
-         
-     
-  </div>
- 
+
+            
+
         </>
     )
 }
- 
+
 export default EnquiryDisplay;
- 
+

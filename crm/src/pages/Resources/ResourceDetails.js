@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from 'react-bootstrap/Button'
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import '../styles/box.css';
 import '../styles/display.css';
 
@@ -27,23 +30,29 @@ function ResourceDisplay() {
   return (<>
 
       <div >
+        <br/>
         <h3 className="centerfooter">
-          Resource  </h3>
-        <div className="box1">
-          <h4 className="color">Resource Name : {enq.ResourceName}</h4>
-          <h4 className="color">Description : {enq.Description}</h4>
-          <h4 className="color">Fees: {enq.Fees}</h4>
-
-          <div class="col col-3">
-            <div className="butto">
-              <button className="edit" onClick={() => navigate(`/resources`)}> Back
-              </button>
-              {localStorage.getItem("role") === "User" &&  
-              <button className="edit" onClick={() => navigate(`/resenquiry`)}> Enquiry
-              </button>}
-            </div>
-          </div>
-        </div>
+        {enq.ResourceName} </h3>
+          <br/><br/>
+       
+        <MDBContainer style={{marginLeft:50}} >
+                    <MDBRow>
+                        <MDBCol ><img src={enq.url} alt="Course image" width="320px" height="360px"></img></MDBCol>
+                        <MDBCol md="5" style={{width: 650}}><br /><br />
+                        <h3>About the Resource</h3>
+                            <h6>{enq.Description}</h6>
+                            <h6>Fee: {enq.Fees}</h6>
+                        </MDBCol>
+                    </MDBRow>
+                    
+                </MDBContainer>
+                <br /> 
+                <br /> 
+                    <Button style={{marginLeft:45}} variant="outline-secondary" onClick={() => navigate(`/resources`)}> &nbsp; &nbsp;Back  &nbsp; &nbsp;</Button>
+                            
+                            {localStorage.getItem("role") === "User" &&
+                                <Button style={{marginLeft:40}} variant="outline-secondary" onClick={() => navigate(`/resenquiry`)}>&nbsp;&nbsp;Enquiry&nbsp;</Button>}
+                <br />
       </div>
       </>
   )

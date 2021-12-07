@@ -1,80 +1,74 @@
 
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// import CourseList from "./CourseList";
-// import CourseDisplay from "./CourseDetails";
-import {Table} from "react-bootstrap"
 import AdminDisplay from "./adminCourselist";
+import { Table, Button } from "react-bootstrap";
+import AddIcon from "@material-ui/icons/Add";
 
-function AdminCourses(){
-
-    var bullet={
-        listStyle : "none"
+function AdminCourses() {
+    const navigate = useNavigate();
+    var bullet = {
+        listStyle: "none"
     }
-    const[courses,setStaffs] = useState([])
+    const [courses, setStaffs] = useState([])
 
-    let [user, setUser] = useState(false);
+    // let [user, setUser] = useState(false);
+    let [admin, setAdmin] = useState(false);
 
     const Users = () => {
-        if (localStorage.getItem("role") === "User") {
-            setUser(true);
+        if (localStorage.getItem("role") === "admin" || "Admin") {
+            setAdmin(true);
         }
     };
-    // let inc = 0;
-    // const updateVisitCount = (CourseCode) => {
-    //     axios.get(`http://localhost:4500/courses/${CourseCode}`).then((res) => {
-    //         //   setCounter(response.data.visit + 1);
-    //         console.log('initial visit', res.data.visit);
-    //         let x = res.data.visit + 1;
-    //         axios
-    //             .put(`http://localhost:4500/courses/${CourseCode}`, { visit: x })
-    //             .then((response) => {
-    //                 console.log('Updated count', inc);
-    //             });
-    //     });
-    // };
 
-    useEffect(()=>{
+    useEffect(() => {
         Users();
         axios
-        .get('http://localhost:4500/courses')
-        .then(
-            response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                setStaffs(response.data)
-            }
-        )
-        
-    },[])
+            .get('http://localhost:4500/courses')
+            .then(
+                response => {
+                    console.log('promise fullfilled')
+                    console.log(response)
+                    setStaffs(response.data)
+                }
+            )
 
-  return(
-  <>
-  <div>
-      <h1 className="centerfooter">
-          Course List</h1>
-          <p>
-          <div>
-          <h2 style={{marginTop:50}}><b>Course Details</b></h2>
-          <Table striped bordered hover variant ='black'>    
-            
-            <ul style={bullet}>
-              {courses.map(course=>
+    }, [])
 
-                <li key={course.CourseCode}>
-                    <AdminDisplay details ={course}/>
-                    </li>
-                )}
-                
-            </ul>
-            </Table>
-          </div>
-          </p>
-      
-  </div>
-  </>
+    return (
+        <>
+            <div>
+                <br />
+                <h1 className="centerfooter">
+                    Course Details</h1>
+                <p>
+                    <div>
 
-  )
+                        {admin &&
+                            <Button style={{ marginLeft: 1255, marginBottom: 20 }} type='button' onClick={() => navigate(`/addcourse`)}>{<AddIcon />}Add Course</Button>}
+
+                        <h2 style={{ marginTop: 50 }}><b></b></h2>
+                        <Table striped bordered hover variant='black'>
+
+                            <ul style={bullet}>
+                                {courses.map(course =>
+
+                                    <li key={course.CourseCode}>
+                                        <AdminDisplay details={course} />
+                                    </li>
+                                )}
+
+                            </ul>
+                        </Table>
+                    </div>
+                </p>
+
+
+            </div>
+        </>
+
+    )
 }
 
 

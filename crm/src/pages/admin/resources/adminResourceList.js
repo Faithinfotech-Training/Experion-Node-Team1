@@ -1,17 +1,17 @@
 
 
 
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import {Table,Button} from "react-bootstrap"
+import { Table, Button } from "react-bootstrap"
 
 
 
-function AdminResourceDisplay(props){
+function AdminResourceDisplay(props) {
     const navigate = useNavigate();
-    const[adm,setadm] = useState([])
+    const [adm, setadm] = useState([])
 
     let [admin, setAdmin] = useState(false);
 
@@ -21,52 +21,51 @@ function AdminResourceDisplay(props){
         }
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         Users()
         axios
-        .get(`http://localhost:4500/resources`)
-        .then(
-            response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                setadm(response.data)
-            }
-        )
-        
-    },[])
-   
+            .get(`http://localhost:4500/resources`)
+            .then(
+                response => {
+                    console.log('promise fullfilled')
+                    console.log(response)
+                    setadm(response.data)
+                }
+            )
+
+    }, [])
+
     return (<>
-        
-        <Table striped bordered hover variant ='white'>
+
+        <Table striped bordered hover variant='white'>
             <tbody>
                 <tr>
-                    <th>Image</th>
-                    <th>Resource Name</th>
-                    <th>Description</th>
-                    <th>Fees</th> 
+                    <th style={{ width: 90 }}>Image</th>
+                    <th style={{ width: 350 }}>Resource Name</th>
+                    <th style={{ width: 540 }}>Description</th>
+                    <th style={{ width: 180 }}>Fees</th>
                     <th>Action</th>
                 </tr>
                 <tr>
-                    <td><img src={props.details.url} alt="Resource image" width="100px" height="100px"/></td>
+                    <td><img src={props.details.url} alt="Resource image" width="100px" height="100px" /></td>
                     <td>{props.details.ResourceName}</td>
                     <td>{props.details.Description}</td>
                     <td>{props.details.Fees}</td>
-                    
+
                     {admin && <td>
-                        <Button type='button' onClick={()=>navigate(`/editresources/${props.details.ResourceCode}`)}>Edit</Button>
-                         &nbsp;&nbsp; 
-                        <Button  type='button' variant='primary' onClick={() =>navigate(`/deleteresources/${props.details.ResourceCode}`)}>Delete</Button>
+                        <Button type='button' onClick={() => navigate(`/editresources/${props.details.ResourceCode}`)}>Edit</Button>
                         &nbsp;&nbsp;
-                        <Button type='button'  onClick={() => navigate(`/addresource`)}>Add</Button>
+                        <Button type='button' variant='primary' onClick={() => navigate(`/deleteresources/${props.details.ResourceCode}`)}>Delete</Button>
+
                     </td>}
                 </tr>
-               
-        </tbody>
-         
-        </Table>       
-       
-      </>
-      );
+
+            </tbody>
+
+        </Table>
+
+    </>
+    );
 }
 
 export default AdminResourceDisplay;

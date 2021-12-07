@@ -62,13 +62,14 @@ body {
 }
 
 .footer{
-  /* position:relative; */
-   margin-top: 30px;
+  position:relative;
+  /* margin-top: 300px; */
   width:100%;
-  padding-top: 10px;
+  padding-top: 400px;
+  bottom: 0%;
   height:50px;
   background-color: black;
   color: #ddd;
-  /* margin-bottom: auto; */
+  margin-bottom: auto;
   text-align: center;
 }

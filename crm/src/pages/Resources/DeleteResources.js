@@ -3,6 +3,12 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import{useParams} from "react-router-dom";
 import '../styles/display.css';
+// Importing toastify module
+import {toast} from 'react-toastify';
+ 
+// Import toastify css file
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 function ResourceDelete(){
 
@@ -29,7 +35,10 @@ function ResourceDelete(){
           axios(config)
           .then(function (response) {
             console.log(JSON.stringify(response.data));
-            alert('Resource Deleted Successfully')
+            toast.success('Resource deleted successfully',{
+                 
+              position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
+              
             
 //    navigate('/admincourse')
           })

@@ -3,6 +3,9 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import{useParams} from "react-router-dom";
 import '../styles/display.css';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 function ResEnquiryDelete(){
 
@@ -31,7 +34,12 @@ function ResEnquiryDelete(){
           axios(config)
           .then(function (response) {
             console.log(JSON.stringify(response.data));
-            alert('Resource Enquiry Deleted Successfully')
+            toast.success('Enquiry deleted successfully',{
+                 
+              position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
+              setTimeout(() => {
+                  // navigate("/admincourse")
+                }, 2000);
             
 //    navigate('/admincourse')
           })

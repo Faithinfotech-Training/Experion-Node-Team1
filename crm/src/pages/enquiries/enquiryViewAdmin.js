@@ -66,7 +66,7 @@ function MyForm(props)
               axios(config)
               .then(function (response) {
                 console.log(JSON.stringify(response.data));
-                navigate("/enquirylist")
+                navigate(`/queryview/${props.EnquiryId}`)
               })
               .catch(function (error) {
                 console.log(error);
@@ -87,7 +87,8 @@ function MyForm(props)
             // value={inputs.Current_Status || ""}
             onChange={handleChange}
             required>
-                <option className="element" type="text" value="Accepted">Accepted</option>
+                  <option className="element" type="text" value="null">Select Option</option>
+                <option className="element" type="text" value="Rejected">Rejected</option>
                 <option className="element" type="text" value="Interested">Interested</option>
                 <option className="element" type="text" value="Selected">Selected</option>
                 <option className="element" type="text" value="Admitted">Admitted</option>

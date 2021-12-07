@@ -7,8 +7,8 @@
     list-style-type: none;
 }
   .box1 {
-    margin-left: 460px;
-    width: 500px;
+    /* margin-left: 460px; */
+    width: 600px;
     text-align: left;
     padding: 40px;  
     border: 15px solid rgb(239, 242, 245);

@@ -3,6 +3,9 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import{useParams} from "react-router-dom";
 import '../styles/display.css';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
 
 function EnquiryDelete(){
 
@@ -29,8 +32,10 @@ function EnquiryDelete(){
           axios(config)
           .then(function (response) {
             console.log(JSON.stringify(response.data));
-            alert('Course Enquiry Deleted Successfully')
-            
+            toast.success('Course deleted successfully',{
+                 
+              position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
+              
 //    navigate('/admincourse')
           })
           .catch(function (error) {

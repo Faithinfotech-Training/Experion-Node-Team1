@@ -2,6 +2,8 @@
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import '../styles/display.css';
+
+
 import axios from "axios";
  
 
@@ -17,7 +19,7 @@ function EnquirySummary(props){
   <ul class="responsive-table">
     <li class="table-header">
       <div class="col col-1"> </div>
-      <div class="col col-2"><h3>Enquiry Code: <Link to={`/queryview/${props.details.EnquiryId}`} > {props.details.EnquiryId}</Link></h3></div>
+      <div class="col col-2"><h3>Course Name: <Link to={`/queryview/${props.details.EnquiryId}`} > {props.details.Course_Name}</Link></h3></div>
       <div class="col col-3">
       <div className="butto">
       {localStorage.getItem('mytoken')&&

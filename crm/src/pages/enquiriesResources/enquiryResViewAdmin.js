@@ -68,7 +68,7 @@ function MyForm(props)
               axios(config)
               .then(function (response) {
                 console.log(JSON.stringify(response.data));
-                navigate("/resenquirylist")
+                navigate(`/resqueryview/${props.rEnquiryId}`)
               })
               .catch(function (error) {
                 console.log(error);
