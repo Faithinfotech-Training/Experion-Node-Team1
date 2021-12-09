@@ -62,7 +62,7 @@ function AdminDisplay(props) {
                     {admin && <td >
                         <Button type="button" onClick={() => navigate(`/editcourses/${props.details.CourseCode}`)}>Edit</Button>
                         &nbsp;&nbsp;
-                        <Button type='button' variant='primary' onClick={() => navigate(`/deletecourses/${props.details.CourseCode}`)}>Delete</Button>
+                        <Button type='button' variant='danger' onClick={() => navigate(`/deletecourses/${props.details.CourseCode}`)}>Delete</Button>
                         &nbsp;&nbsp;
                         
                     </td>}

@@ -38,10 +38,12 @@ function ResourceDelete(){
             toast.success('Resource deleted successfully',{
                  
               position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
-              
-            
-//    navigate('/admincourse')
-          })
+              setTimeout(() => {
+                navigate("/adminresource")
+              }, 2000);
+
+            })
+
           .catch(function (error) {
             console.log(error);
             alert('Try Again!')
@@ -53,12 +55,13 @@ function ResourceDelete(){
   return(
   <>
   <div>
+    <br/><br/>
       <h1 className="centerfooter">
           Resource Successfully Deleted</h1>
 
-          <div >
+          {/* <div >
           <button className="back"  onClick={()=>navigate("/adminresource")}>Back to Resource List
-          </button></div>
+          </button></div> */}
          
           
       

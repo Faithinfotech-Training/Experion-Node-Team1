@@ -2,6 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import "./registration.css";
 import { useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure()
+
 
 
 
@@ -41,35 +45,11 @@ function MyForm() {
       "YearOfPassout": users.YearOfPassout,
       "role": "User"
     }
-    //alert the current state
-    console.log(users); 
-  //   const validate = (value) => { 
-  
-  //     if (validate.isStrongPassword(value, { 
-  //     minLength: 8, minLowercase: 1, 
-  //     minUppercase: 1, minNumbers: 1, minSymbols: 1 
-  //     })) { 
-  //     setErrorMessage('Is Strong Password') 
+    
+    if (validate(users)) {
+
       
-  //     axios
-  //       .post("http://localhost:4500/users/register", inputs)//server id 3001 is changed
-  //       .then((response) => {
-
-  //         localStorage.setItem('mytoken', response.data.accessToken);
-  //         localStorage.setItem('role', response.data.user.role);
-  //         if (response.data.user.role === 'User') {
-  //           console.log(response);
-  //         }
-
-  //       });
-  //     } else { 
-  //     setErrorMessage('Is Not Strong Password') 
-  //     alert("not strong")
-  //     } 
-  //     } 
-  // }
-    if (passwordcheck(users)
-    ) {
+      
       axios
         .post("http://localhost:4500/users/register", inputs)//server id 3001 is changed
         .then((response) => {
@@ -77,37 +57,51 @@ function MyForm() {
           localStorage.setItem('mytoken', response.data.accessToken);
           localStorage.setItem('role', response.data.user.role);
           if (response.data.user.role === 'User') {
-            console.log(response);
+           // console.log(response);
           }
+          toast.success('Registered successfully',{
+                         
+            position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
+            setTimeout(() => {
+              
+                navigate("/Login")
+              }, 2000);
 
         });
     }
     else {
-      alert("password not same")
+      alert("Registration not submitted")
     }
 
   }
-  function passwordcheck(users) {
-  //   if (typeof users["password"] !== "undefined" && typeof users["Password"] !== "undefined") {
+  function validate(users) {
 
-          
-
-  //     if (users["password"] != users["Password"]) {
-  
-  //       //  isValid = false;
-  //       alert("Password does not match")
-  
-  //       // errors["password"] = "Passwords don't match.";
-  
-  //     }
-  
-  // }
-    if (users.password.length < 6 || users.password.length > 20) {
+    
+ 
+    if (users.password.length < 5 || users.password.length > 20) {
       alert("Password is not good")
       return 0
     }
-    if (users.password === users.Password) return 1
-    else return 0
+    else if (users.mobile_number.length < 10) 
+    {
+      alert("Not Valid Mobile Number")
+      return 0
+    }
+    else if (users.password !== users.Password) 
+    {
+      alert("Password is not matched")
+      return 0
+    }
+    else if (users.PercentageOfMarks < 0 || users.PercentageOfMarks > 100) 
+    {
+      alert("Marks not valid")
+      return 0
+    }
+    
+    
+    else{
+     return 1
+    }
    }
   return (
     <div className="h-100" style={{ backgroundImage: "url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm255-sasi-27.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=caf23f3151f601f02b7d6ef2517aece4)" }}>
@@ -156,10 +150,11 @@ function MyForm() {
                               Email
                             </label>
                             <input
-                              type="text"
+                              type="email"
                               name="email"
                               placeholder="Enter email"
                               className="form-control form-control-lg" value={users.email || ""}
+                              minlength="10"
                               onChange={handleChange}
                               required
                             />
@@ -176,7 +171,8 @@ function MyForm() {
                             <input
                               type="password"
                               name="password"
-                              placeholder="Enter Password"
+                              placeholder="Aleast 1 uppercase, lowercase,symbol and number"
+                              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{6,12}$"
                               className="form-control form-control-lg" value={users.password || ""}
                               onChange={handleChange}
                               required
@@ -228,6 +224,7 @@ function MyForm() {
                               type="tel"
                               name="mobile_number"
                               placeholder="Mobile number"
+                              minlength="10"
                               className="form-control form-control-lg" value={users.mobile_number || ""}
                               onChange={handleChange}
                               required

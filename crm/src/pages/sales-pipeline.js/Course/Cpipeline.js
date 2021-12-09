@@ -67,9 +67,9 @@ function Cpipeline(props){
     
     return(
         <>
-        <TableCell>
+        {/* <TableCell>
                 {props.details.EnquiryId}  
-        </TableCell> 
+        </TableCell>  */}
         <TableCell>
         <Grid container>
             <Grid item lg={2}>

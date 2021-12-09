@@ -105,20 +105,7 @@ function Header1() {
 
               </NavDropdown>}
 
-            {/* {localStorage.getItem("role") === "manager" &&
-    <NavDropdown
-    id="nav-dropdown-dark-example"
-    title="Enquires"
-    menuVariant="dark"
-  >
-      <NavDropdown.Item href="/enquirylist">Course Enquiry</NavDropdown.Item>
-      <NavDropdown.Item href="/resenquirylist">Resource Enquiry</NavDropdown.Item>
- 
-   </NavDropdown>} */}
-
-
-            {!localStorage.getItem('mytoken') && <div><Nav.Link href="/Login">Login</Nav.Link></div>}
-            {localStorage.getItem('mytoken') && <div><Nav.Link onClick={() => window.location = '/Login'} href='/Login'>Logout</Nav.Link></div>}
+            
 
             {!localStorage.getItem('mytoken') &&
               <Nav.Link className="a" href="/Register">Register</Nav.Link>}
@@ -131,7 +118,7 @@ function Header1() {
                 title="Sales Pipeline"
                 menuVariant="dark"
               >
-                <NavDropdown.Item href="/coursepipeline">Course Sales Pipeline</NavDropdown.Item>
+                <NavDropdown.Item href="/coursepipeline">Course Pipeline</NavDropdown.Item>
                 <NavDropdown.Item href="/resourcepipeline">Resource Pipeline</NavDropdown.Item>
 
               </NavDropdown>}
@@ -151,12 +138,7 @@ function Header1() {
             {!localStorage.getItem('mytoken') &&
               <Nav.Link className="a" href="/contact">Contact Us</Nav.Link>}
 
-            {/*      
-    {localStorage.getItem("role") === "admin" &&
-    <Nav.Link className="a" href="/salespipeline">Sales Pipeline</Nav.Link>}
-
-    {localStorage.getItem("role") === "manager" &&
-    <Nav.Link className="a" href="/salespipeline">Sales Pipeline</Nav.Link>} */}
+            
 
             {localStorage.getItem("role") === "admin" &&
               <Nav.Link className="a" href="/sitevisit" >Site View</Nav.Link>}
@@ -165,6 +147,9 @@ function Header1() {
 
             {localStorage.getItem("role") === "manager" &&
               <Nav.Link className="a" href="/sitevisit" >Site View</Nav.Link>}
+
+            {!localStorage.getItem('mytoken') && <div><Nav.Link href="/Login">Login</Nav.Link></div>}
+            {localStorage.getItem('mytoken') && <div><Nav.Link onClick={() => window.location = '/Login'} href='/Login'>Logout</Nav.Link></div>}
 
           </Nav>
         </Navbar.Collapse>

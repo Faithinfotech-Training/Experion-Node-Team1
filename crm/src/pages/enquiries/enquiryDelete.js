@@ -11,7 +11,7 @@ function EnquiryDelete(){
 
     //initialize use case to empty
     const navigate = useNavigate();
-    const[staff,setStaff] = useState([])
+    //const[staff,setStaff] = useState([])
     var myToken = localStorage.getItem("mytoken")
 
     const{EnquiryId} = useParams()
@@ -35,6 +35,10 @@ function EnquiryDelete(){
             toast.success('Course deleted successfully',{
                  
               position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
+              setTimeout(() => {
+                    
+                navigate("/enquirylist")
+              }, 2000);
               
 //    navigate('/admincourse')
           })
@@ -49,12 +53,13 @@ function EnquiryDelete(){
   return(
   <>
   <div>
+    <br/><br/>
       <h1 className="centerfooter">
           Course Enquiry Successfully Deleted</h1>
 
-          <div >
+          {/* <div >
           <button className="back"  onClick={()=>navigate("/enquirylist")}>Back to Enquiry List
-          </button></div>
+          </button></div> */}
          
           
       

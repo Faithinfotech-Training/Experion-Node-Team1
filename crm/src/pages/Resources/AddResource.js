@@ -32,6 +32,9 @@ function AddResource() {
       "Fees": inputs.Fees,
       "url": inputs.url
     });
+
+    if(validate(inputs)){
+
     var config = {
       method: 'post',
       url: `http://localhost:4500/resources`,
@@ -58,7 +61,26 @@ function AddResource() {
         console.log(error);
         navigate(`/addresource`)
       });
+      
   }
+  else{
+        
+  }
+}
+
+function validate(inputs){
+
+
+  if(inputs.Fees < 0 || inputs.Fees >1000000){
+      toast.error('Fee must be between 0 & 100000',{
+          position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
+      return 0
+  }
+  else{
+      return 1
+  }
+}
+
   return (
     <>
       <section className="h-70 h-custom" style={{ backgroundImage: "url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm255-sasi-27.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=caf23f3151f601f02b7d6ef2517aece4)" }}>
@@ -82,7 +104,7 @@ function AddResource() {
                   </h3>
                   <form className="px-md-2" onSubmit={handleSubmit}>
                     <div className="row">
-                      <div className="col-md-6 mb-4">
+                      {/* <div className="col-md-6 mb-4">
 
                         <label className="element">Resource Code</label>
                         <br />
@@ -92,7 +114,7 @@ function AddResource() {
                           value={inputs.ResourceCode || ""}
                           onChange={handleChange}
                           required />
-                      </div>
+                      </div> */}
 
                       <div className="col-md-6 mb-4">
                         <label className="element">Resource Name </label>
@@ -103,29 +125,26 @@ function AddResource() {
                           onChange={handleChange}
                           required />
                       </div>
+
+                      <div className="col-md-6 mb-4">
+                        <label className="element">Fees</label>
+                        <br></br>
+                        <input className="element" type="number" name="Fees"
+                          className="form-control"
+                          value={inputs.Fees || ""}
+                          onChange={handleChange}
+                          required />
+                      </div>
                     </div>
 
                     <div className="row">
 
-                      <div className="col-md-6 mb-4">
+                      <div className="mb-4">
                         <label className="element">Description</label>
                         <br></br>
                         <input className="element" type="text" name="Description"
                           className="form-control"
                           value={inputs.Description || ""}
-                          onChange={handleChange}
-                          required />
-                      </div>
-
-
-
-
-                      <div className="col-md-6 mb-4">
-                        <label className="element">Fees</label>
-                        <br></br>
-                        <input className="element" type="text" name="Fees"
-                          className="form-control"
-                          value={inputs.Fees || ""}
                           onChange={handleChange}
                           required />
                       </div>
@@ -143,7 +162,7 @@ function AddResource() {
                           required />
                       </div> */}
 
-                      <div className="col-md-6 mb-4">
+                      <div className="mb-4">
 
                         <label className="element">Image url</label>
                         <br></br>

@@ -54,6 +54,8 @@ function MyForm(props) {
             "Fees": inputs.Fees,
             "url": inputs.url
         });
+
+        if(validate(inputs)){
         var config = {
             method: 'put',
             url: `http://localhost:4500/resources/${props.ResourceCode}`,
@@ -80,6 +82,22 @@ function MyForm(props) {
                 console.log(error);
                 navigate(`/editresources/${props.ResourceCode}`)
             });
+        }
+        else{
+
+        }
+    }
+    function validate(inputs){
+
+
+        if(inputs.Fees < 0 || inputs.Fees >100000){
+            toast.error('Fee must be between 0 & 100000',{
+                position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
+            return 0
+        }
+        else{
+            return 1
+        }
     }
     return (
         <>
@@ -104,7 +122,7 @@ function MyForm(props) {
                                     </h3>
                                     <form className="px-md-2" onSubmit={handleSubmit}>
                                         <div className="row">
-                                            <div className="col-md-6 mb-4">
+                                            {/* <div className="col-md-6 mb-4">
 
                                                 <label className="element">Resource Code</label>
                                                 <br />
@@ -114,7 +132,7 @@ function MyForm(props) {
                                                     value={inputs.ResourceCode || ""}
                                                     onChange={handleChange}
                                                     required />
-                                            </div>
+                                            </div> */}
 
                                             <div className="col-md-6 mb-4">
                                                 <label className="element">Resource Name </label>
@@ -125,11 +143,21 @@ function MyForm(props) {
                                                     onChange={handleChange}
                                                     required />
                                             </div>
+
+                                            <div className="col-md-6 mb-4">
+                                                <label className="element">Fees</label>
+                                                <br></br>
+                                                <input className="element" type="text" name="Fees"
+                                                    className="form-control"
+                                                    value={inputs.Fees || ""}
+                                                    onChange={handleChange}
+                                                    required />
+                                            </div>
                                         </div>
 
                                         <div className="row">
 
-                                            <div className="col-md-6 mb-4">
+                                            <div className="mb-4">
                                                 <label className="element">Description</label>
                                                 <br></br>
                                                 <input className="element" type="text" name="Description"
@@ -142,15 +170,7 @@ function MyForm(props) {
 
 
 
-                                            <div className="col-md-6 mb-4">
-                                                <label className="element">Fees</label>
-                                                <br></br>
-                                                <input className="element" type="text" name="Fees"
-                                                    className="form-control"
-                                                    value={inputs.Fees || ""}
-                                                    onChange={handleChange}
-                                                    required />
-                                            </div>
+                                           
                                         </div>
 
                                         <div className="row">

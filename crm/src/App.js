@@ -17,7 +17,7 @@ function App() {
 function Footer() {
   return (
     <>
-       <p className="footer">Copyright 2021 - Team 1 - Node</p> 
+       {/* <p className="footer">Copyright 2021 - Team 1 - Node</p>  */}
     </>
   )
 }

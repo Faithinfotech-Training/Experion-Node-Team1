@@ -102,7 +102,7 @@ function CoursePipeline(){
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell className={classes.tableHeaderCell}>Index</TableCell>
+              {/* <TableCell className={classes.tableHeaderCell}>Index</TableCell> */}
               {/* <TableCell className={classes.tableHeaderCell}>Enquiry Code</TableCell> */}
               <TableCell className={classes.tableHeaderCell}>User Info</TableCell>
               <TableCell className={classes.tableHeaderCell}>Course Name</TableCell>

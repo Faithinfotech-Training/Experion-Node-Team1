@@ -20,7 +20,7 @@ function ResEnquiry(){
     )
   }
   function EnquiryBox(){
-    // var myToken = localStorage.getItem("mytoken")
+     var myToken = localStorage.getItem("mytoken")
     const[inputs,setInputs] = useState({})
     const navigate = useNavigate()
 
@@ -32,22 +32,65 @@ function ResEnquiry(){
     }
         function handleSubmit(event){
             event.preventDefault();
-            console.log(inputs);
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd;
+            // console.log(today);
+            // console.log(inputs);
             //send info to 
-            let endpoints = [
-                'http://localhost:4500/resenquiries'
-              ];
+
+            var data = JSON.stringify({
+              "email": inputs.email,
+              "name": inputs.name,
+              "resourceName": inputs.resourceName,
+              "rEnquiryDate": today,
+              "rStatus": "Pending"
+            });
+
+            var config = {
+              method: 'post',
+              url: `http://localhost:4500/resenquiries`,
+              headers: {
+                'Authorization': `Bearer ${myToken} `,
+                'Content-Type': 'application/json'
+              },
+              data: data
+            };
+        
+            axios(config)
+              .then(function (response) {
+               // console.log(JSON.stringify(response.data));
+                toast.success('Resource Enquiry added successfully',{
+                         
+                  position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
+                  setTimeout(() => {
+                    
+                      navigate("/")
+                    }, 2000);
+               
+              })
+              .catch(function (error) {
+                console.log(error);
+                navigate(`/resources`)
+              });
+
+            // let endpoints = [
+            //     'http://localhost:4500/resenquiries'
+            //   ];
               
-              axios.all(endpoints.map((endpoint) => axios.post(endpoint,inputs))).then(response =>{
-                console.log('promise fullfilled')
-                console.log(response)
-                toast.success('Enquiry submitted successfully',{
+            //   axios.all(endpoints.map((endpoint) => axios.post(endpoint,inputs))).then(response =>{
+            //     console.log('promise fullfilled')
+            //     console.log(response)
+            //     toast.success('Enquiry submitted successfully',{
                  
-                    position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
-                    setTimeout(() => {
-                        navigate("/")
-                      }, 2000);
-            })
+            //         position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
+            //         setTimeout(() => {
+            //             navigate("/")
+            //           }, 2000);
+            // })
         }   
     return(
         <>
@@ -96,7 +139,7 @@ function ResEnquiry(){
             </div> 
             
             <div className="row">
-            <div className="col-md-6 mb-4">
+            <div className="mb-4">
 
             <label className="element">Resource Name</label>
             <br></br>
@@ -108,7 +151,7 @@ function ResEnquiry(){
             
             </div>
 
-            <div className="col-md-6 mb-4">
+            {/* <div className="col-md-6 mb-4">
 
             <label className="element">Date</label>
             <br></br>
@@ -117,20 +160,12 @@ function ResEnquiry(){
             value={inputs.rEnquiryDate || ""}
             onChange={handleChange}
             required/>
-            </div>
+            </div> */}
             </div>
 
             <div className="row">
 
-            {/* <div className="col-md-6 mb-4">
-            <label className="element">Enter the Enquiry</label>
-            <br></br>
-            <input className="element" type="text" name="Enquiry"
-            className="form-control"
-            value={inputs.Enquiry || ""}
-            onChange={handleChange}
-            required/>
-            </div> */}
+            
 
             </div>
             

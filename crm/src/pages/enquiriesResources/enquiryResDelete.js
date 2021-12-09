@@ -11,7 +11,7 @@ function ResEnquiryDelete(){
 
     //initialize use case to empty
     const navigate = useNavigate();
-    const[staff,setStaff] = useState([])
+    
     
     var myToken = localStorage.getItem("mytoken")
     
@@ -34,11 +34,11 @@ function ResEnquiryDelete(){
           axios(config)
           .then(function (response) {
             console.log(JSON.stringify(response.data));
-            toast.success('Enquiry deleted successfully',{
+            toast.success('Enquiry deleted ',{
                  
               position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
               setTimeout(() => {
-                  // navigate("/admincourse")
+                navigate("/resenquirylist")
                 }, 2000);
             
 //    navigate('/admincourse')
@@ -56,12 +56,13 @@ function ResEnquiryDelete(){
   return(
   <>
   <div>
+    <br/><br/>
       <h1 className="centerfooter">
           Resource Enquiry Successfully Deleted</h1>
 
-          <div >
+          {/* <div >
           <button className="back"  onClick={()=>navigate("/resenquirylist")}>Back to Enquiry List
-          </button></div>
+          </button></div> */}
          
           
       

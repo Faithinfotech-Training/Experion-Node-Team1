@@ -2,6 +2,8 @@
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import '../styles/display.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from 'react-bootstrap/Button'
 
 
 import axios from "axios";
@@ -23,8 +25,11 @@ function EnquirySummary(props){
       <div class="col col-3">
       <div className="butto">
       {localStorage.getItem('mytoken')&&
-          <button className="delete" onClick={()=>navigate(`/deleteenquiry/${props.details.EnquiryId}`)}> Delete
-          </button> }
+          <Button 
+          variant="danger"
+          className="delete"
+           onClick={()=>navigate(`/deleteenquiry/${props.details.EnquiryId}`)}> Delete
+          </Button> }
             </div>
         </div>
       </li>
@@ -39,6 +44,8 @@ function EnquirySummary(props){
         </>
     )
 }
+
+
  
 export default EnquirySummary;
  

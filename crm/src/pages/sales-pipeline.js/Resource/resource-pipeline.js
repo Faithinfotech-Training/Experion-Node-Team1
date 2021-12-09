@@ -98,7 +98,7 @@ function ResourcePipeline(){
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell className={classes.tableHeaderCell}>Index</TableCell>
+              {/* <TableCell className={classes.tableHeaderCell}>Index</TableCell> */}
               {/* <TableCell className={classes.tableHeaderCell}>Enquiry Code</TableCell> */}
               <TableCell className={classes.tableHeaderCell}>Resource Info</TableCell>
               <TableCell className={classes.tableHeaderCell}>Updated Date</TableCell>

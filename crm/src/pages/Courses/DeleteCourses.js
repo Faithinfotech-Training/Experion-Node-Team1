@@ -37,12 +37,12 @@ function CourseDelete() {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
-        toast.success('Course deleted successfully', {
+        toast.success('Deleting', {
 
           position: toast.POSITION.TOP_CENTER, width: 100, autoClose: 2000
         })
         setTimeout(() => {
-          // navigate("/admincourse")
+          navigate("/admincourse")
         }, 2000);
 
 
@@ -50,7 +50,7 @@ function CourseDelete() {
       .catch(function (error) {
         console.log(error);
         alert('Try Again!')
-        navigate('/addcourse')
+        navigate('/courses')
       });
 
   }, [])
@@ -58,13 +58,13 @@ function CourseDelete() {
   return (
     <>
       <div>
-        <br />
+        <br /><br />
         <h1 className="centerfooter">
           Course Successfully Deleted</h1>
 
-        <div >
+        {/* <div >
           <button className="back" onClick={() => navigate("/admincourse")}>Back to Course List
-          </button></div>
+          </button></div> */}
 
 
 

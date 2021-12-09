@@ -1,3 +1,5 @@
+
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/forms.css'
@@ -11,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 function EditCourse() {
     const { CourseCode } = useParams()
-
+ 
     return (
         <>
             <MyForm CourseCode={CourseCode} />
@@ -23,7 +25,7 @@ function MyForm(props) {
     var myToken = localStorage.getItem("mytoken")
     const navigate = useNavigate()
     useEffect(() => {
-
+ 
         axios
             .get(`http://localhost:4500/courses/${props.CourseCode}`)
             .then(
@@ -33,13 +35,13 @@ function MyForm(props) {
                     setInputs(response.data)
                 }
             )
-
+ 
     }, [])
-
+ 
     function handleChange(event) {
         const name = event.target.name;
         const value = event.target.value;
-
+ 
         setInputs(values => ({ ...values, [name]: value }))
     }
     function handleSubmit(event) {
@@ -56,6 +58,8 @@ function MyForm(props) {
             "url": inputs.url
         });
 
+        if(validate(inputs)){
+ 
         var config = {
             method: 'put',
             url: `http://localhost:4500/courses/${props.CourseCode}`,
@@ -65,7 +69,7 @@ function MyForm(props) {
             },
             data: data
         };
-
+ 
         axios(config)
             .then(function (response) {
                 console.log(JSON.stringify(response.data));
@@ -82,6 +86,25 @@ function MyForm(props) {
                 navigate(`/editcourses/${props.CourseCode}`)
             });
     }
+    else{
+      
+    }
+    
+}
+
+    function validate(inputs){
+
+
+        if(inputs.Fees < 0 || inputs.Fees >1000000){
+            toast.error('Invalid Fee Amount',{
+                position: toast.POSITION.TOP_CENTER, width:100,autoClose:2000})
+            return 0
+        }
+        else{
+            return 1
+        }
+    }
+
     return (
         <>
             <section className="h-70 h-custom" style={{ backgroundImage: "url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm255-sasi-27.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=caf23f3151f601f02b7d6ef2517aece4)" }}>
@@ -95,7 +118,7 @@ function MyForm(props) {
                                     style={{
                                         borderTopLeftRadius: ".2rem",
                                         borderTopRightRadius: ".2rem",
-
+ 
                                     }}
                                     alt="Sample photo"
                                 />
@@ -106,30 +129,30 @@ function MyForm(props) {
                                     <form className="px-md-2" onSubmit={handleSubmit}>
                                         <div className="row">
                                             <div className="col-md-6 mb-4">
-
+ 
                                                 <label className="element">Course Code</label>
                                                 <br />
                                                 <input className="element" type="text" name="CourseCode"
                                                     className="form-control"
-
+ 
                                                     value={inputs.CourseCode || ""}
                                                     onChange={handleChange}
                                                     required />
                                             </div>
-
+ 
                                             <div className="col-md-6 mb-4">
                                                 <label className="element">Course Name </label>
                                                 <br></br>
                                                 <input className="element" type="text" name="CourseName" className="form-control"
-
+ 
                                                     value={inputs.CourseName || ""}
                                                     onChange={handleChange}
                                                     required />
                                             </div>
                                         </div>
-
+ 
                                         <div className="row">
-
+ 
                                             <div className="col-md-6 mb-4">
                                                 <label className="element">Course Module:</label>
                                                 <br></br>
@@ -139,10 +162,10 @@ function MyForm(props) {
                                                     onChange={handleChange}
                                                     required />
                                             </div>
-
-
-
-
+ 
+ 
+ 
+ 
                                             <div className="col-md-6 mb-4">
                                                 <label className="element">Description:</label>
                                                 <br></br>
@@ -153,9 +176,9 @@ function MyForm(props) {
                                                     required />
                                             </div>
                                         </div>
-
+ 
                                         <div className="row">
-
+ 
                                             <div className="col-md-6 mb-4">
                                                 <label className="element">Duration:</label>
                                                 <br></br>
@@ -165,9 +188,9 @@ function MyForm(props) {
                                                     onChange={handleChange}
                                                     required />
                                             </div>
-
+ 
                                             <div className="col-md-6 mb-4">
-
+ 
                                                 <label className="element">Fee:</label>
                                                 <br></br>
                                                 <input className="element" type="number" name="Fees"
@@ -177,10 +200,10 @@ function MyForm(props) {
                                                     required />
                                             </div>
                                         </div>
-
+ 
                                         <div className="row">
                                             <div className="col-md-6 mb-4">
-
+ 
                                                 <label className="element">Qualification:</label>
                                                 <br></br>
                                                 <input className="element" type="text" name="Qualification"
@@ -189,9 +212,9 @@ function MyForm(props) {
                                                     onChange={handleChange}
                                                     required />
                                             </div>
-
+ 
                                             <div className="col-md-6 mb-4">
-
+ 
                                                 <label className="element">Image URL:</label>
                                                 <br></br>
                                                 <input className="element" type="text" name="url"
@@ -201,29 +224,29 @@ function MyForm(props) {
                                                     required />
                                             </div>
                                         </div>
-
-
+ 
+ 
                                         <div>
                                             <br></br>
                                             <input className="submit" type="submit" />
-
+ 
                                         </div>
-
-
+ 
+ 
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+ 
                 </div>
             </section>
         </>
     )
 }
-
-
+ 
+ 
 //commenttt
-
-
+ 
+ 
 export default EditCourse;

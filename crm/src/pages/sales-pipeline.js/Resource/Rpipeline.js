@@ -65,11 +65,13 @@ function Rpipeline(props){
         setPage(0);
     };
     
+    
     return(
         <>
-        <TableCell>
+        
+        {/* <TableCell>
                 {props.details.rEnquiryId}  
-        </TableCell> 
+        </TableCell>  */}
         <TableCell>
         <Grid container>
             <Grid item lg={2}>

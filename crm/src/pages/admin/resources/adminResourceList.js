@@ -55,7 +55,7 @@ function AdminResourceDisplay(props) {
                     {admin && <td>
                         <Button type='button' onClick={() => navigate(`/editresources/${props.details.ResourceCode}`)}>Edit</Button>
                         &nbsp;&nbsp;
-                        <Button type='button' variant='primary' onClick={() => navigate(`/deleteresources/${props.details.ResourceCode}`)}>Delete</Button>
+                        <Button type='button' variant='danger' onClick={() => navigate(`/deleteresources/${props.details.ResourceCode}`)}>Delete</Button>
 
                     </td>}
                 </tr>

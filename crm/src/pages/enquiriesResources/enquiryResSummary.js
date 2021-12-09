@@ -1,6 +1,8 @@
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import '../styles/display.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Button from 'react-bootstrap/Button'
  
 function ResEnquirySummary(props){
     const navigate = useNavigate();
@@ -18,8 +20,8 @@ function ResEnquirySummary(props){
           {/* <button className="edit" onClick={()=>navigate(`/bookedit/${props.details.id}`)}>Edit
           </button>
            <br/><br/>*/}
-           <button className="delete" onClick={()=>navigate(`/resenqdelete/${props.details.rEnquiryId}`)}>Delete
-            </button> 
+           <Button className="delete" onClick={()=>navigate(`/resenqdelete/${props.details.rEnquiryId}`)}>Delete
+            </Button> 
             </div>
         </div>
       </li>
